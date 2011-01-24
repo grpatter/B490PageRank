@@ -8,26 +8,9 @@ import java.util.Iterator;
 
 public class SeqPageRank {
 	public static HashMap<Integer, ArrayList<Integer>> links;
-	public static HashMap<Integer, Double> pagerank;
-	
-	/**
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		int maximumHops = 20;
-		double d = 0.85;
-		
-		readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
-		System.out.println("Pages:\t" + links.size());
-		printLinks();
-		
-		// BEGIN TODO
-		for (int i = 0; i < links.size(); i++) {
-			getPageRank(i, maximumHops);
-		}
-		// END TODO Auto-generated method stub
-	}
+	public static HashMap<Integer, Double> finalPagerank;
+	public static int maximumHops;
+	public static double damping;
 	
 	/**
 	 * Calculates the page rank of pageId.
@@ -36,8 +19,13 @@ public class SeqPageRank {
 	 * @return The calculated pagerank of pageId.
 	 */
 	public static double getPageRank(Integer pageId, Integer maximumHops) {
-		// TODO
-		return 0.0;
+		ArrayList<Integer> outboundLinks = links.get(pageId);
+		Iterator iter = outboundLinks.iterator();
+		int outboundLinkCount = outboundLinks.size();
+		double tmpPagerank = 0.0;
+		
+		// TODO		
+		return tmpPagerank;
 	}
 	
 	/**
@@ -81,5 +69,33 @@ public class SeqPageRank {
 			r += k.next() + "\t" + v.next() + "\n";
 		}
 		System.out.println(r);
+	}
+	
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// Construct adjacency matrix and global variables.
+		readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
+		finalPagerank = new HashMap<Integer, Double>();
+		maximumHops = 20;
+		damping = 0.85;
+		
+		// Set initial pagerank value of all URLs.
+		for (int i = 0; i < links.size(); i++) {
+			finalPagerank.put(i, 1/(double)links.size());
+		}
+		
+		// Iterate once over all URLs and calculate their pagerank.
+		for (int i = 0; i < links.size(); i++) {
+			// TODO
+			getPageRank(i, maximumHops);
+		}
+		// Apply damping factor to each link to finalize result.
+		for (int i = 0; i < links.size(); i++) {
+			finalPagerank.put(i, finalPagerank.get(i)*damping + (1 - damping) / links.size());
+		}
+		printLinks();
 	}
 }
