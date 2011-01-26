@@ -71,6 +71,17 @@ public class SeqPageRank {
 		System.out.println(r);
 	}
 	
+	public static void printPagerank() {
+		Iterator<Integer> k = finalPagerank.keySet().iterator();
+		String r = "";
+		
+		while(k.hasNext()) {
+			Integer d = k.next();
+			r += d + "\t" + finalPagerank.get(d) + "\n";
+		}
+		System.out.println(r);
+	}
+	
 	/**
 	 * 
 	 * @param args
@@ -98,5 +109,6 @@ public class SeqPageRank {
 			finalPagerank.put(i, finalPagerank.get(i)*damping + (1 - damping) / links.size());
 		}
 		printLinks();
+		printPagerank();
 	}
 }
