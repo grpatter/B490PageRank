@@ -29,7 +29,7 @@ public class SeqPageRank {
 	}
 	
 	/**
-	 * Stores input from parerank.input as a HashMap.
+	 * Stores input from <file> as a HashMap.
 	 * @param file File path.
 	 */
 	public static HashMap<Integer, ArrayList<Integer>> readLinks(String file) {
@@ -78,6 +78,7 @@ public class SeqPageRank {
 	public static void main(String[] args) {
 		// Construct adjacency matrix and global variables.
 		readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
+		
 		finalPagerank = new HashMap<Integer, Double>();
 		maximumHops = 20;
 		damping = 0.85;
