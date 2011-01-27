@@ -7,10 +7,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class SeqPageRank {
-	public static HashMap<Integer, ArrayList<Integer>> links;
-	public static HashMap<Integer, Double> finalPagerank;
-	public static int maximumHops;
-	public static double damping;
 	
 	/**
 	 * Calculates the page rank of pageId.
@@ -102,18 +98,30 @@ public class SeqPageRank {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/* Check for arguments
+		// Construct adjacency matrix and global variables.
+		HashMap<Integer, ArrayList<Integer>> links;
+		HashMap<Integer, Double> finalPagerank;
+		String outputFile;
+		int	iterations;
+		Double damping;
+
+		// Check for arguments
 		if (args.length != 4) {
 			System.out.println("Usage: [input file] [output file] [iterations] [damping]");
-			System.exit(1);
-		}*/
-		
-		// Construct adjacency matrix and global variables.
-		readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
-		
-		finalPagerank = new HashMap<Integer, Double>();
-		maximumHops = 20;
-		damping = 0.85;
+			
+			links = readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
+			finalPagerank = new HashMap<Integer, Double>();
+			outputFile = null;
+			iterations = 20;
+			damping = 0.85;
+			//System.exit(1);
+		} else {
+			links = readLinks(System.getProperty("user.dir") + args[0]);
+			finalPagerank = new HashMap<Integer, Double>();
+			outputFile = args[1];
+			iterations = Integer.valueOf(args[2]);
+			damping = Double.valueOf(args[3]);
+		}
 		
 		// Set initial pagerank value of all URLs.
 		Iterator<Integer> ite = links.keySet().iterator();
@@ -126,7 +134,7 @@ public class SeqPageRank {
 			// We need i to be == to iterations
 			Iterator<Integer> prIter = links.keySet().iterator();
 			while (prIter.hasNext()) {
-				getPageRank(prIter.next(), maximumHops);
+				getPageRank(prIter.next(), iterations);
 			}
 		}
 		
@@ -134,7 +142,7 @@ public class SeqPageRank {
 		Iterator<Integer> dIter = finalPagerank.keySet().iterator();
 		while (dIter.hasNext()) {
 			Integer i = dIter.next();
-			finalPagerank.put(i, finalPagerank.get(i)*damping + (1 - damping) / links.size());
+			finalPagerank.put(i, (1 - damping) / links.size() + finalPagerank.get(i)*damping);
 		}
 		printLinks();
 		printPagerank();
