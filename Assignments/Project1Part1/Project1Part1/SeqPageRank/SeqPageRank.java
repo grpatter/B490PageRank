@@ -10,32 +10,30 @@ public class SeqPageRank {
 	
 	/**
 	 * Calculates the page rank of pageId.
-	 * @param pageId ID of the page whose pagerank you wish to find.
-	 * @param maximumHops The maximum number of hops allowed when calculating pagerank.
+	 * @param pageId ID of the link whose pagerank you wish to find.
 	 * @return The calculated pagerank of pageId.
 	 */
-	public static void getPageRank(Integer pageId, Integer maximumHops) {
+	public static void getPageRank(Integer pageId) {
 		double tmpPagerank = 0.0;
-				
+		
+		// Iterate over each page checking to see if it contains a link to page <pageId>.
 		Iterator<Integer> link_iter = links.keySet().iterator();
 		while(link_iter.hasNext()) {
-			Integer tmp = link_iter.next();
-			if (tmp != pageId) {
+			Integer linkKey = link_iter.next();
+			
+			// If the page contains a link to <pageId>, add to the new pagerank.
+			if (linkKey != pageId && links.get(linkKey).contains(pageId)) {
+				Double pagerank = finalPagerank.get(linkKey);
+				Integer outgoingLinkCount = links.get(linkKey).size();
 				
-				if (links.get(tmp).contains(pageId)) {
-					Integer outgoingLinkCount = links.get(tmp).size();
-					
-					if (outgoingLinkCount != 0) {
-						tmpPagerank += finalPagerank.get(tmp)/links.get(tmp).size();
-					}
-					else {
-						//
-						finalPagerank.put(tmp, tmpPagerank);
-					}
+				if (outgoingLinkCount != 0) {
+					tmpPagerank += (1 - damping)/links.size() + damping * (pagerank/outgoingLinkCount);
+				} else {
+					tmpPagerank += (1 - damping)/links.size();
 				}
 			}
 		}
-		//
+		// Publish pagerank to <finalPagerank>
 		finalPagerank.put(pageId, tmpPagerank);
 	}
 	
@@ -98,30 +96,24 @@ public class SeqPageRank {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Construct adjacency matrix and global variables.
-		HashMap<Integer, ArrayList<Integer>> links;
-		HashMap<Integer, Double> finalPagerank;
-		String outputFile;
-		int	iterations;
-		Double damping;
-
-		// Check for arguments
-		if (args.length != 4) {
-			System.out.println("Usage: [input file] [output file] [iterations] [damping]");
-			
-			links = readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
-			finalPagerank = new HashMap<Integer, Double>();
-			outputFile = null;
-			iterations = 20;
-			damping = 0.85;
-			//System.exit(1);
-		} else {
+		// BEGIN: Read in arguments if provided, otherwise use the default values.
+		if (args.length == 4) {
 			links = readLinks(System.getProperty("user.dir") + args[0]);
 			finalPagerank = new HashMap<Integer, Double>();
 			outputFile = args[1];
 			iterations = Integer.valueOf(args[2]);
 			damping = Double.valueOf(args[3]);
+		} else {
+			System.out.println("Usage: [input file] [output file] [iterations] [damping]");
+			
+			links = readLinks(System.getProperty("user.dir") + "/SeqPageRank/pagerank.input");
+			finalPagerank = new HashMap<Integer, Double>();
+			outputFile = null;
+			iterations = 1;
+			damping = 0.85;
+			//System.exit(1);
 		}
+		// END: Read in arguments...
 		
 		// Set initial pagerank value of all URLs.
 		Iterator<Integer> ite = links.keySet().iterator();
@@ -129,22 +121,38 @@ public class SeqPageRank {
 			finalPagerank.put(ite.next(), 1/(double)links.size());
 		}
 		
-		for (int i = 0; i < 5; i++) {
-			// Iterate once over all URLs and calculate their pagerank.
-			// We need i to be == to iterations
+		// Re-calculate the pagerank of all links i times.
+		for (int i = iterations; i > 0; i--) {
+			// Calculate the pagerank of each link contained in <links>.
 			Iterator<Integer> prIter = links.keySet().iterator();
 			while (prIter.hasNext()) {
-				getPageRank(prIter.next(), iterations);
+				getPageRank(prIter.next());
+			}
+			
+			// Apply damping factor to the links after each iteration.
+			Iterator<Integer> dIter = finalPagerank.keySet().iterator();
+			while (dIter.hasNext()) {
+				Integer j = dIter.next();
+				finalPagerank.put(j, (1 - damping) / links.size() + damping*finalPagerank.get(j));
 			}
 		}
 		
-		// Apply damping factor to each link to finalize result.
-		Iterator<Integer> dIter = finalPagerank.keySet().iterator();
-		while (dIter.hasNext()) {
-			Integer i = dIter.next();
-			finalPagerank.put(i, (1 - damping) / links.size() + finalPagerank.get(i)*damping);
+		// Find total pagerank.
+		Iterator<Integer> prCount = finalPagerank.keySet().iterator();
+		Double prR = 0.0;
+		while (prCount.hasNext()) {
+			prR += finalPagerank.get(prCount.next());
 		}
-		printLinks();
+		
 		printPagerank();
+		// Print total pagerank.
+		System.out.println(prR);
 	}
+	
+	// Global variables.
+	public static HashMap<Integer, ArrayList<Integer>> links;
+	public static HashMap<Integer, Double> finalPagerank;
+	public static String outputFile;
+	public static int	iterations;
+	public static Double damping;
 }
