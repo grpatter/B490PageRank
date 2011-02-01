@@ -114,10 +114,7 @@ public class SeqPageRank {
     
     /**
      * The main function takes in the users arguments and calculates the Pageranks for a given set of web pages. 
-     * @param args[0] [input file]
-     * @param args[1] [output file] 
-     * @param args[2] [iteration count] 
-     * @param args[3] [damping factor] 
+     * @param args [input file] - [output file] - [iteration count] - [damping factor] 
      */
     public static void main(String[] args) {
 	HashMap<Integer, ArrayList<Integer>> links = new HashMap<Integer, ArrayList<Integer>>();
