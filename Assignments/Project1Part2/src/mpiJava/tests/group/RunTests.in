@@ -1,0 +1,50 @@
+#!/bin/csh -f
+##### 
+##   Sung-Hoon Ko
+##   4/11/98
+#####
+
+
+# Run synthetic test cases
+ 
+set sources = (group.java range.java)
+          
+ 
+set nprocs  = 8
+
+set mpiJavaHome = @top_srcdir@
+set mpiJavaClasses = @top_srcdir@/lib/classes
+
+set JAVA_PATH = @JAVA@
+
+setenv CLASSPATH ".:${mpiJavaClasses}"
+set JAVA_C = "${JAVA_PATH}/bin/javac"
+
+cat > diffs <<.
+.
+
+set CWD = `pwd`
+foreach source ($sources)
+  echo ...Compiling : {$CWD:t}/${source}
+  ${JAVA_C} $source
+
+  set executable=${source:r}
+  if ( -f ./$executable.jig ) then
+    rm -f ./$executable.jig
+  endif
+  echo .....Running : prunjava $nprocs $executable
+  $mpiJavaHome/src/scripts/prunjava $nprocs $executable | tee ${executable}.out
+  if ( -f ${executable}.out.sample ) then
+    echo .....diff ${executable}.out ${executable}.out.sample
+    cat >> diffs <<.
+diff ${executable}.out ${executable}.out.sample
+.
+    diff ${executable}.out ${executable}.out.sample | tee -a diffs
+  else
+    echo .....${executable}.out.sample absent.  Recreated.
+    cp ${executable}.out ${executable}.out.sample
+  endif
+  rm -f ${executable}.class
+end
+
+

@@ -1,0 +1,7 @@
+
+This example is adapted from one submitted as part of a bug report by
+Sivakumar Venkata Pabolu.
+
+For mysterious reasons it is particularly good at encouraging
+JVMs to throw signals...
+

@@ -1,0 +1,15 @@
+#!/bin/csh -f
+
+
+if ( -f diffs.sample ) then
+  diff diffs diffs.sample > /dev/null
+  if($status) then
+    echo WARNING: see file `pwd`/diffs for diffs from sample output
+  else
+    echo All ok in `pwd`
+  endif
+else
+  echo ...diffs.sample absent.  Recreated.
+  cp diffs diffs.sample
+endif
+

@@ -1,0 +1,25 @@
+Adjust PINGPONGS for timer resolution:
+ - Set PINGPONGS to 1 for a high resolution time.
+ - Set PINGPONGS to larger number for low resolution timer, e.g. 10.
+
+Adjust REPS for "adequate" statistics.  For many computers,
+50 is sufficient.
+
+Adjust LOG2N_MAX for maximum message length.   If the time for the
+shortest message length is t_small, and the approximate message
+rate is R, then choose LOG2N_MAX as follows:
+
+	t=N_MAX/R
+	10=(N_MAX/R)/t_small
+
+	LOG2N_MAX ~= log2(100*t_small*R)
+
+	Example:   t_small ~= 10 microsecond
+		   R       ~= 50 Mbyte/s
+
+	LOG2N_MAX ~= log2(100*10*50)
+                  ~= log2(50000)
+                  ~= 16
+
+If resultant printed times are negative, then this is indication of
+timer resolution problems.   In this case, increase PINGPONGS.

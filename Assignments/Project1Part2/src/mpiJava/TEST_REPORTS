@@ -1,0 +1,239 @@
+
+Test results for mpiJava 1.2.5
+------------------------------
+
+Test procedure on every platform was:
+
+Ensure that initially no mpiJava directories are on PATH, LD_LIBRARY_PATH,
+or CLASSPATH.
+
+After configuring `mpiJava' (see below) run:
+
+  make
+  make check
+  cd examples/metropolis
+  make
+  cd ../Nozzle
+  make
+  [Run for some time, then hit "Quit".]
+  cd ../PingPong
+  make
+  cd ../potts
+  make
+  [Change lattice size to 64, hit "Run".  After 100 iteration, hit "Quit".]
+  cd ../simple
+  make
+
+
+Redhat Linux 7.3        Sun SDK 1.4.1           MPICH 1.2.5
+-----------------------------------------------------------
+
+smoky.ucs.indiana.edu
+
+Install MPICH:
+
+  ./configure -rsh=ssh --prefix=/project/pss/soft/pentium-linux
+
+Install mpiJava:
+
+  $ which java
+  /usr/java/j2sdk1.4.1/bin/java
+  $ which mpirun
+  /project/pss/soft/pentium-linux/bin/mpirun
+
+  ./configure
+
+Issues:
+
+  `examples/Nozzle/': on "quit", get messages:
+
+    p0_23444:  p4_error: p4_wait_for_end: wait error: -1
+	p4_error: latest msg from perror: No child processes
+    Killed by signal 2.
+    Killed by signal 2.
+
+[Done.]
+
+
+Redhat Linux 7.3        Sun SDK 1.4.1           LAM 6.5.8
+---------------------------------------------------------
+
+smoky.ucs.indiana.edu
+
+Install LAM:
+
+  ./configure --prefix=/project/pss/soft/pentium-linux/lam
+
+Install mpiJava:
+
+  $ which java
+  /usr/java/j2sdk1.4.1/bin/java
+  $ which mpirun
+  /project/pss/soft/pentium-linux/bin/lam/mpirun
+  $ lamboot
+
+  ./configure --with-MPI=lam
+
+[Done.]
+
+
+Redhat Linux 7.3        IBM JDK 1.4.0               MPICH 1.2.4
+---------------------------------------------------------------
+
+smoky.ucs.indiana.edu
+
+Install MPICH:
+
+  ./configure -rsh=ssh --prefix=/project/pss/soft/pentium-linux -listener_sig=SIGIO
+
+Install mpiJava:
+
+  $ which java
+  /opt/IBMJava2-14/bin/java
+  $ which mpirun
+  /project/pss/soft/pentium-linux/bin/mpirun
+
+  ./configure
+
+[Done.]
+
+Redhat Linux 7.3        IBM JDK 1.4.0               LAM 6.5.8
+-------------------------------------------------------------
+
+smoky.ucs.indiana.edu
+
+Install LAM:
+
+  ./configure --prefix=/project/pss/soft/pentium-linux/lam --with-signal=SIGIO
+
+Install mpiJava:
+
+  $ which java
+  /opt/IBMJava2-14/bin/java
+  $ which mpirun
+  /project/pss/soft/pentium-linux/lam/bin/mpirun
+  $ lamboot
+
+  ./configure --with-MPI=lam
+
+[Done.]
+
+
+SunOS 5.8               Sun SDK 1.3.1           SunHPC-MPI 4
+------------------------------------------------------------
+
+sunwulf.cs.iit.edu
+
+Install mpiJava
+
+  > which mprun
+  /opt/SUNWhpc/bin/mprun
+  > which java
+  /home/guest/bryan/j2sdk1.4.1_01/bin/java
+
+  ./configure --with-MPI=sunhpc
+
+[Done.]
+
+
+SunOS 5.8               Sun SDK 1.4.1           MPICH 1.2.5
+-----------------------------------------------------------
+
+grids.ucs.indiana.edu
+
+Install MPICH:
+
+  ./configure -rsh=ssh -prefix=/grids/c2/pss/soft/sparc-sun-solaris -cflags=-D_REENTRANT
+
+Install mpiJava:
+
+  $ which mpirun
+  /grids/c2/pss/soft/sparc-sun-solaris/bin/mpirun
+  $ which java
+  /grids/c2/pss/soft/sparc-sun-solaris/j2sdk1.4.1_01/bin/java
+
+  ./configure
+
+[Done.]
+
+Issues:
+
+  Test case `mpiJava/tests/dtyp/diffs' produces message:
+
+    Should be: Extent = 33, lb = 65, ub = 98.
+    Is:        Extent = 34, lb = 65, ub = 99
+    ERRORS in bounds/extent test.
+
+  Occasionally termination is slow, and get this message:
+
+    Timeout in waiting for processes to exit, 2 left.  This may be due to a defective
+    rsh program (Some versions of Kerberos rsh have been observed to have this
+    problem).
+    This is not a problem with P4 or MPICH but a problem with the operating
+    environment.  For many applications, this problem will only slow down
+    process termination.
+
+
+
+SunOS 5.8               Sun SDK 1.4.1           LAM 6.5.8
+---------------------------------------------------------
+
+grids.ucs.indiana.edu
+
+Install LAM:
+
+  ./configure -prefix=/grids/c2/pss/soft/sparc-sun-solaris/lam --with-cflags=-D_REENTRANT
+
+Install mpiJava:
+
+  $ which mpirun
+  /grids/c2/pss/soft/sparc-sun-solaris/lam/bin/mpirun
+  $ which java
+  /grids/c2/pss/soft/sparc-sun-solaris/j2sdk1.4.1_01/bin/java
+  $ lamboot
+
+  ./configure --with-MPI=lam
+
+[Done.]
+
+
+AIX 3.4                 IBM JDK 1.3.0 Java      IBM MPI (SP2/3)
+---------------------------------------------------------------
+
+f01n01.ncsc.org
+
+Install mpiJava:
+
+  > which poe
+  /bin/poe
+  > which java
+  /usr/java130/bin/java
+
+  ./configure --with-MPI=sp2
+
+[Done.]
+
+
+AIX 3.4                 IBM JDK 1.3.0 Java      MPICH 1.2.5
+-----------------------------------------------------------
+
+Install MPICH:
+
+  ./configure -rsh=ssh -cflags=-D_THREAD_SAFE
+
+Install mpiJava:
+
+  > which mpirun
+  /tmp/dbc/mpich-1.2.5/bin/mpirun
+  > which java
+  /usr/java130/bin/java
+
+  ./configure
+
+Issues:
+
+  Sometimes test case topo/cart.java hangs.
+  Sometimes test case topo/sub.java hangs.
+
+[Done (failed).]
+

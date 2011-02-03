@@ -1,0 +1,34 @@
+# File         : Makefile
+# Author       : Sung-Hoon Ko
+# Created      : Thu Aug 1998
+# Revision     : ver 1.1
+# Updated      : $Date: 2002/07/04 19:23:15 $
+# Copyright: Northeast Parallel Architectures Center at Syracuse University 1998
+
+SHELL       = /bin/sh
+
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+
+SUBDIR  = @MAKEDIRS@
+
+VPATH = .:${srcdir}
+
+
+all: clean Makefile
+	@echo "Recursively making subdir:" ${SUBDIR}
+	@for i in ${SUBDIR}; \
+	do (cd $$i; \
+	echo "--- Making" $$i;\
+	$(MAKE) "MAKE=$(MAKE)"); done
+
+
+Makefile: ${srcdir}/Makefile.in
+	@echo
+	@echo Please configure the package to generate new makefile ...
+	@exit
+
+clean:
+	@for i in ${SUBDIR}; \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" clean); done

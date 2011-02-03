@@ -1,0 +1,42 @@
+#!/bin/csh -f
+##### 
+##   Sung-Hoon Ko
+##   4/28/98
+#####
+
+
+# Run synthetic test cases
+ 
+set sources = (Metrop.java)
+          
+ 
+set nprocs  = 4
+
+set mpiJavaHome = @top_srcdir@
+
+set MPI       = @MPI@
+
+set MPI_PATH  = @MPIPATH@
+set JAVA_PATH = @JAVA@
+
+set CLASS_PATH = "-classpath .:${mpiJavaHome}/lib/classes"
+set JAVA_C = "${JAVA_PATH}/bin/javac ${CLASS_PATH}"
+
+
+set CWD = `pwd`
+
+foreach source ($sources)
+	set executable=${source:r}
+	if ( -f ./$executable.jig ) then
+	    rm -f ./$executable.jig
+	endif	
+	echo ...Running : {$CWD:t}/${source}
+
+	$mpiJavaHome/src/scripts/prunjava ${nprocs[1]} $executable
+
+end
+
+
+
+
+

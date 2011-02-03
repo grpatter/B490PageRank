@@ -1,0 +1,90 @@
+####################################################################
+#   Copyright (c)
+#
+#   You may copy, distribute, and modify it freely as long as you  #
+#   preserve this copyright and permission notice.                 #
+#                                                                  #
+#
+####################################################################
+# Author       : Sung-Hoon Ko, Xinying Li
+#
+#  Makefile for MPI-JAVA
+#
+
+SHELL   = /bin/sh
+
+VERSION = @VERSION@
+
+srcdir      = @srcdir@
+top_srcdir  = @top_srcdir@
+
+
+SRCDIR  = src
+TESTDIR = tests
+EXDIR   = examples
+MANDIR  = man
+
+
+SUBDIR  = ${SRCDIR} ${TESTDIR} 
+
+VPATH = .:${srcdir}
+
+all: ${srcdir}/configure config.status Makefile
+	@for i in ${SRCDIR}; \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)"); done
+
+Makefile: ${srcdir}/Makefile.in
+	@echo
+	@echo "Warning: Makefile update check failed," 
+	@echo "you may need to configure the package again."
+	@echo
+
+check:
+	@echo "Recursively checking testsuite dir"
+	@for i in ${TESTDIR}; \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" -i check); done
+
+clean:
+	@for i in ${SUBDIR}; \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" clean); done
+	@rm -r -f Templates.DB
+	rm -f config.cache 
+
+distclean:  
+	@for i in ${SUBDIR} $(TESTDIR) $(MANDIR); \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" distclean); done
+	@echo Deleting installed stuff if prefix is current dir ...;
+	if [ -d bin ] ; then rm -r -f bin ; fi
+	if [ -d include ] ; then rm -r -f include ; fi
+	if [ -d lib ] ; then rm -r -f lib; fi
+#	@echo Deleting testing results ...
+#	@for i in ${TESTDIR}; \
+#	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" distclean); done
+	@echo Deleting generated configure files ...
+	rm -f config.cache config.status config.log
+	rm -f ./src/config.h 
+	@echo Deleting generated Makefiles ...
+	rm -f Makefile
+
+install:
+	@for i in ${SRCDIR} ${MANDIR}; \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" install); done
+
+uninstall:
+	@for i in ${SRCDIR} ${MANDIR}; \
+	do (cd $$i; $(MAKE) "MAKE=$(MAKE)" uninstall); done
+
+
+#
+# For generating configure script
+#
+
+#${srcdir}/configure: ${srcdir}/configure.in ${srcdir}/acconfig.h
+#	cd ${srcdir}/ && autoconf
+#	autoheader
+
+#config.status: ${srcdir}/configure
+#	@echo
+#	@echo "Warning config.status update check failed,"
+#	@echo "you may need to configure the package again."
+#	@echo

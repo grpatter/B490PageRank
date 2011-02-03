@@ -1,0 +1,62 @@
+=============================
+ Linux system pre-requisites
+=============================
+
+mpiJava-1.2 has been tested on following softwares.
+
+Linux
+-----
+   - Linux-Mandrake 6.0 :
+     http://www.linux-mandrake.com
+
+   - Redhat 6.0 and 6.2:
+     http://www.redhat.com/
+
+JAVA
+----
+   - Sun JDK1.4.0 Beta :
+     http://java.sun.com/j2se/1.4
+
+   - Sun JDK1.3.1 (http://java.sun.com/j2se/1.3) :
+     We recommand to use Sun JDK1.4.0 Beta.
+
+     You may experience delay of process dermination and see following message 
+
+     "Timeout in waiting for processes to exit.  This may be due to a defective
+     rsh program (Some versions of Kerberos rsh have been observed to have this
+     problem).
+     This is not a problem with P4 or MPICH but a problem with the operating
+     environment.  For many applications, this problem will only slow down
+     process termination."     
+
+     This is not a bug. You can ignore this problem.
+
+   - Blackdown JDK1.3.0 (http://www.blackdown.org) :
+     You should add "-native" to the java command line in file 
+     mpiJava/src/scripts/prunjava as follow
+
+     exec $JAVA/bin/java -native $JAVAOPTIONS $CLASSNAME $CLASSNAME \$*
+
+   - Blackdown JDK 1.2 pre-release 2 :
+     (http://www.blackdown.org), you must disable the JIT.
+     To run with no JIT, set the value of JAVA_COMPILER to NONE.
+     or
+     add -Djava.compiler=  to the 
+     java command line in file mpiJava/src/scripts/prunjava as follow.
+
+     exec $JAVA/bin/java -Djava.compiler=  -native $CLASSNAME $CLASSNAME \$*
+
+   - IBM JDK 1.1.6 :
+     http://www.alphaworks.ibm.com/tech/linuxjvm
+
+   - IBM JDK1.3.0 and Sun JDK1.3.0 : 
+     Not supported.
+     
+mpi
+-----
+   - mpich1.1.2 :
+     http://www-unix.mcs.anl.gov/mpi/mpich/
+
+
+
+    

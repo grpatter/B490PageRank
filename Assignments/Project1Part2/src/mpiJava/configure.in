@@ -1,0 +1,940 @@
+dnl ####################################################################
+dnl #   Copyright (c)                                                  #
+dnl #                                                                  #
+dnl #   You may copy, distribute, and modify it freely as long as you  #
+dnl #   preserve this copyright and permission notice.                 #
+dnl #                                                                  #
+dnl #                                                                  #
+dnl ####################################################################
+dnl
+dnl File         : configure.in
+dnl Author       : Guansong Zhang, Sung-Hoon Ko
+dnl Created      : Wed Aug  8 10:03:10 EDT 1998
+dnl Revision     : $Revision: 1.45.2.1 $
+dnl Updated      : $Date: 2003/03/24 20:25:03 $
+dnl 
+dnl Process this file and acconfig.h by autoconf to produce a configure script.
+dnl 
+
+AC_INIT(./configure)
+
+AC_PREFIX_DEFAULT(`pwd`)
+AC_CONFIG_AUX_DIR(./config)
+
+AC_CONFIG_HEADER(./config/config.h)
+
+AC_CANONICAL_SYSTEM
+AC_ARG_PROGRAM
+AC_HEADER_STDC
+
+dnl AC_CHECK_TYPE(u_short,unsigned short)
+AC_HEADER_SYS_WAIT
+
+AC_PROG_RANLIB
+
+VERSION=1.00
+AC_DEFINE_UNQUOTED(VERSION, "$VERSION")
+AC_SUBST(VERSION)
+
+dnl an inline which function
+
+CWD=`pwd`
+AC_SUBST(CWD)
+
+which () {
+  oldIFS=$IFS
+
+  IFS=:
+  for dir in $PATH
+  do
+    if test -x $dir/$1; then
+       found="$dir/$1"; 
+       echo $found; 
+       break ;
+    fi
+  done;
+
+  if test -z "$found" ; then
+    echo $1; # echo input if not found.
+  fi 
+
+  IFS=$oldIFS 
+}
+
+
+dnl function to find mpi.h
+
+mpiinc () {
+ 
+  MPI_PREFIX=`which mpirun | sed 's%/bin/mpirun%%'`
+  if test -f $MPI_PREFIX/include/mpi.h; then
+    MPI_INC=-I$MPI_PREFIX/include
+  else
+    MPI_PREFIX=`which mpirun | sed 's%/lib/[^/]*/[^/]*/mpirun%%'`
+    if test -f $MPI_PREFIX/include/mpi.h; then
+      MPI_INC=-I$MPI_PREFIX/include
+    else
+      echo "Please input the absolute path for mpich include dir:"
+      read MPI_INC_PATH
+      MPI_INC=-I$MPI_INC_PATH
+    fi
+  fi      
+}
+
+
+dnl function to find libmpich.a(MPICH1.1.2)
+mpilib_1_1_2 () {
+  MPI_PREFIX=`which mpirun | sed 's%/bin/mpirun%%'`
+  num=0
+  CCLIBKEY="-lmpich"
+
+  for dir in $MPI_PREFIX/build/*/*/lib; do 
+      if test -f $dir/libmpich.a ; then
+        num=`expr $num + 1`
+      fi       
+  done
+# echo $num
+  if test `expr $num` -eq 1 ; then
+    for dir in $MPI_PREFIX/build/*/*/lib; do 
+        if test -f $dir/libmpich.a ; then  
+  	  MPI_LIB=-L$dir
+          return         
+        fi
+    done
+  fi
+##
+  if test `expr $num` -lt 1 ; then
+    MPI_LIB_PATH=`which mpirun | sed 's%/mpirun%%'`
+      if test -f $MPI_LIB_PATH/libmpich.a ; then
+        test
+      else
+        echo "Please input the absolute path for mpich library dir:"
+        read MPI_LIB_PATH
+      fi
+      MPI_LIB=-L$MPI_LIB_PATH
+      return
+  fi
+##
+  if test `expr $num` -gt 1 ; then
+    echo "Configure script found multi communication devices,"
+    echo "Please input the absolute path for mpich library dir,"
+    echo "the one work with "$MPI_PREFIX/bin/mpirun:
+    read MPI_LIB_PATH
+    MPI_LIB=-L$MPI_LIB_PATH
+    return
+  fi
+}
+
+
+mpilib () {
+    MPI_PREFIX=`which mpirun | sed 's%/bin/mpirun%%'`
+    if test -f $MPI_PREFIX/lib/libmpich.a; then
+	  MPI_LIB=-L$MPI_PREFIX/lib
+	else
+	    mpilib_1_1_2;
+    fi
+
+}
+
+
+###
+dnl deciding mpi package
+###
+
+AC_MSG_CHECKING(MPI package)
+
+AC_ARG_WITH(MPI, [
+--with-MPI=mpich          Use mpich MPI (the default setting)
+--with-MPI=lam            Use LAM MPI
+--with-MPI=sunhpc         Use HPC MPI from SUN
+--with-MPI=sp2            Use SP2 MPI from IBM ], MPI=${withval}, MPI=mpich )
+
+AC_CACHE_VAL(mpiJava_cv_mpipackage, mpiJava_cv_mpipackage=$MPI) 
+
+AC_MSG_RESULT($mpiJava_cv_mpipackage)
+
+MPI=$mpiJava_cv_mpipackage
+AC_SUBST(MPI)
+
+#MAKEDIRS="Java C"
+MAKEDIRS="Java mpjdev native C"
+        # New entries added in 1.2.5x to support mpjdev.
+
+case "$MPI" in
+  mpich )
+
+  dnl check if mpi installed.
+  if test ! -x `which mpirun`
+  then 
+    echo "Please install mpich first ..."
+    exit
+  fi
+
+  dnl decide whether there is MPICC
+
+  AC_CHECK_PROG(MPICC, mpicc, mpicc)
+
+  if test "$MPICC" = "mpicc" 
+  then
+    AC_MSG_CHECKING(whether mpicc configured)
+
+    echo "any(){}" > conftest.c
+
+    rm -f conftest.o
+    mpicc -c conftest.c > /dev/null 2> /dev/null
+    
+    if test -f conftest.o
+    then
+      MPICCCONFIG=yes
+    else
+      MPICCCONFIG=no
+    fi
+
+    AC_MSG_RESULT($MPICCCONFIG)
+     	
+    rm -f conftest.c conftest.o
+  fi  
+
+  dnl get mpi prefix
+
+  AC_MSG_CHECKING(MPI include dir)
+
+  AC_CACHE_VAL(mpiJava_cv_mpi_inc, mpiinc;mpiJava_cv_mpi_inc=$MPI_INC) 
+  AC_MSG_RESULT($mpiJava_cv_mpi_inc)
+
+  MPI_INC=$mpiJava_cv_mpi_inc
+  AC_SUBST(MPI_INC)
+
+  dnl get mpich exec_prefix
+
+  AC_MSG_CHECKING(MPI lib dir)
+
+  AC_CACHE_VAL(mpiJava_cv_mpi_lib, mpilib; mpiJava_cv_mpi_lib=$MPI_LIB) 
+
+  AC_MSG_RESULT($mpiJava_cv_mpi_lib)
+
+  MPI_LIB=$mpiJava_cv_mpi_lib
+  AC_SUBST(MPI_LIB) 
+
+  dnl tarch and tdevice from mpich only return defaults setting.
+
+  ARCH=`echo $MPI_LIB | sed 's/^.*lib\///' | sed 's/\/.*$//'`
+
+  dnl deciding compiler and linker
+
+  AC_SUBST(LIBKEY)
+
+
+  if test "$MPICCCONFIG" = "yes" 
+  then
+    CC=mpicc
+    AC_SUBST(CC)
+    CCLIBKEY=$CCLIBKEY
+  else
+    dnl decide compiler and lib according to machine.
+    CCLIBKEY="-lmpi"
+    case $target in
+      *linux* )
+        AC_CHECK_PROGS(CC, gcc)
+        ;;
+
+      * ) 
+        AC_CHECK_PROGS(CC, cc gcc)
+        ;; 
+    esac
+  fi
+
+  AC_SUBST(CCLIBKEY)
+
+  if test "$CC" = "" ; then
+    echo "Found no C compiler on $target"
+    exit
+  fi
+
+  ;;
+  
+  dnl end of mpich case
+  chimp )
+  echo Not supported 
+  ;;
+
+  sp2 )
+
+  AC_CHECK_PROG(MPICC, mpcc, mpcc)
+
+  if test "$MPICC" = "mpcc"
+  then 
+    CC=mpcc
+  else
+    echo "Please install SP2 mpcc first ..."
+    exit
+  fi
+
+  MPI_INC=
+  AC_SUBST(MPI_INC)
+
+  MPI_LIB=
+  AC_SUBST(MPI_LIB) 
+
+  LIBKEY=
+  AC_SUBST(LIBKEY)
+  ;;
+
+  dnl end of sp2 case
+
+  sunhpc )
+
+  AC_CHECK_PROG(MPIRUN, mprun, mprun)
+
+  if test "$MPIRUN" = "mprun" 
+  then 
+     test  # do nothing
+  else
+    echo "Please install Sun HPC first ..."
+    exit
+  fi
+
+  MPIPATH=`which mprun | sed 's%/bin/mprun%%'`
+
+  CC="mpcc"
+  AC_SUBST(CC)
+
+  MPI_INC="-I$MPIPATH/include"
+  AC_SUBST(MPI_INC)
+
+  MPI_LIB="-L$MPIPATH/lib -R$MPIPATH/lib:/opt/SUNWspro/lib"
+  AC_SUBST(MPI_LIB) 
+
+  CCLIBKEY="-lmpi"
+  AC_SUBST(CCLIBKEY)
+
+  LIBKEY="-lmpi -lrte -lnsl -lgen -lsocket -lrpcsvc -lposix4"
+  AC_SUBST(LIBKEY)
+
+  MAKEDIRS="$MAKEDIRS bin"
+  AC_SUBST(MAKEDIRS)
+  ;;
+
+  dnl end of sunhpc case
+  lam )
+  AC_CHECK_PROG(MPICC, mpicc, mpicc)
+
+  if test "$MPICC" = "mpicc"
+  then 
+    CC=mpicc
+  else
+    echo "Please install lam mpicc first ..."
+    exit
+  fi
+
+  MPI_INC=
+  AC_SUBST(MPI_INC)
+
+  MPI_LIB=
+  AC_SUBST(MPI_LIB) 
+
+  LIBKEY=
+  AC_SUBST(LIBKEY)
+  
+  ;;
+  dnl end of lam case
+
+  * )
+  echo The package does not support $MPI MPI.
+  exit
+  ;;
+
+esac
+
+dnl check where MPIPATH is
+
+case "$MPI" in
+  mpich )
+    MPIPATH=`which mpirun | sed 's%/bin/mpirun%%'`
+    ;;
+  sunhpc )
+    MPIPATH=`which mprun | sed 's%/bin/mprun%%'`
+    ;;
+  lam )
+    MPIPATH=`which mpirun | sed 's%/bin/mpirun%%'`
+    ;;
+  * )
+#    MPIPATH=`which mpirun | sed 's%/bin/mpirun%%'`
+#    exit
+    ;;
+esac
+
+
+echo checking mpi is at $MPIPATH
+AC_SUBST(MPIPATH)
+
+dnl for mpiJava interface
+
+
+######
+dnl function to find JAVA package
+#####
+javadir () {
+    JAVAPATH=`which java | sed 's%/bin/java$%%'`
+    if test -f $JAVAPATH/bin/java -a -f $JAVAPATH/include/jni.h ; then
+        return
+    else
+        JAVAPATH=/usr/java
+        if test -f $JAVAPATH/bin/java -a -f $JAVAPATH/include/jni.h ; then
+            return
+        else
+            echo "Please input the absolute path for the" \
+                 "java installation directory:"
+            read JAVAPATH
+            while :
+            do
+                if test -f $JAVAPATH/bin/java -a \
+                        -f $JAVAPATH/include/jni.h ; then
+                    break
+                else
+                    echo "Wrong java installed path?"
+                    echo "Please input the absolute path for the" \
+                         "java installation directory:"
+                    read JAVAPATH
+                fi
+            done
+            return
+        fi
+    fi
+}
+
+javadir
+JAVA="$JAVAPATH"
+
+#### End Searching JAVA package #####
+
+dnl if JDK is available
+
+AC_SUBST(JAVA)
+
+case $target in
+
+  *aix* )
+  JOS="aix"
+  ;;
+
+  *solaris* )
+  JOS="solaris"
+  changequote(,)
+  javaversion=`$JAVAPATH/bin/java -version 2>&1|  grep 'java version' | \
+	       sed -e 's/^.*"\([0-9].[0-9]\).*$/\1/'`
+  changequote([,])
+  ;;
+
+  *irix* )
+  JOS="irix"
+  changequote(,)
+  javaversion=`$JAVAPATH/bin/java -version 2>&1|  grep 'java version' | \
+		sed -e 's/^.*Sun \([0-9].[0-9]\).*$/\1/'`
+  changequote([,])
+   ;;
+
+  *linux*)
+  JOS="linux"
+  changequote(,)
+  javaversion=`$JAVAPATH/bin/java -version 2>&1|  grep 'java version' | \
+	       sed -e 's/^.*"\([0-9].[0-9]\).*$/\1/'`
+  changequote([,])
+  ;;
+
+  *)
+  echo Java interface not tested on $target yet.
+  ;;
+
+esac
+
+echo checking java target is $JOS
+AC_SUBST(JOS)
+
+####
+#dnl setting java thread option.
+####
+#if test "$javaversion" = "1.2" ; then
+#   JAVATHREAD="-native"
+#   echo "checking java thread option is -native"
+#else
+#   echo "checking java thread option is -green"
+#fi
+#AC_SUBST(JAVATHREAD)
+
+
+###
+dnl deciding linker
+###
+
+AC_MSG_CHECKING(LD package)
+
+AC_ARG_WITH(LD, [
+--with-LD=ld              Use GNU ld, (default=mpicc) ], LD=${withval}, LD="$MPIPATH/bin/$CC" )
+
+#AC_CACHE_VAL(mpiJava_cv_linker, mpiJava_cv_linker=$LD)
+
+AC_MSG_RESULT($LD)
+
+#LD=$mpiJava_cv_linker
+AC_SUBST(LD)
+
+
+###
+dnl setting linker option.
+###
+# This is a poor hack.
+# It should be a test on the specific compiler/linker used, not the OS.
+if test "$CC" != "" ; then
+  case $target in
+    *aix* )
+    LDFLAG="-G -bE:mpijava.exp"
+    LDFLAGSIG="-G -bE:savesignals.exp"
+    LDFLAGBUF="-G -bE:mpjbuf.exp"
+            # LDFLAGBUF added in 1.2.5x to support mpjdev.
+
+    if test "$MPI" = "mpich" -o "$MPI" = "lam" ; then
+
+      # Check if mpicc actually accepts the -G option
+      # (This isn't well tested).
+
+      cat > conftest.c <<END
+int p_xargc ; char **p_xargv ;  /* Stop AIX linker complaining */
+int foo() {}
+END
+
+      if $CC -G conftest.c 2>&1 > /dev/null ; then
+        test  # OK
+      else
+
+        # Most likely mpicc is gcc.
+
+        LDFLAG="-shared"
+      fi
+
+      rm -f conftest.* libconftest.so
+    fi
+
+    LIBPATHVAR="LIBPATH"
+    ;;
+
+    *solaris* )
+    LDFLAG="-G"
+    LDFLAGSIG="-G"
+    LDFLAGBUF="-G"
+            # LDFLAGBUF added in 1.2.5x to support mpjdev.
+
+    if test "$MPI" = "mpich" -o "$MPI" = "lam" ; then
+
+      # Check if mpicc actually accepts the -G option
+      # (This isn't well tested).
+
+      cat > conftest.c <<END
+int foo() {}
+END
+
+      if $CC -G conftest.c 2>&1 > /dev/null ; then
+        test  # OK
+      else
+
+        # Most likely mpicc is gcc.
+
+        LDFLAG="-shared"
+      fi
+
+      rm -f conftest.* libconftest.so
+    fi
+
+    LIBPATHVAR="LD_LIBRARY_PATH"
+    ;;
+
+    *irix* )
+    LDFLAG="-shared"
+    LDFLAGSIG="-shared"
+    LDFLAGBUF="-shared"
+            # LDFLAGBUF added in 1.2.5x to support mpjdev.
+    LIBPATHVAR="LD_LIBRARY_PATH"
+     ;;
+
+    *linux*)
+    LDFLAG="-shared"
+    LDFLAGSIG="-shared"
+    LDFLAGBUF="-shared"
+            # LDFLAGBUF added in 1.2.5x to support mpjdev.
+    LIBPATHVAR="LD_LIBRARY_PATH"
+    ;;
+
+    *)
+    echo link option not tested on $target yet.
+    ;;
+
+  esac
+fi
+
+echo "link editor option for shared library is $LDFLAG"
+
+AC_SUBST(LDFLAG)
+AC_SUBST(LDFLAGSIG)
+AC_SUBST(LDFLAGBUF)    # LDFLAGBUF added in 1.2.5x to support mpjdev.
+AC_SUBST(LIBPATHVAR)
+
+###
+dnl testing if Java GC supports pinning
+###
+AC_MSG_CHECKING(whether Java garbage collector supports pinning)
+
+changequote(,)
+
+cat > conftest.java <<END
+public class conftest {
+    public static void main(String [] args) {
+        System.loadLibrary("conftest") ;
+        int a [] = new int [100] ;
+        System.exit(isCopy(a) ? 1 : 0) ;
+    }
+
+    static native boolean isCopy(int [] a) ;
+}
+END
+
+cat > conftest.c <<END
+#include "conftest.h"
+int p_xargc ; char **p_xargv ;  /* Stop AIX linker complaining */
+jboolean JNICALL Java_conftest_isCopy(JNIEnv* env, jclass cls, jintArray a) {
+
+    jboolean isCopy ;
+    (*env)->GetIntArrayElements(env, a, &isCopy) ;
+    return isCopy ;
+}
+END
+
+# For AIX shared object generation:
+cat > conftest.exp <<END
+Java_conftest_isCopy
+END
+
+changequote([,])
+
+$JAVA/bin/javac -classpath . conftest.java
+$JAVA/bin/javah -classpath . -jni conftest
+
+# Following are hacks... should find cc, etc by autoconf mechanisms
+cc -I$JAVA/include -I$JAVA/include/$JOS -c conftest.c
+case $target in
+    *aix* )
+        cc -G -bE:conftest.exp -o libconftest.so conftest.o
+        ;;
+    *)
+        cc $LDFLAG -o libconftest.so conftest.o
+        ;;
+esac
+
+
+if $JAVA/bin/java -cp "." -Djava.library.path="." conftest
+then
+  GC_SUPPORTS_PINNING=yes
+else
+  GC_SUPPORTS_PINNING=no
+fi
+
+AC_MSG_RESULT($GC_SUPPORTS_PINNING)
+
+rm -f conftest.* libconftest.so
+
+if test "$GC_SUPPORTS_PINNING" = "yes" 
+then
+  DEFPINS=-DGC_DOES_PINNING
+fi
+
+AC_SUBST(DEFPINS)
+
+
+###
+dnl testing MPI_Unpack allows inbuf to be smaller that outbuf
+###
+AC_MSG_CHECKING(whether MPI_Unpack allows inbuf to be smaller that outbuf)
+
+changequote(,)
+
+cat > conftest.c <<END
+#include "mpi.h"
+
+int main(int argc, char* argv []) {
+
+    char* message = "Greetings" ;
+    int count = strlen(message) ;
+    int bsize ;
+    char* bufptr ;
+    int pos ;
+    char result [40] ;
+    int condition ;
+
+    MPI_Init(&argc, &argv) ;
+
+    MPI_Pack_size(count, MPI_BYTE, MPI_COMM_WORLD, &bsize) ;
+
+    bufptr = (char*) malloc(bsize) ;
+    pos = 0 ; 
+    MPI_Pack(message, count, MPI_BYTE, bufptr, bsize, &pos, MPI_COMM_WORLD) ;
+
+    pos = 0 ;
+    condition = MPI_Unpack(bufptr, bsize, &pos, result, 40, MPI_BYTE, MPI_COMM_WORLD) ;
+    
+    if(condition == MPI_SUCCESS)
+        printf("success") ;
+
+    MPI_Finalize() ;
+}
+END
+
+changequote([,])
+
+case "$MPI" in
+  sunhpc )
+    mpcc -o conftest conftest.c -lmpi
+    if test "`mprun -np 1 ./conftest`" = "success"
+    then
+      UNPACK_ALLOWS_SHORT_BUFFER=yes
+    else
+      UNPACK_ALLOWS_SHORT_BUFFER=no
+    fi
+    ;;
+  sp2 )
+    mpcc -o conftest conftest.c
+    hostname > host.list
+    if test "`./conftest`" = "success"
+    then
+      UNPACK_ALLOWS_SHORT_BUFFER=yes
+    else
+      UNPACK_ALLOWS_SHORT_BUFFER=no
+    fi
+    ;;
+  * )    # MPICH, LAM
+    mpicc -o conftest conftest.c
+
+    # LAM wants the explicit "-np 1" below
+    if test "`mpirun -np 1 ./conftest`" = "success"
+    then
+      UNPACK_ALLOWS_SHORT_BUFFER=yes
+    else
+      UNPACK_ALLOWS_SHORT_BUFFER=no
+    fi
+    ;;
+esac
+
+AC_MSG_RESULT($UNPACK_ALLOWS_SHORT_BUFFER)
+
+rm -f conftest.* conftest
+
+if test "$UNPACK_ALLOWS_SHORT_BUFFER" = "yes" 
+then
+  DEFUNPACK=-DUNPACK_ALLOWS_SHORT_BUFFER
+fi
+
+AC_SUBST(DEFUNPACK)
+
+# JARCH = name of `jre/lib/' subdirectory that holds jvms
+
+JARCH=`uname -m`
+case $JARCH in
+    i?86)
+        JARCH=i386
+        ;;
+    sun4*)
+        JARCH=sparc
+        ;;
+    *)
+        ;;
+esac
+AC_SUBST(JARCH)
+
+
+# Workarounds for signal handling problems...
+
+if test -f $JAVAPATH/jre/lib/$JARCH/client/libjsig.so ; then
+  LIBJSIG="yes"
+else
+  echo \
+"WARNING: No JDK-1.4-style 'libjsig.so' library for signal-chaining found."
+  echo \
+"         This may lead to non-deterministic failures: see the README file."
+  LIBJSIG="no"
+fi
+AC_SUBST(LIBJSIG)
+
+# For cases encountered so far we only needed to save/restore a single
+# JVM-installed signal handler (following 2 cases are mutually exclusive
+# in practise)...
+
+if test "$MPI" = "sp2" ; then
+  DEFJVMSIGNAL1="-DJVM_SIGNAL1=SIGTRAP"
+fi
+
+if test -f $JAVAPATH/jre/lib/$JARCH/client/libjvm.so ; then
+
+  # Looks like Hotspot
+
+  if test "$MPI" = "lam" -a "$JOS" = "linux" ; then
+
+    DEFJVMSIGNAL1="-DJVM_SIGNAL1=SIGUSR2"
+
+    echo \
+"WARNING: MPI is lam, and SIGUSR2 signal handler will be overridden by JVM."
+    echo \
+"         If problems are encountered, consider reconfiguring lam" 
+    echo \
+"         to use a different signal."
+  fi
+
+  if test "$MPI" = "mpich" -a "$JOS" = "solaris" ; then
+
+    case "`java -version 2>&1 | head -n 1`" in
+      *1\.1\.* | *1\.2\.* | *1\.3\.* )
+      ;;
+
+      *)    # Presumably 1.4 or later
+
+        JAVAOPTIONS="-Xusealtsigs"
+
+        AC_SUBST(JAVAOPTIONS)
+
+      ;;
+    esac
+  fi
+
+else
+
+  # Might be the IBM JDK
+
+  if test "$MPI" = "mpich" ; then
+    echo \
+"WARNING: If you are using the IBM JVM with MPICH, you may need to"
+    echo \
+"         configure MPICH to use a listener signal other than SIGUSR1."
+  fi
+
+fi
+
+AC_SUBST(DEFJVMSIGNAL1)
+
+  
+###
+dnl setting machine file
+###
+
+AC_ARG_WITH(machinefile, [
+--with-machinefile=DIR/machine-filename ], 
+            MACHINEFILE=$with_machinefile, MACHINEFILE="" )
+
+AC_SUBST(MACHINEFILE)
+
+
+HOSTNAME=`hostname`
+AC_SUBST(HOSTNAME)
+
+
+##############################################################
+
+AC_OUTPUT(
+Makefile 
+src/Makefile
+src/C/Makefile
+src/Java/Makefile
+src/Java/mpi/Makefile
+src/scripts/prunjava:src/scripts/prunjava.in
+src/scripts/prun:src/scripts/prun.in
+src/bin/Makefile
+tests/Makefile:tests/Makefile.in
+tests/signals/Makefile:tests/signals/Makefile.in
+tests/signals/RunTests:tests/signals/RunTests.in
+tests/signals/machines:tests/signals/machines.in
+tests/ccl/Makefile:tests/ccl/Makefile.in
+tests/ccl/RunTests:tests/ccl/RunTests.in
+tests/ccl/machines:tests/ccl/machines.in
+tests/ccl_ObjSer/Makefile:tests/ccl_ObjSer/Makefile.in
+tests/ccl_ObjSer/RunTests:tests/ccl_ObjSer/RunTests.in
+tests/ccl_ObjSer/machines:tests/ccl_ObjSer/machines.in
+tests/comm/Makefile:tests/comm/Makefile.in
+tests/comm/RunTests:tests/comm/RunTests.in
+tests/comm/machines:tests/comm/machines.in
+tests/dtyp/Makefile:tests/dtyp/Makefile.in
+tests/dtyp/RunTests:tests/dtyp/RunTests.in
+tests/dtyp/machines:tests/dtyp/machines.in
+tests/dtyp_ObjSer/Makefile:tests/dtyp_ObjSer/Makefile.in
+tests/dtyp_ObjSer/RunTests:tests/dtyp_ObjSer/RunTests.in
+tests/dtyp_ObjSer/machines:tests/dtyp_ObjSer/machines.in
+tests/env/Makefile:tests/env/Makefile.in
+tests/env/RunTests:tests/env/RunTests.in
+tests/env/machines:tests/env/machines.in
+tests/group/Makefile:tests/group/Makefile.in
+tests/group/RunTests:tests/group/RunTests.in
+tests/group/machines:tests/group/machines.in
+tests/pt2pt/Makefile:tests/pt2pt/Makefile.in
+tests/pt2pt/RunTests:tests/pt2pt/RunTests.in
+tests/pt2pt/machines:tests/pt2pt/machines.in
+tests/pt2pt_ObjSer/Makefile:tests/pt2pt_ObjSer/Makefile.in
+tests/pt2pt_ObjSer/RunTests:tests/pt2pt_ObjSer/RunTests.in
+tests/pt2pt_ObjSer/machines:tests/pt2pt_ObjSer/machines.in
+tests/topo/Makefile:tests/topo/Makefile.in
+tests/topo/RunTests:tests/topo/RunTests.in
+tests/topo/machines:tests/topo/machines.in
+
+examples/simple/Makefile:examples/simple/Makefile.in
+examples/simple/RunTests:examples/simple/RunTests.in
+examples/simple/machines:examples/simple/machines.in
+examples/PingPong/Makefile:examples/PingPong/Makefile.in
+examples/PingPong/RunBench:examples/PingPong/RunBench.in
+examples/PingPong/machines:examples/PingPong/machines.in
+examples/metropolis/Makefile:examples/metropolis/Makefile.in
+examples/metropolis/RunIsing:examples/metropolis/RunIsing.in
+examples/metropolis/machines:examples/metropolis/machines.in
+examples/potts/Makefile:examples/potts/Makefile.in
+examples/potts/RunIsing:examples/potts/RunIsing.in
+examples/potts/machines:examples/potts/machines.in
+examples/Nozzle/Makefile:examples//Nozzle/Makefile.in
+examples/Nozzle/RunNozzle:examples//Nozzle/RunNozzle.in
+examples/Nozzle/machines:examples//Nozzle/machines.in
+
+src/native/Makefile:src/native/Makefile.in
+src/mpjdev/Makefile:src/mpjdev/Makefile.in
+)
+        # New entries added in 1.2.5x to support mpjdev.
+
+
+if  test -d lib 
+then 
+          if test ! -d lib/classes
+           then    
+                  mkdir lib/classes
+                  mkdir lib/classes/mpi
+          fi
+else
+          mkdir lib
+          mkdir lib/classes
+          mkdir lib/classes/mpi
+fi
+ 
+
+chmod a+x src/scripts/prun
+chmod a+x src/scripts/prunjava
+
+chmod a+x tests/signals/RunTests
+chmod a+x tests/ccl/RunTests
+chmod a+x tests/ccl_ObjSer/RunTests
+chmod a+x tests/comm/RunTests
+chmod a+x tests/dtyp/RunTests
+chmod a+x tests/dtyp_ObjSer/RunTests
+chmod a+x tests/env/RunTests
+chmod a+x tests/group/RunTests
+chmod a+x tests/pt2pt/RunTests
+chmod a+x tests/pt2pt_ObjSer/RunTests
+chmod a+x tests/topo/RunTests
+
+chmod a+x examples/simple/RunTests
+chmod a+x examples/PingPong/RunBench
+chmod a+x examples/metropolis/RunIsing
+chmod a+x examples/potts/RunIsing
+chmod a+x examples/Nozzle/RunNozzle
+
+rm -f ./config.cache
+

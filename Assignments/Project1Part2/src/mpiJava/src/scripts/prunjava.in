@@ -1,0 +1,243 @@
+#!/bin/sh
+
+JAVA=@JAVA@
+JARCH=@JARCH@
+
+working_dir=@CWD@
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+
+MPI=@MPI@
+
+LIBJSIG=@LIBJSIG@
+
+JAVAOPTIONS=@JAVAOPTIONS@
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: prunjava <procnum> <java options> <classname> <arguments>"
+  exit 1
+fi
+
+PNUMBER=$1
+
+shift
+
+VM=client
+while [ "$*" ] ; do
+  case $1 in
+    -server)
+      VM=server
+      JAVAOPTIONS="$1 $JAVAOPTIONS"
+      shift
+      ;;
+    -*)
+      JAVAOPTIONS="$1 $JAVAOPTIONS"
+      shift
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+
+if test "$MPI" = "sp2"
+then
+
+  if test "$CLASSPATH" = ""
+  then
+    CLASSPATH=.:${working_dir}/lib/classes
+  else
+    CLASSPATH=${working_dir}/lib/classes:$CLASSPATH
+  fi
+  export CLASSPATH
+
+  if test "$LIBPATH" = ""
+  then
+    LIBPATH=${working_dir}/lib
+  else
+    LIBPATH=${working_dir}/lib:$LIBPATH
+  fi
+  export LIBPATH
+
+  if [ -f ./machines ]
+  then
+    poe java $JAVAOPTIONS $* -procs $PNUMBER -hostfile ./machines
+  else
+    poe java $JAVAOPTIONS $* -procs $PNUMBER
+  fi
+
+elif test "$MPI" = "sunhpc"
+then
+
+  if test "$CLASSPATH" = ""
+  then
+    CLASSPATH=.:${working_dir}/lib/classes
+  else
+    CLASSPATH=${working_dir}/lib/classes:$CLASSPATH
+  fi
+  export CLASSPATH
+
+  if test "$@LIBPATHVAR@" = ""
+  then
+    @LIBPATHVAR@=${working_dir}/lib:/opt/SUNWhpc/lib
+    export @LIBPATHVAR@
+  else
+    @LIBPATHVAR@=${working_dir}/lib:/opt/SUNWhpc/lib:$@LIBPATHVAR@
+    export @LIBPATHVAR@
+  fi
+
+  # Preload MPI library, and enable signal chaining for JDK 1.4, by
+  # preloading `libjsig'.
+  if test "$LIBJSIG" = "yes"
+  then
+    LD_PRELOAD=$JAVA/jre/lib/$JARCH/$VM/libjsig.so:/opt/SUNWhpc/lib/libmpi.so
+    export LD_PRELOAD
+  else
+    LD_PRELOAD=/opt/SUNWhpc/lib/libmpi.so
+    export LD_PRELOAD
+  fi
+
+  mprun -np $PNUMBER $JAVA/bin/java $JAVAOPTIONS $*
+
+
+elif test "$MPI" = "lam"
+then
+
+  if test "$@LIBPATHVAR@" = ""
+  then
+    @LIBPATHVAR@=${working_dir}/lib
+  else
+    @LIBPATHVAR@=${working_dir}/lib:$@LIBPATHVAR@
+  fi
+
+  if test "$CLASSPATH" = ""
+  then
+    CLASSPATH=.:${working_dir}/lib/classes
+  else
+    CLASSPATH=${working_dir}/lib/classes:$CLASSPATH
+  fi
+
+  if test "$LIBJSIG" = "yes"
+  then
+    # Enable signal chaining for JDK 1.4, by preloading `libjsig'.
+
+    mpirun -np $PNUMBER -nsigs \
+      -x LD_PRELOAD=$JAVA/jre/lib/$JARCH/$VM/libjsig.so,@LIBPATHVAR@=$@LIBPATHVAR@,CLASSPATH=$CLASSPATH \
+      $JAVA/bin/java $JAVAOPTIONS $*
+
+  else
+    mpirun -np $PNUMBER -nsigs \
+      -x @LIBPATHVAR@=$@LIBPATHVAR@,CLASSPATH=$CLASSPATH \
+      $JAVA/bin/java $JAVAOPTIONS $*
+  fi
+
+else    # MPICH
+
+  CLASSNAME=$1
+  shift
+
+  ARGUMENTS=$*
+
+  if test -f $CLASSNAME.jig
+  then
+    rm -f $CLASSNAME.jig
+  fi
+
+  # Enable signal chaining for JDK 1.4
+  if test "$LIBJSIG" = "yes"
+  then
+    set_preload1="LD_PRELOAD=$JAVA/jre/lib/$JARCH/$VM/libjsig.so"
+    set_preload2="export LD_PRELOAD"
+  fi
+
+# This is slightly complicated.  We create a script that reproduces
+# relevant parts of the local environment on the remote host, then
+# invokes the `java' command.  This "jig" script is then run with `mpirun'.
+#
+# In many cases this may not be necessary---the local environment may be
+# automatically copied by mpirun.  In these cases you may be able to
+# just set `CLASSPATH', `LD_LIBRARY_PATH', etc locally and run
+# an mpiJava program by:
+#
+#   mpirun <mpirun options> java <java command arguments>
+#
+
+  cat > $CLASSNAME.jig <<EOF
+#!/bin/sh
+
+working_dir=@CWD@
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+
+JAVA=@JAVA@
+
+
+if test "$CLASSPATH" = ""
+then
+  if [ -f ${working_dir}/lib/libmpijava.so ]
+  then
+    CLASSPATH=.:${working_dir}/lib/classes
+    export CLASSPATH
+  else
+    CLASSPATH=.:${exec_prefix}/lib
+    export CLASSPATH
+  fi
+else
+  if [ -f ${working_dir}/lib/libmpijava.so ]
+  then
+    CLASSPATH=.:${working_dir}/lib/classes:$CLASSPATH
+    export CLASSPATH
+  else
+    CLASSPATH=.:${exec_prefix}/lib:$CLASSPATH
+    export CLASSPATH
+  fi
+fi
+
+if test "$@LIBPATHVAR@" = ""
+then
+  if [ -f ${working_dir}/lib/libmpijava.so ]
+  then
+    @LIBPATHVAR@=${working_dir}/lib
+    export @LIBPATHVAR@
+  else
+    @LIBPATHVAR@=${exec_prefix}
+    export @LIBPATHVAR@
+  fi
+else
+  if [ -f ${working_dir}/lib/libmpijava.so ]
+  then
+    @LIBPATHVAR@=${working_dir}/lib:$@LIBPATHVAR@
+    export @LIBPATHVAR@
+  else
+    @LIBPATHVAR@=${exec_prefix}:$@LIBPATHVAR@
+    export @LIBPATHVAR@
+  fi
+fi
+
+
+#echo \$0
+cd \`dirname \$0\`
+
+$set_preload1
+$set_preload2
+
+exec $JAVA/bin/java $JAVAOPTIONS $CLASSNAME $CLASSNAME \$* $ARGUMENTS
+
+EOF
+
+  chmod a+x $CLASSNAME.jig
+
+  if [ -f ${working_dir}/lib/libmpijava.so ]
+  then
+    ${working_dir}/src/scripts/prun $PNUMBER ./$CLASSNAME.jig $*  
+  else
+    echo " ${working_dir}/lib/libmpijava.so not found"
+  fi
+
+  rm -f $CLASSNAME.jig
+
+fi

@@ -1,0 +1,21 @@
+
+For historical reasons, subdirectory `C/' contains native method source
+files from previous `mpiJava' releases, while subdirectory `native/'
+contains C source files specific to `mpjdev'.
+
+For similarly unsystematic reasons, the Java sources for the package
+`mpi' are under `Java/mpi/', whereas the Java sources for the package
+`mpjdev' are directly under `./mpjdev/'.
+
+The build process is likely more fragile than it ought to be: must
+build in this order
+
+  Java/
+  mpjdev/
+  native/
+  C/
+
+There are a couple of odd dependencies, largely on account of trying
+to minimize changes to previously existing (and well-tested) mpiJava
+1.2.5 directories.
+

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+VERSION=1.2.5x
+
+RELEASE_DIR=/grids/c2/www/htdocs/ptliupages/projects/HPJava
+RELEASE_CGI=/var/apache/cgi-bin/pss-cgi/mpiJava/mpiJavaREQ.pl
+
+if mkdir temp ; then
+  cd temp
+
+  cvs export -D now mpiJava
+
+  cd mpiJava
+  autoconf ; autoheader
+
+  cd src/Java
+  javadoc -d  ../../doc/api mpi
+  cd ../..
+
+  cd ..
+
+  tar cvf ../mpiJava-${VERSION}.tar mpiJava
+
+  cd ..
+  rm -r temp
+
+  rm -f mpiJava-${VERSION}.tar.gz
+  gzip mpiJava-${VERSION}.tar
+fi
+
+echo
+echo Now copy mpiJava-${VERSION}.tar.gz to $RELEASE_DIR:
+echo '    ' cp mpiJava-${VERSION}.tar.gz $RELEASE_DIR
+echo and edit the CGI script
+echo '    ' $RELEASE_CGI
+

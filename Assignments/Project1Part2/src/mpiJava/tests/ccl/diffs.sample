@@ -1,0 +1,15 @@
+diff allgather.out allgather.out.sample
+diff allreduce.out allreduce.out.sample
+diff allreduce_maxminloc.out allreduce_maxminloc.out.sample
+diff alltoall.out alltoall.out.sample
+diff barrier.out barrier.out.sample
+diff bcast.out bcast.out.sample
+diff gather.out gather.out.sample
+diff reduce.out reduce.out.sample
+diff reduce_scatter.out reduce_scatter.out.sample
+diff scan.out scan.out.sample
+diff scatter.out scatter.out.sample
+diff gatherv.out gatherv.out.sample
+diff allgatherv.out allgatherv.out.sample
+diff scatterv.out scatterv.out.sample
+diff alltoallv.out alltoallv.out.sample

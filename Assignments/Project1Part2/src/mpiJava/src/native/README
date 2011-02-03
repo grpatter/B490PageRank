@@ -1,0 +1,7 @@
+
+This directory only contains the native part of the mpjdev buffer classes,
+now collected in the library `libmpjbuf'.
+
+The native code for `mpjdev.Comm' and `mpjdev.Request' has been moved
+in with the `libmpijava' sources.
+

@@ -1,0 +1,8 @@
+
+SUBDIR="ccl ccl_ObjSer comm dtyp dtyp_ObjSer env group pt2pt pt2pt_ObjSer topo signals"
+
+for i in ${SUBDIR}
+do
+    (cd $i > /dev/null ; ./summarize)
+done
+

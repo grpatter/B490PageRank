@@ -1,0 +1,67 @@
+--------------------Configuration: WMPI - Win32 Release--------------------
+Begining build with project "D:\demo\mpiJava\src\C\wmpi\WMPI.DSP", at root.
+Active configuration is Win32 (x86) Dynamic-Link Library (based on Win32 (x86) Dynamic-Link Library)
+
+Project's tools are:
+			" (df.exe)" with flags "/include:"Release/" /compile_only /nologo /libs:dll /dll "
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/WMPI.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "NDEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Release/WMPI.bsc" "
+			"COFF Linker for 80x86" with flags "cvwmpi.lib jvm.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"Release/mpiJava.pdb" /machine:I386 /out:"..\..\..\bin\WMPI\mpiJava.dll" /implib:"Release/mpiJava.lib" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP25.tmp" with contents </nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/WMPI.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\demo\mpiJava\src\C\mpi_Cartcomm.c"
+"D:\demo\mpiJava\src\C\mpi_Comm.c"
+"D:\demo\mpiJava\src\C\mpi_Datatype.c"
+"D:\demo\mpiJava\src\C\mpi_Errhandler.c"
+"D:\demo\mpiJava\src\C\mpi_Graphcomm.c"
+"D:\demo\mpiJava\src\C\mpi_Group.c"
+"D:\demo\mpiJava\src\C\mpi_Intercomm.c"
+"D:\demo\mpiJava\src\C\mpi_Intracomm.c"
+"D:\demo\mpiJava\src\C\mpi_MPI.c"
+"D:\demo\mpiJava\src\C\mpi_Op.c"
+"D:\demo\mpiJava\src\C\mpi_Prequest.c"
+"D:\demo\mpiJava\src\C\mpi_Request.c"
+"D:\demo\mpiJava\src\C\mpi_Status.c"
+>
+Creating command line "cl.exe @C:\TEMP\RSP25.tmp" 
+Creating temp file "C:\TEMP\RSP26.tmp" with contents <cvwmpi.lib jvm.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"Release/mpiJava.pdb" /machine:I386 /out:"..\..\..\bin\WMPI\mpiJava.dll" /implib:"Release/mpiJava.lib" 
+.\Release\mpi_Cartcomm.obj
+.\Release\mpi_Comm.obj
+.\Release\mpi_Datatype.obj
+.\Release\mpi_Errhandler.obj
+.\Release\mpi_Graphcomm.obj
+.\Release\mpi_Group.obj
+.\Release\mpi_Intercomm.obj
+.\Release\mpi_Intracomm.obj
+.\Release\mpi_MPI.obj
+.\Release\mpi_Op.obj
+.\Release\mpi_Prequest.obj
+.\Release\mpi_Request.obj
+.\Release\mpi_Status.obj>
+Creating command line "link.exe @C:\TEMP\RSP26.tmp" 
+Compiling...
+mpi_Cartcomm.c
+mpi_Comm.c
+mpi_Datatype.c
+mpi_Errhandler.c
+mpi_Graphcomm.c
+mpi_Group.c
+mpi_Intercomm.c
+mpi_Intracomm.c
+mpi_MPI.c
+D:\demo\mpiJava\src\C\mpi_MPI.c(75) : warning C4101: 'i' : unreferenced local variable
+D:\demo\mpiJava\src\C\mpi_MPI.c(169) : warning C4101: 'isCopy' : unreferenced local variable
+mpi_Op.c
+mpi_Prequest.c
+mpi_Request.c
+mpi_Status.c
+Linking...
+   Creating library Release/mpiJava.lib and object Release/mpiJava.exp
+
+
+
+mpiJava.dll - 0 error(s), 2 warning(s)

@@ -1,0 +1,3 @@
+/* version number */
+
+#undef  VERSION

@@ -1,0 +1,22 @@
+
+4)  Translate the other 15 test cases in
+
+      /project/pss_shko/mpi_TestSuites/IBM_mpich_test/dtyp
+
+    to Java.
+
+7)  Translate missing cases in `IBM_mpich_test/pt2pt'.
+
+8)  Make sure `pt2pt' tests for multiple completions are sane.  Currently
+    some are run with request vectors with only one request.
+
+10) Add proper exception handling!
+
+12) !! Must add runtime checks for type of buffer !!
+
+14) Sort out problem reported by Mikko Majanen re command line arguments
+    and `prunjava' script.
+
+15) Find out if LAM really needs `libjsig' be loaded, if you use the
+   `-nsig' option.
+
