@@ -1,10 +1,12 @@
 !!HEY YOU, READ ME!!
 Structure:
-repo->[assignments]->[assignment#] -> src, docs, resources (assigment specific files)
+repo->[Assignments]->[assignment#] -> project, materials (assignment provided), doc
+[project]-> bin, src, resources (project/build specific), lib
 
-src: is where we should do all of our work and place any dependencies, modules, additions, etc..
-resources: ALL resources for that specific assigment portion
-docs: self explanatory
+src: where we should do all of our work and place any modules, additions, etc..
+resources: resources (input files, data, etc..) for that specific project
+bin: build dir, shouldn't need to do anything here
+lib: to place dependencies that we have not written/modified
 
 PLEASE try to avoid committing .class files (unless they are a provided resource)
 as well as your .classpath (since we will likely all have different working environments)
