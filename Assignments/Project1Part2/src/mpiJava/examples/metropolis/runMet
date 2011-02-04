@@ -1,9 +1,0 @@
-#!/bin/csh -f
-##LD_LIBRARY_PATH=../../lib
-##export LD_LIBRARY_PATH
-
-
-cd `dirname $0`
-java  -classpath .:../../classes:/usr/npac/java/lib/classes.zip:/usr/java/classes Metrop $0 $*
-
-
