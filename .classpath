@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Assignments/Project1Part1/resources/PageRankData"/>
+	<classpathentry kind="src" path="Assignments/Project1Part1/resources/SeqPageRank"/>
+	<classpathentry kind="src" path="Assignments/Project1Part1/src/java"/>
+	<classpathentry kind="src" path="Assignments/Project1Part1/src/resources/PageRankData"/>
+	<classpathentry kind="src" path="Assignments/Project1Part2/resources/PageRankData"/>
+	<classpathentry kind="src" path="Assignments/Project1Part2/src/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Assignments/Project1Part2/src/resources/PageRankData"/>
+</classpath>
