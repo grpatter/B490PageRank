@@ -1,9 +1,18 @@
-import java.io.*;
-import java.util.*;
-import mpi.*;
-import mpi.Intracomm.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import mpi.MPI;
 
 public class MpiPagerank {
+	
+	private static Integer TEST_ARRAY_X = 5;
+	private static Integer TEST_ARRAY_Y = 10;
+	
 	public static void readPagerankInput(String file, HashMap<Integer, ArrayList<Integer>> links) {
 		try {
 			BufferedReader f = new BufferedReader(new FileReader(file));
@@ -65,29 +74,43 @@ public class MpiPagerank {
 	 * @param args
 	 * @throws IOException 
 	 * @throws ClassNotFoundException 
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 		// Declare global variables.
 		HashMap<Integer, ArrayList<Integer>> globalLinks = new HashMap<Integer, ArrayList<Integer>>();
 		ArrayList<PagerankData> finalLinks = new ArrayList<PagerankData>();
 		HashMap<Integer, Double> finalPagerank = new HashMap<Integer, Double>();
 		Double danglingValue = 0.0;
-		String file = "pagerank.input";
+		String file = "C:\\pagerank.input";
 		
 		MPI.Init(args);
 		int nodeId = MPI.COMM_WORLD.Rank();
 		int size = MPI.COMM_WORLD.Size();
 		
+		
 		if (nodeId == 0) {
 			// Code for root.
 			System.out.println("Hello from king node " + nodeId + ". I rule over a kingdom of " + size + " nodes.");
 			
-			// TODO Read in globalLinks from file
+			// VERIFY Read in globalLinks from file
 			readPagerankInput(file, globalLinks);
 			System.out.println(file + " " + globalLinks.size());
 			
-			// TODO Broadcast data to workers			
-			MPI.COMM_WORLD.Bcast(new int[]{1,2,3}, 0, 3, MPI.INT, nodeId);
+			//TODO fill this with actual values
+			//fill with garbage since its a TEST
+			double [][]test = MpiPagerank.fillDoubleArray(TEST_ARRAY_X, TEST_ARRAY_Y);
+			
+			Object[] testO = new Object[1];
+			testO[0] = (Object)test;		
+						
+			// TODO Broadcast data to workers
+			Thread.currentThread().sleep(2000);
+
+			MPI.COMM_WORLD.Send(testO, 0, 1, MPI.OBJECT, 1, 10);
+			System.out.println("sent");
+			MPI.COMM_WORLD.Bcast(testO, 0, 1, MPI.OBJECT, nodeId);
+			System.out.println("bcasted");
 						
 			// TODO Receive slice of globalLinks back from workers and apply to globalLinks
 			
@@ -99,8 +122,16 @@ public class MpiPagerank {
 			// Code for worker.
 			System.out.println("I'm just a worker node named " + nodeId);
 			byte[] yourBytes = new byte[100000];
+			
 			// TODO Receive data from root.
+			Object[]testRO = new Object[1];
 
+			MPI.COMM_SELF.Recv(testRO, 0, 1, MPI.OBJECT, MPI.ANY_SOURCE, MPI.ANY_TAG);
+			System.out.println("received");
+			double [][] testCheck = MpiPagerank.getNewDoubleArray();
+			testCheck = (double[][]) testRO[0];
+			
+			
 			// TODO Find pagerank
 			danglingValue = getPagerank(globalLinks, finalPagerank);
 			
@@ -110,5 +141,37 @@ public class MpiPagerank {
 		}
 		MPI.Finalize();
 	}
+	
+	/**
+	 * This is an internal test function.
+	 * @param x dimension 1
+	 * @param y dimension 2
+	 * @return 2d array of type double
+	 */
+	private static double[][] fillDoubleArray(int x, int y){
+		double [][]test = new double[x][y];
+		for(int i = 0; i < x;i++)
+			for(int j = 0; j< y; j++)
+				test[i][j] = j+1*i+1;
+		
+		return test;		
+	}
+	
+	/**
+	 * This is an internal test function.
+	 * @param x dimension 1
+	 * @param y dimension 2
+	 * @return 2d array of type double
+	 */
+	private static double[][] getNewDoubleArray(){
+		double [][]test = new double[TEST_ARRAY_X][TEST_ARRAY_Y];
+		for(int i = 0; i < TEST_ARRAY_X;i++)
+			for(int j = 0; j< TEST_ARRAY_Y; j++)
+				test[i][j] = 0;
+		
+		return test;		
+	}
+	
+	
 
 }
