@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 import mpi.*;
-import mpi.Intracomm.*;
 
 public class MpiPagerank {
 	public static void readPagerankInput(String file, int localUrlCount, int[][] adjacencyMatrix, Intracomm mpiComm) throws NumberFormatException, IOException {
