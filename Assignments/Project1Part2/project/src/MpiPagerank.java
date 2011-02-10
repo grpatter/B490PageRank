@@ -92,7 +92,7 @@ public class MpiPagerank {
 		int urlCount = 0;
 
 		Double PublicPR[][] = new Double[1][1];
-		Double Private[][] = new Double[1][1];
+		Double PrivatePR[][] = new Double[1][1];
 		
 
 		// Declare global variables.
@@ -102,7 +102,7 @@ public class MpiPagerank {
 		// Declare local variables.
 		HashMap<Integer, Double> localPagerank = new HashMap<Integer, Double>();
 		int localUrlCount = 0;
-		Double localDanglingSum = 0.0;
+		Double dangling = 0.0;//for worker threads
 	
 		// Read in adjacency matrix from file
 		urlCount = readPagerankInput(pagerankInputFilename, globalAdjacencyMatrix);
@@ -139,12 +139,31 @@ public class MpiPagerank {
 			System.out.println("Recieving...");
 			mpiComm.Recv(in, 0, 1, MPI.OBJECT, 0, MPI.ANY_TAG);
 			System.out.println("Recieved");
-			int[][] cast = new int[1][1];
-			cast = (int[][])in[0];
-			System.out.print(cast[0][1]);
-			System.exit(1);
+			int[][] setToWork = new int[1][1];
+			setToWork = (int[][])in[0];//from object to 2d array
+			
+			
+			System.out.print(setToWork[0][1]);
 			// TODO Find pagerank
-			//danglingValue = getPagerank(globalLinks, finalPagerank);
+//				Double dangling = 0.0;
+				//iterate over given 2d array and update the PR values into privatepr
+				for(int x = 0; x < setToWork.length; x++){
+//					for(int y = 0; y<setToWork[x].length; y++){
+						int[] currentLinks = setToWork[x];
+					    int outgoingLinkCount = currentLinks.length;
+					    
+					    //Iterate through each of this webpage's neighbors and calculate their Pagerank based on this web pages current Pagerank and number of outgoing links 
+					    for(int j = 0; j < outgoingLinkCount; j++){
+					    	int neighbor = currentLinks[j];
+					    	if(neighbor != -1){
+	//							tmp = tmpPagerank.get(neighbor) + finalPagerank.get(linkKey)/(double)outgoingLinkCount;
+	//							tmpPagerank.put(neighbor, tmp);
+						    	PrivatePR[x][neighbor] += PublicPR[x][j]/outgoingLinkCount;
+						    	
+					    	} else { dangling += PrivatePR[x][j]; }
+					    }
+//					}
+				}
 			
 			// TODO Send slice of globalLinks to root
 			
