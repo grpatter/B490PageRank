@@ -2,71 +2,46 @@ import java.io.*;
 import java.util.*;
 import mpi.*;
 
+
 public class MpiPagerank {
-	public static void readPagerankInput(String file, int localUrlCount, int[][] adjacencyMatrix, Intracomm mpiComm) throws NumberFormatException, IOException {
-		int nodeId = mpiComm.Rank();
-		int worldNodeCount = mpiComm.Size();
-		int[] luc = new int[1];
+
+	public static int readPagerankInput(String file, int[][] AdjacencyMatrix) throws NumberFormatException, IOException {
 		
-		// Read in adjacencyMatrix
-		if (nodeId == 0) {
-			BufferedReader f = new BufferedReader(new FileReader(file));
-			int i = 0;
-			
-			while (f.ready()) {
-				String nodeInfo = f.readLine();
-				String[] s = nodeInfo.split(" ");
-				int[] adjacencyMatrixPart = new int[s.length];
-				
-				for (int j = 0; j < s.length; j++) {
-					adjacencyMatrix[i][j] = Integer.parseInt(s[j]);
-				}
-			}
-			luc[0] = adjacencyMatrix.length;
+	    BufferedReader f = new BufferedReader(new FileReader(file));
+	    int totalUrlCount = 0;
+	    int maxLineLength = 0;
+	    
+	    while (f.ready()) {
+		String[] adjacencyInfo = f.readLine().split(" ");
+		int infoLength = adjacencyInfo.length;
+		totalUrlCount++;
+
+		if (infoLength > maxLineLength) {
+		    maxLineLength = infoLength;
 		}
-		
-		// Broadcast total url count to all nodes.
-		mpiComm.Bcast(luc, 0, 1, MPI.INT, 0);
-		
-		localUrlCount = luc[0] / worldNodeCount;
-		int remUrlCount = luc[0] / worldNodeCount;
-		
-		if (nodeId == 0) {
-			int dest = 1;
-			int counter = 0;
-			
-			for (int i = 0; i < luc[0]; i++) {
-				counter++;
-				
-				if (counter >= 111) {
-					dest++;
-					counter = 0;
-				}
-				
-				if (dest < worldNodeCount - 1) {
-					//System.out.println("Sending... " + dest);
-					mpiComm.Send(adjacencyMatrix[i], 0, 100, MPI.INT, dest, 1);
-				} else {
-					mpiComm.Send(adjacencyMatrix[luc[0] - (localUrlCount + remUrlCount)], 0, 100, MPI.INT, dest, 1);
-					break;
-				}					
-			}
-		} else {
-			if (nodeId < worldNodeCount - 1) {
-				for (int i = 0; i < localUrlCount; i++) {
-					mpiComm.Recv(adjacencyMatrix[i], 0, 100, MPI.INT, 0, 1);
-				}
-				System.out.println("Worker node " + nodeId + ": recived data");
-			} else {
-				for (int i = 0; i < localUrlCount + remUrlCount; i++) {
-					mpiComm.Recv(adjacencyMatrix[i], 0, 100, MPI.INT, 0, 1);
-				}
-				System.out.println("one");
-			}
-			
+	    }
+
+	    for (int i = 0; i < totalUrlCount; i++) {
+		for (int j = 0; j < maxLineLength; j++) {
+		    AdjacencyMatrix[i][j] = -1;
 		}
-		
-		// TODO Assign part of the problem to localPagerank.
+	    }
+
+	    f.close();
+	    f = new BufferedReader(new FileReader(file));
+
+	    int amPointer = 0;
+	    while (f.ready()) {
+		String[] adjacencyInfo = f.readLine().split(" ");
+
+		for (int i = 0; i < adjacencyInfo.length; i++) {
+		    AdjacencyMatrix[amPointer][i] = Integer.parseInt(adjacencyInfo[i]);
+		}
+		amPointer++;
+	    }
+
+	    f.close();
+	    return totalUrlCount;
 	}
 
 	public static Double getPagerank(HashMap<Integer, ArrayList<Integer>> globalLinks, HashMap<Integer, Double> output) {
@@ -113,9 +88,13 @@ public class MpiPagerank {
 		MPI.Init(args);
 		int nodeId = MPI.COMM_WORLD.Rank();
 		int globalNodeCount = MPI.COMM_WORLD.Size();
-		
 		String pagerankInputFilename = "pagerank.input";
+		int urlCount = 0;
+
+		Double PublicPR[][] = new Double[1][1];
+		Double Private[][] = new Double[1][1];
 		
+
 		// Declare global variables.
 		int[][] globalAdjacencyMatrix = new int[1000][100];
 		HashMap<Integer, Double> globalPagerank = new HashMap<Integer, Double>();
@@ -124,23 +103,27 @@ public class MpiPagerank {
 		HashMap<Integer, Double> localPagerank = new HashMap<Integer, Double>();
 		int localUrlCount = 0;
 		Double localDanglingSum = 0.0;
-		
+	
 		// Read in adjacency matrix from file
-		//readPagerankInput(pagerankInputFilename, globalAdjacencyMatrix, localPagerank);
-		//globalUrlCount = globalAdjacencyMatrix.size();
-		
+		urlCount = readPagerankInput(pagerankInputFilename, globalAdjacencyMatrix);
+				
 		Intracomm mpiComm = MPI.COMM_WORLD;
-		
-		readPagerankInput(pagerankInputFilename, localUrlCount, globalAdjacencyMatrix, mpiComm);
-		
-		// TODO Broadcast initial pagerank value to workers
-		
-		if (nodeId == 0) {
-			// Code for root.
-			System.out.println("Hello from king node " + nodeId + ". I rule over a kingdom of " + globalNodeCount + " nodes.");
 
-			// TODO
+		// TODO Broadcast initial pagerank value to workers
+		if (nodeId == 0) {
+		    // Code for root.
+			System.out.println("Hello from king node " + nodeId + ". I rule over a kingdom of " + globalNodeCount + " nodes.");
 			
+			// TODO
+			Object ad = (Object)globalAdjacencyMatrix;
+			Object send[] = new Object[1];
+			send[0] = ad;
+			System.out.println("Bcasting from: " + nodeId);
+
+			for(int i = 1; i < globalNodeCount; i++) {
+			    mpiComm.Send(send, 0, send.length, MPI.OBJECT, i, 1);
+			    System.out.println("Bcasting from: " + nodeId);
+			}
 			// TODO Receive slice of globalLinks back from workers and apply to globalLinks
 			
 			// TODO Receive dangle value from worker and add dangle/size to all nodes
@@ -150,8 +133,16 @@ public class MpiPagerank {
 		} else {
 			// Code for worker.
 			System.out.println("I'm just a worker node named " + nodeId);
-			// TODO Receive data from root.
 
+			// TODO Receive data from root.
+			Object in[] = new Object[1];
+			System.out.println("Recieving...");
+			mpiComm.Recv(in, 0, 1, MPI.OBJECT, 0, MPI.ANY_TAG);
+			System.out.println("Recieved");
+			int[][] cast = new int[1][1];
+			cast = (int[][])in[0];
+			System.out.print(cast[0][1]);
+			System.exit(1);
 			// TODO Find pagerank
 			//danglingValue = getPagerank(globalLinks, finalPagerank);
 			
