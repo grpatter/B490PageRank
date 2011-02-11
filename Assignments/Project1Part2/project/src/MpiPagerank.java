@@ -165,12 +165,16 @@ public class MpiPagerank {
 		      MPI.COMM_WORLD.Barrier(); // block the caller until all process in the group have called it.
 		      
 		      if(cur != prev){
-		    	  PublicPR[j] = PublicPR[j] + dangPerPage;//apply dangling
+//		    	  PublicPR[j] = PublicPR[j] + dangPerPage;//apply dangling
 		    	  System.out.println("AFTER REDUCE node: " + j + " :PubPr[]/PrPr[] is: " + PublicPR[j] + " / " + PrivatePR[j]);
 		      }else{
 		    	  prev = cur;
 		    	  cur++;
 		      }
+		    }
+		    
+		    for(int y = 0; y<urlCount;y++){
+		    	  PublicPR[y] = PublicPR[y] + dangPerPage;//apply dangling		    	
 		    }
 
 		    MPI.COMM_WORLD.Barrier();
