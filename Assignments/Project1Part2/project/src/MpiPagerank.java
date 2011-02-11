@@ -123,21 +123,20 @@ public class MpiPagerank {
 					int neighbor = currentLinks[j];
 					if(neighbor != -1){
 					    PrivatePR[x] += PublicPR[neighbor]/outgoingLinkCount;	
-	//				    System.out.println("Setting PrPR["+x+"] to:" + PrivatePR[x]);
+//					    System.out.println("Setting PrPR["+x+"] to:" + PrivatePR[x]);
 					} else { dangling += PrivatePR[x]; }
 				    }
 				}
 				for(int l = 0; l < urlCount; l++) {
-	//			    System.out.println("PrPR["+l+"] is: " + PrivatePR[l]);			
+				    System.out.println("AFTER CALCING PrPR["+l+"] is: " + PrivatePR[l]);			
 				}
-				System.out.println("dangling is: " + dangling);
+//				System.out.println("dangling is: " + dangling);
 		    }
 		    
 
 			try {
-				MpiPagerank.allreduceTest(args, PrivatePR, PublicPR, urlCount);
+				MpiPagerank.allreduceTest(args, PrivatePR, PublicPR, urlCount, dangling);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -145,22 +144,29 @@ public class MpiPagerank {
 		}
 	}
 	
-	  public static void allreduceTest(String[] args, double[] PrivatePR, double[]PublicPR, int urlCount) throws Exception {
+	  public static void allreduceTest(String[] args, double[] PrivatePR, double[]PublicPR, int urlCount, Double dangling) throws Exception {
 
 		    int j;
 		    int myself;
 		    int cur = 0,prev = 0;
+		    Double dangPerPage = dangling/urlCount;
+		    Double damping = 0.85; //TEMP
 
 		    myself = MPI.COMM_WORLD.Rank();
+		    
+		    for(int a = 0; a< 1000; a++){
+		    	System.out.println("BEFORE REDUCE node: " + a + " :PubPr[]/PrPr[] is: " + PublicPR[a] + " / " + PrivatePR[a]);		    	
+		    }
 
 		    for(j=1;j<urlCount;j++)  {
 		      cur = j;
-//		      MPI.COMM_WORLD.Allreduce(out,0,in,0,j,MPI.INT,MPI.SUM);
-		      MPI.COMM_WORLD.Allreduce(PublicPR,0,PrivatePR,0,j,MPI.DOUBLE,MPI.SUM);
 		      
-		      MPI.COMM_WORLD.Barrier();
+		      MPI.COMM_WORLD.Allreduce(PrivatePR,0,PublicPR,0,j,MPI.DOUBLE,MPI.SUM); //Send, offset, Receive, offset, size, type, operation	      
+		      MPI.COMM_WORLD.Barrier(); // block the caller until all process in the group have called it.
+		      
 		      if(cur != prev){
-		    	  System.out.println("Iter: " + j + " :PubPr[]/PrPr[] is: " + PublicPR[j] + " / " + PrivatePR[j]);
+		    	  PublicPR[j] = PublicPR[j] + dangPerPage;//apply dangling
+		    	  System.out.println("AFTER REDUCE node: " + j + " :PubPr[]/PrPr[] is: " + PublicPR[j] + " / " + PrivatePR[j]);
 		      }else{
 		    	  prev = cur;
 		    	  cur++;
@@ -168,6 +174,14 @@ public class MpiPagerank {
 		    }
 
 		    MPI.COMM_WORLD.Barrier();
-		    if(myself == 0)  System.out.println("Allreduce COMPLETE");
+		    if(myself == 0) { System.out.println("Allreduce COMPLETE");}
+
+		    Double totalPR = 0.0;//For verification
+		    for(int z = 0; z<urlCount;z++){//apply damping
+		      PublicPR[z] = PublicPR[z] * damping + ((1 - damping)/urlCount);
+	    	  System.out.println("AFTER DANG+DAMP node: " + z + " :PubPr[]is: " + PublicPR[z]);
+	    	  totalPR += PublicPR[z];
+		    }
+		    System.out.println("TotalPR value (SUM) is: " + totalPR);
 		  }
 }
