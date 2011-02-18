@@ -1,6 +1,0 @@
-1. B534Project1Part1.pdf 
-2. SeqPageRank:
-   a. SequentialPageRank.class
-   c. pagerank.input
-3. PageRankData:
-   a. one PageRank input file for each student group
