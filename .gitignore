@@ -2,4 +2,4 @@ tags
 *.classpath
 *.project
 */Assignments/*/projects/*/src/**.class
-*/Assignments/*/projects/*/bin/**.class
+bin/
