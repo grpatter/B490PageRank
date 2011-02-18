@@ -1,0 +1,87 @@
+////////////////////////////////////////////////
+//updated notes for project#1 part2  (Feb 7th)//
+////////////////////////////////////////////////
+
+1) **why rank values of some urls bigger than 1.0 after several iterations**
+   you need clean up the local_rank_values_table & tangling value at the end of each iteration
+   otherwise the rank values will accumulate as iterations increase
+
+2) **serialization issue**
+one group got the serialization compile-error in MPI_Send() when store the pagerank.input in a hashtable.
+solution: store the pagerank.input into the int[] or object[] array, as these are default serializable MPI data type. 
+
+the MPJ example:
+Object[] input_data_array = input_data.toArray();
+MPI.COMM_WORLD.Send(input_data_array, 0, x_local_num_urls, MPI.OBJECT, x, 2);
+
+for detailed information about serialization:
+http://en.wikipedia.org/wiki/Serialization
+
+3) **convergence condition**
+for (int i=0;i<totalNumUrls;i++)
+{
+diff = old_rank_values_table[i] - rank_values_table[i];
+delta += diff*diff;
+old_rank_values_table[i]=rank_values_table[i];
+}
+if delta less than a predefined threshold value, the iteration will stop. 
+http://en.wikipedia.org/wiki/PageRank
+delta is the euclidean geometrical distance between two rank values tables.
+http://en.wikipedia.org/wiki/Distance; 
+
+
+/////////////////////////////////////////////
+//some notes for project#1 part2  (Feb 4th)//
+/////////////////////////////////////////////
+
+1) **how the adjacency matrix is split**
+the entire adjacency matrix is split into some AM partitions. each process handles one AM partition to which it was assigned.
+
+for example:
+when invoking "mpirun -np 2 ./mpi_main -i pagerank.input -n 10 -t 0.001"
+the entire AM (pagerank.input) was split into two AM partitions, in process 
+0, the AM partition contains urls from 0~5, while in process 1, it contains urls from 6~10
+
+2) **recalculate local am_index** 
+as the adjacency matrix is split into local AM, so is the am_index. 
+   after each process receive local am_index from process 0, it need recalculate the second index of local am_index so that it refers to right urls in local adjacency matrix recalculate the second index with following code:  
+>> for (int i=0;i<localUrlNum;i++)
+>>    am_index[i][0] = am_index[i][0]-am_index[0][0];
+
+for example, the original local am_index before recalculating:
+>> am_index[0][0] = 15 --> AM[15] = 6
+>> am_index[1][0] = 18 --> AM[18] = 7
+..
+>> am_index[4][0] = 26 --> AM[26] = 10
+
+after recalculating local am_index:
+>> am_index[0][0] = 0 --> AM[0] = 6
+>> am_index[1][0] = 3 --> AM[3] = 7
+..
+>> am_index[4][0] = 11 --> AM[11] = 10
+
+3) **the size of local_rank_values_table and rank_values_table**
+ both the size of local_rank_values_table and rank_values_table in each process is *totalNumUrls* rather than localNumUrls, as the target url in each AM partition can be any value between 0 to (totalNumUrls-1). 
+
+4)**update rank_values_table across all the processes**
+ after initializing/updating the rank_values_table in process 0, it need broadcast the newest rank_values_table to all the other processes. Or each process initialize/update rank_values_table on their own memory address space. the second method need more computation in all, but the computation is parallelized and can decrease network traffic across compute nodes.
+
+first method:
+if (rank == 0) {
+    double initial_rank = 1.0/(double)totalNumUrls;
+    for (i=0; i<totalNumUrls; i++)
+        rank_values_table[i] = initial_rank;
+    /*add following line to broadcast rank_values_table across compute nodes*/
+    MPI_Bcast(rank_values_table, totalNumUrls, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    }
+second method:
+/*comment out following line so that each process initializes rank_values_table on local machine*/
+//if (rank == 0) {
+    double initial_rank = 1.0/(double)totalNumUrls;
+    for (i=0; i<totalNumUrls; i++)
+        rank_values_table[i] = initial_rank;
+//    }
+
+
+5) **debug tip** 
+use -np=1 to debug code and check with output result first, then move to -np=2
