@@ -1,14 +1,15 @@
 !!HEY YOU, READ ME!!
 Structure:
-repo->[Assignments]->[assignment#] -> project, materials (assignment provided), doc
-[project]-> bin, src, resources (project/build specific), lib
+repo->[assignment] -> project, materials (assignment provided), doc (optionally, only if we have created jdocs)
+[project]-> src, resources, lib 
 
 src: where we should do all of our work and place any modules, additions, etc..
-resources: resources (input files, data, etc..) for that specific project
-bin: build dir, shouldn't need to do anything here
-lib: to place dependencies that we have not written/modified
+resources: resources (input files, data, config, etc..) for that specific project
+lib: to place dependencies that we have not written/modified (for external libraries we need)
 
-PLEASE try to avoid committing .class files (unless they are a provided resource)
-as well as your .classpath (since we will likely all have different working environments)
+Ignored Files:
+.class files (in src folders)
+.classpath
+all */bin/ dirs 
+.project
 
-If someone wants to changes this, please let's discuss it first, re-organizing things locally after every pull isn't much fun ;)
