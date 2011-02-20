@@ -3,3 +3,4 @@ tags
 *.project
 */Assignments/*/projects/*/src/**.class
 bin/
+.metadata/*
