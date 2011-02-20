@@ -1,3 +1,5 @@
+package main.java;
+
 import java.io.*;
 import java.security.AllPermission;
 import java.util.*;
