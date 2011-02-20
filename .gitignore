@@ -2,5 +2,6 @@ tags
 *.classpath
 *.project
 */Assignments/*/projects/*/src/**.class
-bin/
+*/bin/*
 .metadata/*
+Project1Part1/.settings/*
