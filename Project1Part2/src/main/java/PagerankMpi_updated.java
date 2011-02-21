@@ -1,8 +1,9 @@
+package main.java;
 import java.io.*;
 import java.util.*;
 import mpi.*;
 
-public class PagerankMpi_hui {
+public class PagerankMpi_updated {
 	public static HashMap<Integer, ArrayList<Integer>> readInput(String filename, Intracomm mpiComm, int nodeId) {
 		// Get globalUrlCount
 		int globalUrlCount = 0;
@@ -177,7 +178,6 @@ public class PagerankMpi_hui {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("Pagerank using MPI:");
 		String filename = "pagerank.input";
 		String outFilename = "pagerank.output";
 		
@@ -187,8 +187,8 @@ public class PagerankMpi_hui {
 		
 		// Change this if needed. Eclipse hack?
 		if (args.length == 7) {
-			filename = args[3];
-			outFilename = args[4];
+			filename = System.getProperty("user.dir") + "/src/main/resources/" + args[3];
+			outFilename = System.getProperty("user.dir") + "/bin/main/resources/" + args[4];
 			iterations = Integer.parseInt(args[5]);
 			//damping = Double.parseDouble(args[6]);
 		} else {
@@ -269,8 +269,6 @@ public class PagerankMpi_hui {
 				// Broadcast globalUrlCount
 				mpiComm.Bcast(globalUrlCountB, 0, 1, MPI.INT, 0);
 				globalUrlCount = globalUrlCountB[0];
-				//System.out.println(nodeId + " recieved globalUrlCount of: " + globalUrlCount + " localUrls: " + localAdjacencyMatrix.size());
-
 				
 				//NOTES: need to initilize global rank value table in the first iteration
 				if (!globalRankValueTableInit){
