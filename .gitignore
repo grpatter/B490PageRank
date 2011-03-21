@@ -6,3 +6,5 @@ tags
 .metadata/*
 Project1Part1/.settings/*
 Project1Part2/.settings/*
+Project2/.settings/*
+Project2/*/*.class
