@@ -281,7 +281,7 @@ public class PagerankMpi_updated {
 				for (int i = 0; i < globalUrlCount; i++) {
 					globalPagerank.put(i, globalPagerankB[i]);
 				}				
-				plogHeadCalc.log(("Finished head node calculatons and result generation.");
+				plogHeadCalc.log("Finished head node calculatons and result generation.");
 			}
 			else {
 				PerformanceLogger plogWorkCalc = new PerformanceLogger((long)nodeId);
