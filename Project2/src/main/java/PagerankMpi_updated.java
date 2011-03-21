@@ -46,6 +46,7 @@ public class PagerankMpi_updated {
 			PerformanceLogger plogTrans = new PerformanceLogger((long)nodeId);
 			try {
 				BufferedReader f = new BufferedReader(new FileReader(filename));
+//				int mpiSize = mpiComm.Size();
 				int blockSize = globalUrlCount/(mpiComm.Size() - 1);
 				int remBlockSize = globalUrlCount % (mpiComm.Size() - 1);
 
@@ -205,7 +206,7 @@ public class PagerankMpi_updated {
 
 		// Change this if needed. Eclipse hack?
 		if (args.length == 7) {
-			filename = System.getProperty("user.dir") + "/src/main/resources/" + args[3];
+			filename = System.getProperty("user.dir") + "/main/resources/" + args[3];
 			outFilename = System.getProperty("user.dir") + "/bin/main/resources/" + args[4];
 			iterations = Integer.parseInt(args[5]);
 			//damping = Double.parseDouble(args[6]);
