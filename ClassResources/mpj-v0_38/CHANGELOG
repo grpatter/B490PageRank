@@ -1,0 +1,35 @@
+Version 0.38
+------------
+
+1. Fixed a bug in the mpjrun module that appends null as the host name 
+   in the configuration file. Thanks to Pete Christopher for 
+   identifying this bug. 14/1/2011
+
+Version 0.37
+------------
+
+1. Added the executing and debugging tutorial of MPJ Express applications
+   using Eclipse IDE. 14/5/2010
+2. Modified the runtime to get rid of the shared directory requirement 
+   between the starter (head node) and daemons (running on compute nodes).
+   This paper is coded by Rizwan Hanif and Amjad Aziz. 6/1/2011
+3. Fixed a bug that causes daemons to crash on Windows boxes. 4/1/2011
+
+Version 0.36
+------------
+
+1. Fixed the mpjboot error for Mac OS X reported by Ed Baskerville. The
+   mpjboot script used x86 binaries on Mac OS X, which obviously was incorrect.
+   18/3/2010
+2. The MPJ Express runtime could not start more than 100 processes. 
+   Guillermo Lopez Taboada identified and proposed and a fix for this.  
+   18/3/2010
+3. Fixed the bug which broke test cases when executed with odd number of
+   processes. Many thanks to Guillermo Lopez Taboada for discovering 
+   this bug. 18/3/2010 
+4. Made changes to the MPJ Express runtime system and got rid of a couple 
+   of internal classes. 
+5. On some clusters, users complained that MPJ Express took abnormally 
+   long amount of time to bootstrap. We have fixed this bug in this release.
+   1/4/2010
+6. Got rid of the Jetty dependency. 9/4/2010
