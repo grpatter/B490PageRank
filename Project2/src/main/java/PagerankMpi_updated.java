@@ -43,6 +43,7 @@ public class PagerankMpi_updated {
 		HashMap<Integer, ArrayList<Integer>> globalAdjacencyMatrix = new HashMap<Integer, ArrayList<Integer>>();
 
 		if (nodeId == 0) {
+			PerformanceLogger plogTrans = new PerformanceLogger((long)nodeId);
 			try {
 				BufferedReader f = new BufferedReader(new FileReader(filename));
 				int blockSize = globalUrlCount/(mpiComm.Size() - 1);
@@ -92,9 +93,12 @@ public class PagerankMpi_updated {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			plogTrans.log("Finished transmitting data to workers.");
 		} else {
+			PerformanceLogger plogRecv = new PerformanceLogger((long)nodeId);
 			mpiComm.Recv(localAdjacencyMatrixB, 0, 1, MPI.OBJECT, 0, 0);
 			localAdjacencyMatrix = (HashMap<Integer, ArrayList<Integer>>)localAdjacencyMatrixB[0];				
+			plogRecv.log("Finished recv from headnode.");
 		}
 
 		// Return adjacency matrix.
@@ -236,6 +240,7 @@ public class PagerankMpi_updated {
 
 		for (int k = 0; k < iterations; k++) {		
 			if (nodeId == 0) {
+				PerformanceLogger plogHeadCalc = new PerformanceLogger((long)nodeId);
 				// Get global adjacency matrix and distribute pieces to worker nodes.
 				globalAdjacencyMatrix = readInput(filename, mpiComm, nodeId);
 
@@ -264,6 +269,7 @@ public class PagerankMpi_updated {
 				mpiComm.Allreduce(localPagerankB, 0, globalPagerankB, 0, globalUrlCount, MPI.DOUBLE, MPI.SUM);
 				mpiComm.Barrier();
 
+				plogHeadCalc.log("Received results from workers.");
 				// Apply dangling and damping.
 				double dvp = dangling/(double)globalUrlCount;
 				for (int i = 0; i < globalUrlCount; i++) {
@@ -275,8 +281,10 @@ public class PagerankMpi_updated {
 				for (int i = 0; i < globalUrlCount; i++) {
 					globalPagerank.put(i, globalPagerankB[i]);
 				}				
+				plogHeadCalc.log(("Finished head node calculatons and result generation.");
 			}
 			else {
+				PerformanceLogger plogWorkCalc = new PerformanceLogger((long)nodeId);
 				// Get local adjacency matrix.
 				localAdjacencyMatrix = readInput(filename, mpiComm, nodeId);
 
@@ -337,6 +345,7 @@ public class PagerankMpi_updated {
 					System.out.format("node:%d globalPagerankB[%d]:=%f  dangling:%f localPagerankB[%d]:=%f\n", nodeId,i,globalPagerankB[i], dangling, i, localPagerankB[i]);
 
 				}
+				plogWorkCalc.log("Worker finished interim calculation.");
 				//System.out.println(globalPagerankB.length);
 				dangling = 0.0;
 				mpiComm.Barrier();				
