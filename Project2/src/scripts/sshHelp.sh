@@ -1,6 +1,8 @@
 #!/bin/sh
 # This is a comment!
 echo "Beginning SSH Ops"
+	mkdir tmp
+	mv pr.zip /tmp
 	rm *
 	mv tmp/pr.zip .
 	unzip -u pr.zip
