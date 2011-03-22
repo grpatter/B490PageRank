@@ -353,13 +353,13 @@ public class PagerankMpi_updated {
 				dangling = 0.0;
 				mpiComm.Barrier();				
 			}
-			plogIter.log("Iteration complete (i=" + k+ ") of" + iterations);
+			plogIter.log("*** Iteration complete (i=" + k+ ") of" + iterations);
 		}//for
 		
-		plogTotal.log("Finished all CALCULATIONS.");
 		// Write to file.
 		//Notes: write only to root process
 		if (nodeId == 0){
+		plogTotal.log("*** Finished all CALCULATIONS.");
 
 		//	for (int i=0;i<globalUrlCount;i++){
 		//	System.out.format("node:%d globalPagerankB[%d]:=%f \n",nodeId,i,globalPagerankB[i]);
@@ -376,8 +376,10 @@ public class PagerankMpi_updated {
 			totalPr += globalPagerank.get(key);
 		}
 		System.out.println("Toatl pagerank value: " + totalPr);
+		plogTotal.log("COMPLETELY finished operations.");
 		}
 		MPI.Finalize();
-		plogTotal.log("COMPLETELY finished operations.");
 	}//main 
+
+	
 }

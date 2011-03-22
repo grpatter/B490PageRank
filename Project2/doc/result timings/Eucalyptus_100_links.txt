@@ -1,0 +1,18 @@
+Nodes: 3
+dataset: pagerank.input100
+dataset size: 100
+Timing: 367 calc, 389 total
+Timing: 375 calc, 379 total
+Timing: 402 calc, 426 total
+Timing: 376 calc, 398 total
+Timing: 402 calc, 430 total
+
+Nodes: 4
+dataset: pagerank.input100
+dataset size: 100
+394 416
+376 400
+366 391
+422 475
+409 424
+

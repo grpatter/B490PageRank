@@ -1,0 +1,18 @@
+Nodes: 3
+dataset: pagerank.input
+dataset size: 1000
+Timing: 847 calc, 905 total
+Timing: 899 calc, 924 total
+Timing: 1011 calc, 1040 total
+Timing: 991 calc, 1022 total
+Timing: 957 calc, 988 total
+
+Nodes: 4
+dataset: pagerank.input
+dataset size: 1000
+Timing: 857 calc, 872 total
+Timing: 787 calc, 805 total
+Timing: 763 calc, 779 total
+Timing: 910 calc, 954 total
+Timing: 799 calc, 829 total
+
