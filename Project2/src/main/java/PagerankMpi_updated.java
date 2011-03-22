@@ -217,6 +217,7 @@ public class PagerankMpi_updated {
 		}
 		// End change this.
 
+		PerformanceLogger plogTotal = new PerformanceLogger();
 		MPI.Init(args);
 
 		HashMap<Integer, ArrayList<Integer>> localAdjacencyMatrix = new HashMap<Integer, ArrayList<Integer>>();
@@ -239,7 +240,8 @@ public class PagerankMpi_updated {
 
 		boolean globalRankValueTableInit = false;
 
-		for (int k = 0; k < iterations; k++) {		
+		for (int k = 0; k < iterations; k++) {
+			PerformanceLogger plogIter = new PerformanceLogger((long)nodeId);
 			if (nodeId == 0) {
 				PerformanceLogger plogHeadCalc = new PerformanceLogger((long)nodeId);
 				// Get global adjacency matrix and distribute pieces to worker nodes.
@@ -351,8 +353,10 @@ public class PagerankMpi_updated {
 				dangling = 0.0;
 				mpiComm.Barrier();				
 			}
+			plogIter.log("Iteration complete (i=" + k+ ") of" + iterations);
 		}//for
-
+		
+		plogTotal.log("Finished all CALCULATIONS.");
 		// Write to file.
 		//Notes: write only to root process
 		if (nodeId == 0){
@@ -374,5 +378,6 @@ public class PagerankMpi_updated {
 		System.out.println("Toatl pagerank value: " + totalPr);
 		}
 		MPI.Finalize();
+		plogTotal.log("COMPLETELY finished operations.");
 	}//main 
 }
