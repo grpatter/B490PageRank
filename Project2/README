@@ -1,0 +1,21 @@
+To run on Euca cloud:
+allocate VMs
+setup machine file with internal ips
+update scpScript.sh with internal ips
+
+pull latest source into mpiP dir and compile it
+ex: wget https://github.com/grpatter/B490PageRank/raw/master/Project2/src/main/java/PagerankMpi_updated.java --no-check-certificate
+compile: javac -cp mpj.jar PagerankMpi_updated.java PerformanceLogger.java
+
+jar it all up 
+	jar -cMf pr.zip *
+	
+move pr.zip into folder with scpScript.sh
+
+Run scpScript.sh
+mpjhalt machines
+
+SSH to each individual machine and run sshHelp.sh
+
+Run test cases:
+mpjrun.sh -np <num> -dev niodev PagerankMpi_updated <dataset> <output> <iter> <damping>
