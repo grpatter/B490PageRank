@@ -34,7 +34,7 @@ public class PagerankMpi_updated {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			perfL0.log("Finished file read.");
+//			perfL0.log("Finished file read.");
 		}
 
 		// Transmit portion of globalAdjacencyMatrix to all nodes.
@@ -65,7 +65,7 @@ public class PagerankMpi_updated {
 						}
 						localAdjacencyMatrixB[0] = (Object)localAdjacencyMatrix;
 						mpiComm.Send(localAdjacencyMatrixB, 0, 1, MPI.OBJECT, outputNodeId, 0);						
-						System.out.println(remBlockSize+blockSize + " adjacency lines sent to: " + outputNodeId);
+//						System.out.println(remBlockSize+blockSize + " adjacency lines sent to: " + outputNodeId);
 
 						outputNodeId++;
 						remBlockSize = 0;
@@ -83,7 +83,7 @@ public class PagerankMpi_updated {
 						}
 						localAdjacencyMatrixB[0] = (Object)localAdjacencyMatrix;
 						mpiComm.Send(localAdjacencyMatrixB, 0, 1, MPI.OBJECT, outputNodeId, 0);
-						System.out.println(blockSize + " adjacency lines sent to: " + outputNodeId);
+//						System.out.println(blockSize + " adjacency lines sent to: " + outputNodeId);
 
 						outputNodeId++;
 						localAdjacencyMatrix = new HashMap<Integer, ArrayList<Integer>>();
@@ -94,12 +94,12 @@ public class PagerankMpi_updated {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			plogTrans.log("Finished transmitting data to workers.");
+//			plogTrans.log("Finished transmitting data to workers.");
 		} else {
 			PerformanceLogger plogRecv = new PerformanceLogger((long)nodeId);
 			mpiComm.Recv(localAdjacencyMatrixB, 0, 1, MPI.OBJECT, 0, 0);
 			localAdjacencyMatrix = (HashMap<Integer, ArrayList<Integer>>)localAdjacencyMatrixB[0];				
-			plogRecv.log("Finished recv from headnode.");
+//			plogRecv.log("Finished recv from headnode.");
 		}
 
 		// Return adjacency matrix.
@@ -212,7 +212,7 @@ public class PagerankMpi_updated {
 			//damping = Double.parseDouble(args[6]);
 		} else {
 			for (int l = 0; l < args.length; l++)
-				System.out.println(args[l]);
+//				System.out.println(args[l]);
 			System.exit(1);
 		}
 		// End change this.
@@ -260,7 +260,7 @@ public class PagerankMpi_updated {
 					globalRankValueTableInit = true;
 				}
 
-				System.out.println(nodeId + " sent a globalUrlCount of: " + globalUrlCount);
+//				System.out.println(nodeId + " sent a globalUrlCount of: " + globalUrlCount);
 				// AllReduce dangling value.
 				mpiComm.Allreduce(localDangling, 0, globalDangling, 0, 1, MPI.DOUBLE, MPI.SUM);
 				mpiComm.Barrier();
@@ -272,7 +272,7 @@ public class PagerankMpi_updated {
 				mpiComm.Allreduce(localPagerankB, 0, globalPagerankB, 0, globalUrlCount, MPI.DOUBLE, MPI.SUM);
 				mpiComm.Barrier();
 
-				plogHeadCalc.log("Received results from workers.");
+//				plogHeadCalc.log("Received results from workers.");
 				// Apply dangling and damping.
 				double dvp = dangling/(double)globalUrlCount;
 				for (int i = 0; i < globalUrlCount; i++) {
@@ -284,7 +284,7 @@ public class PagerankMpi_updated {
 				for (int i = 0; i < globalUrlCount; i++) {
 					globalPagerank.put(i, globalPagerankB[i]);
 				}				
-				plogHeadCalc.log("Finished head node calculatons and result generation.");
+//				plogHeadCalc.log("Finished head node calculatons and result generation.");
 			}
 			else {
 				PerformanceLogger plogWorkCalc = new PerformanceLogger((long)nodeId);
@@ -324,7 +324,7 @@ public class PagerankMpi_updated {
 				mpiComm.Barrier();
 				dangling = globalDangling[0];
 
-				System.out.println("node:"+nodeId + " recieved a global dangling value of: " + dangling);
+//				System.out.println("node:"+nodeId + " recieved a global dangling value of: " + dangling);
 
 				Iterator<Integer> j = localPagerank.keySet().iterator();
 				while (j.hasNext()) {
@@ -348,7 +348,7 @@ public class PagerankMpi_updated {
 					System.out.format("node:%d globalPagerankB[%d]:=%f  dangling:%f localPagerankB[%d]:=%f\n", nodeId,i,globalPagerankB[i], dangling, i, localPagerankB[i]);
 
 				}
-				plogWorkCalc.log("Worker finished interim calculation.");
+//				plogWorkCalc.log("Worker finished interim calculation.");
 				//System.out.println(globalPagerankB.length);
 				dangling = 0.0;
 				mpiComm.Barrier();				
@@ -371,12 +371,12 @@ public class PagerankMpi_updated {
 		for (Iterator<Integer> i = sortByValue(globalPagerank).iterator(); i.hasNext(); ) {
 			int key = i.next();
 			if (count >= globalUrlCount-10)
-				System.out.println("Key: " + key + " value: " + globalPagerank.get(key));
+//				System.out.println("Key: " + key + " value: " + globalPagerank.get(key));
 			count++;
 			totalPr += globalPagerank.get(key);
 		}
-		System.out.println("Toatl pagerank value: " + totalPr);
-		plogTotal.log("COMPLETELY finished operations.");
+//		System.out.println("Toatl pagerank value: " + totalPr);
+//		plogTotal.log("COMPLETELY finished operations.");
 		}
 		MPI.Finalize();
 	}//main 
