@@ -1,0 +1,2063 @@
+Beginning Test Ops for 300K File
+*** Test for 2 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <1> on <localhost>
+Starting process <0> on <localhost>
+Time: 9450 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 9535 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 8515 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 8456 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6211 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6212 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 6300 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 6296 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 6407 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 6407 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 6310 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 6310 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5838 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5840 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 6109 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 6108 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 6184 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 6184 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 6408 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 6410 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 67924 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Time: 9612 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 9703 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6930 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6868 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6508 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6501 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 7586 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 7586 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 6357 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 6361 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 6087 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 6084 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 6248 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 6248 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5658 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5657 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 6568 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 6571 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 6385 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 6384 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 68148 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Time: 9267 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 9368 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 8680 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 8606 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6426 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6424 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 6006 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 6010 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 6221 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 6221 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 6444 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 6441 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 6046 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 6048 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 6159 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 6159 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 6077 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 6074 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 6068 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 6068 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 67585 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>
+*** Test for 3 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Time: 6808 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6808 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6918 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6924 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6924 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 6842 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5883 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5884 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5884 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5483 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5483 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5481 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 6636 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 6637 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 6638 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5453 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5453 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5450 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5127 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5128 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5129 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5188 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5188 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5189 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5194 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5194 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5194 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4978 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4979 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4978 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 57880 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Time: 7290 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 7292 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 7413 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6919 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6919 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 6824 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6234 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6234 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 6232 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5237 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5238 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5236 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 6420 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 6420 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 6420 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5577 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5577 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5577 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5067 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5067 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5067 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5352 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5351 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5351 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5224 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5224 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5224 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5251 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5257 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5252 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 58789 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <2> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Time: 7406 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 7407 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 7514 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6868 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 6868 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6792 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5772 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5772 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5784 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 6898 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 6897 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 6883 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5655 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5654 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5653 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5783 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5783 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5782 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5394 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5395 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5465 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5480 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5481 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5413 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5160 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5160 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5160 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5280 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5276 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5277 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 59912 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <2> on <localhost>Stopping process <1> on <localhost>
+
+*** Test for 4 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Time: 7108 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 7108 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 7109 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 7221 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5722 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5722 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5722 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5636 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5589 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5589 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5589 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5589 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5142 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5141 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5141 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5143 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5776 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5775 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5775 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5774 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 6004 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 6004 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 6004 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 6001 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4859 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4858 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4859 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4862 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4885 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4885 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4886 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4884 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4795 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4796 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4795 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4797 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4934 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4934 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4935 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4934 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 55033 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <1> on <localhost>
+Starting process <0> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Time: 7001 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 7000 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 7001 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 7117 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6284 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6284 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 6284 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 6197 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5563 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5563 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5563 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5562 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5174 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5174 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5174 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5174 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5049 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5049 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5049 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5049 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5108 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5108 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5108 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5108 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4992 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4992 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4992 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4992 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5960 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5961 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5961 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5957 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4576 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4577 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4577 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4579 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5048 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5048 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5048 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 5046 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54967 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <3> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Time: 6884 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6881 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6881 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6982 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5867 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5866 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5867 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5791 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5713 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5713 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5713 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5713 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5241 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5240 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5241 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5243 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5217 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5217 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5217 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5335 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5834 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5834 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5834 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5716 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5075 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5074 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5074 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5071 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5071 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5071 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5071 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5072 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4922 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4923 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4923 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4922 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4853 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4854 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4854 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4855 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54900 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <3> on <localhost>
+*** Test for 5 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <4> on <localhost>
+Starting process <2> on <localhost>
+Time: 6386 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6392 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6386 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6386 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6504 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5832 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5831 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5831 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5830 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5742 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5724 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5725 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5725 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5725 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5721 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4902 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4903 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4903 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4902 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4904 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5105 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5105 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5105 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5105 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5102 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5639 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5638 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5638 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5639 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5640 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5006 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5006 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5006 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5006 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5006 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4774 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4774 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4774 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4776 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4775 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4722 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4722 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4722 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4722 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4722 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4906 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4906 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4906 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4907 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4907 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 53213 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <2> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Starting process <4> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Time: 6604 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6604 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6604 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6604 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6724 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5664 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5664 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5664 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5663 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5573 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5512 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5512 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5512 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5512 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5267 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5263 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5268 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5267 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5269 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4833 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4833 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 4832 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4833 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4832 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5054 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5054 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5055 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5055 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5052 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5458 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5457 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5457 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5457 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5459 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4946 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4947 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4947 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4947 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4946 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4805 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4805 ms, nodeId=3, *** Iteration complete (i=8) of10Time: 4804 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4806 ms, nodeId=4, *** Iteration complete (i=8) of10
+
+Time: 4805 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4776 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4776 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4776 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4775 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4775 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 53140 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <3> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <3> on <localhost>
+Starting process <1> on <localhost>
+Starting process <2> on <localhost>
+Starting process <4> on <localhost>
+Time: 6232 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6235 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6235 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6242 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6355 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5908 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5908 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5908 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5899 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5813 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5766 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5766 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5766 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5766 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5764 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4974 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4975 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4974 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4975 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4970 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5047 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5047 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5047 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5047 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5048 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5781 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5781 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5781 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5781 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5783 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4789 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4789 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4789 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4788 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4789 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4765 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4764 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4765 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4764 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4765 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4627 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4627 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4626 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4626 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4624 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4844 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4845 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4844 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4845 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4844 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 52969 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <1> on <localhost>
+*** Test for 6 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <1> on <localhost>
+Starting process <2> on <localhost>
+Starting process <3> on <localhost>
+Starting process <5> on <localhost>
+Starting process <4> on <localhost>
+Starting process <0> on <localhost>
+Time: 6201 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6202 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6208 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6208 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6211 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6309 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6628 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 6629 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 6621 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 6623 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6622 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 6552 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6360 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 6361 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 6360 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6362 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 6367 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 6351 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4824 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4824 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4825 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4823 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 4817 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4830 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4624 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4624 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 4624 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 4624 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4625 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4622 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4830 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4829 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4830 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4830 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4830 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4832 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4809 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4809 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4809 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4810 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4809 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4807 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4920 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4921 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4921 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4921 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4920 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4921 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4760 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4760 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4760 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4760 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4760 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4761 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4774 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4773 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4773 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4773 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4773 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4773 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 52949 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <2> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Starting process <4> on <localhost>
+Starting process <5> on <localhost>
+Time: 6040 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6039 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6045 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6039 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6039 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6140 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 6332 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 6333 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 6327 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 6332 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 6332 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 6259 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6433 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 6433 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 6433 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 6433 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6433 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 6428 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5037 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5037 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5037 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5037 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5037 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5038 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4766 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4766 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 4766 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 4766 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4765 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4766 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4947 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4948 ms, nodeId=5, *** Iteration complete (i=5) of10Time: 4947 ms, nodeId=4, *** Iteration complete (i=5) of10
+
+Time: 4947 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4947 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4949 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4760 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4760 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4760 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4761 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4760 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4759 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5154 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5154 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5153 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5153 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5153 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5153 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5112 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5112 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 5113 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 5112 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5113 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 5113 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4672 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4673 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4673 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4673 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4673 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4674 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 53488 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <1> on <localhost>Stopping process <3> on <localhost>
+
+Stopping process <2> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <4> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <5> on <localhost>
+Starting process <2> on <localhost>
+Starting process <3> on <localhost>
+Starting process <4> on <localhost>
+Starting process <1> on <localhost>
+Time: 6165 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6165 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6165 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6165 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6165 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6266 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 7000 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 7000 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 7000 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 7000 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 7000 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 6929 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 6552 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 6552 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 6552 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 6552 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 6552 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 6546 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5181 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5181 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5181 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5181 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5181 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5174 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4845 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 4844 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4845 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4845 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 4845 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4850 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5021 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5018 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5021 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5021 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 5021 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5021 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4841 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4842 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4841 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4841 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4842 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4843 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4815 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4818 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4814 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4814 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4814 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4814 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4734 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4733 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4734 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4734 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4733 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4733 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4845 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4845 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4845 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4844 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4845 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4846 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54236 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+*** Test for 7 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <5> on <localhost>
+Starting process <1> on <localhost>
+Starting process <0> on <localhost>
+Starting process <3> on <localhost>
+Starting process <4> on <localhost>
+Starting process <2> on <localhost>
+Starting process <6> on <localhost>
+Time: 6272 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6271 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6272 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6272 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6272 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6272 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6398 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5489 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5489 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5488 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5488 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5488 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5488 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5396 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5470 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5470 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5471 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5470 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5471 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5471 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5463 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4750 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4750 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4750 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 4749 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4750 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 4750 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4758 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4783 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 4783 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4783 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 4783 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4783 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4783 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 4774 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4631 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4630 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4631 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4630 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4631 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4630 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4630 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4736 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4737 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4737 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4737 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4737 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4737 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4738 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4739 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4739 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 4738 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4738 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4739 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4739 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4738 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4795 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4794 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4795 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4796 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4795 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4795 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4794 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4705 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4704 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4705 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4704 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4704 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4704 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4704 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 50603 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>Stopping process <6> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+
+Stopping process <4> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <5> on <localhost>
+Starting process <0> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Starting process <4> on <localhost>
+Starting process <3> on <localhost>
+Starting process <6> on <localhost>
+Time: 6151 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6152 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6152 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6152 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6152 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6152 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6275 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5503 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5502 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5503 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5502 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5503 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5502 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5412 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5718 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5718 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5718 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5718 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5718 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5717 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5710 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5047 ms, nodeId=2, *** Iteration complete (i=3) of10Time: 5048 ms, nodeId=5, *** Iteration complete (i=3) of10
+
+Time: 5048 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5047 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5048 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5047 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5054 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4975 ms, nodeId=2, *** Iteration complete (i=4) of10Time: 4975 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4974 ms, nodeId=5, *** Iteration complete (i=4) of10
+
+Time: 4975 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4975 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4975 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 4964 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4797 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4797 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4797 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4798 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4798 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4798 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4796 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4863 ms, nodeId=2, *** Iteration complete (i=6) of10Time: 4863 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4863 ms, nodeId=5, *** Iteration complete (i=6) of10
+
+Time: 4863 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4863 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4863 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4864 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4889 ms, nodeId=1, *** Iteration complete (i=7) of10Time: 4890 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 4890 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4890 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4890 ms, nodeId=3, *** Iteration complete (i=7) of10
+
+Time: 4891 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4887 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4805 ms, nodeId=2, *** Iteration complete (i=8) of10Time: 4806 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4805 ms, nodeId=5, *** Iteration complete (i=8) of10
+
+Time: 4805 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4805 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4805 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4806 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4631 ms, nodeId=1, *** Iteration complete (i=9) of10Time: 4632 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4632 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4632 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4632 ms, nodeId=3, *** Iteration complete (i=9) of10
+
+Time: 4632 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4634 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 51606 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <2> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <5> on <localhost>
+Starting process <1> on <localhost>Starting process <2> on <localhost>
+
+Starting process <3> on <localhost>
+Starting process <4> on <localhost>
+Starting process <6> on <localhost>
+Time: 6187 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6187 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6187 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6187 ms, nodeId=6, *** Iteration complete (i=0) of10Time: 6187 ms, nodeId=5, *** Iteration complete (i=0) of10
+
+Time: 6187 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6299 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5190 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5190 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5189 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5190 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5190 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5190 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5109 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5571 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5571 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5571 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5571 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5572 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5572 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5562 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5034 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5034 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5034 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5034 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5034 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5034 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5044 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 4943 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 4943 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 4943 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 4943 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 4943 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 4943 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 4933 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5053 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5052 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5053 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5052 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5052 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 5053 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 5052 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4798 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4798 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4799 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4798 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4798 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4798 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4806 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4760 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4760 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4759 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4760 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4760 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 4760 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4760 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4817 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4818 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4818 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4818 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4818 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4818 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4816 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4796 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4796 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4796 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4796 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4796 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4796 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4795 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 51402 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <5> on <localhost>
+*** Test for 8 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <4> on <localhost>
+Starting process <1> on <localhost>
+Starting process <2> on <localhost>
+Starting process <5> on <localhost>
+Starting process <3> on <localhost>
+Starting process <6> on <localhost>
+Starting process <7> on <localhost>
+Starting process <0> on <localhost>
+Time: 6267 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6267 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6267 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6267 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6267 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6267 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6267 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6372 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5600 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5601 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5601 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5601 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5601 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5600 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5600 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5524 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5540 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5540 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5540 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5540 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5540 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5541 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5541 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5539 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4944 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4944 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 4945 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4945 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 4945 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 4945 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4945 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4956 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5744 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5745 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5744 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5744 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5745 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5745 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5745 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5729 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4827 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4827 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4827 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4827 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4827 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4828 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 4827 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4826 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4871 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4871 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4870 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 4870 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4871 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4870 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4871 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4873 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4873 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4874 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4874 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4874 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4874 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4873 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 4874 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 4873 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4835 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4834 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4835 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4835 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4835 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4835 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4834 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 4834 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4830 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4831 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 4830 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4831 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4832 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4831 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4834 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4832 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 52558 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <3> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <5> on <localhost>
+Starting process <0> on <localhost>
+Starting process <3> on <localhost>
+Starting process <1> on <localhost>
+Starting process <2> on <localhost>
+Starting process <4> on <localhost>
+Starting process <6> on <localhost>
+Starting process <7> on <localhost>
+Time: 6482 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6482 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6483 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6482 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6482 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6482 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6483 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6603 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5545 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5545 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5545 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5544 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5545 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5544 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5544 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5452 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5632 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5631 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5631 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5631 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5631 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5632 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5631 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5627 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4781 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 4781 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5976 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5976 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5976 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5977 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5977 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5976 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5976 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5976 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4912 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4913 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4912 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4912 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4912 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4912 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4912 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 4914 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4865 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4865 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4865 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4866 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 4866 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4866 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4867 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4860 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5093 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5094 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 5094 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 5094 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5093 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5093 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5094 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5097 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4979 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4979 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4978 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4979 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4978 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 4979 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4978 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4979 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5087 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 5087 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5087 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 5087 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 5088 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 5087 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5087 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 5079 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 53566 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <1> on <localhost>
+Starting process <0> on <localhost>
+Starting process <2> on <localhost>
+Starting process <4> on <localhost>
+Starting process <5> on <localhost>Starting process <3> on <localhost>
+
+Starting process <6> on <localhost>
+Starting process <7> on <localhost>
+Time: 6384 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6384 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6384 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6384 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6384 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6384 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6384 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6500 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5137 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5138 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5137 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5137 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5138 ms, nodeId=7, *** Iteration complete (i=1) of10Time: 5137 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5137 ms, nodeId=1, *** Iteration complete (i=1) of10
+
+Time: 5052 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5581 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5582 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5581 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5581 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5583 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5581 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5581 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5580 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 4831 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 4830 ms, nodeId=5, *** Iteration complete (i=3) of10Time: 4830 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 4830 ms, nodeId=6, *** Iteration complete (i=3) of10
+
+Time: 4831 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 4830 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 4830 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 4830 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5719 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5719 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5720 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5720 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5719 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5719 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5720 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5721 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4752 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4751 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4752 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4751 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4751 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4751 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4752 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 4749 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4827 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4827 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4827 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4827 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4827 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4827 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 4828 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4829 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4629 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4630 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4630 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4630 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 4630 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4630 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 4629 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4630 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5075 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5075 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 5075 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 5075 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 5075 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5074 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 5074 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 5074 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4954 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4953 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4954 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4954 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4955 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4954 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4953 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 4955 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 52115 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <4> on <localhost>Stopping process <3> on <localhost>
+
+Stopping process <6> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <7> on <localhost>
+*** Test for 9 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Starting process <4> on <localhost>
+Starting process <5> on <localhost>
+Starting process <6> on <localhost>
+Starting process <8> on <localhost>
+Starting process <7> on <localhost>
+Time: 6453 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6453 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6452 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6455 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6453 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6454 ms, nodeId=8, *** Iteration complete (i=0) of10
+Time: 6453 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6454 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6572 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5354 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5354 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5354 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5354 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5353 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5353 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5354 ms, nodeId=8, *** Iteration complete (i=1) of10
+Time: 5354 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5268 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5577 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5577 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5577 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5576 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5576 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5576 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5578 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5577 ms, nodeId=8, *** Iteration complete (i=2) of10
+Time: 5566 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5126 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5127 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5127 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5127 ms, nodeId=8, *** Iteration complete (i=3) of10
+Time: 5127 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 5136 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5135 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5140 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5127 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5282 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5292 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5292 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5283 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5283 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5292 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5292 ms, nodeId=8, *** Iteration complete (i=4) of10
+Time: 5292 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5290 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4920 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=8, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4920 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 4921 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5022 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=8, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5022 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 5023 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5128 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5128 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5128 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5129 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5129 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 5128 ms, nodeId=8, *** Iteration complete (i=7) of10
+Time: 5129 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5129 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 5127 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5199 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 5199 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 5199 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 5199 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 5200 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5199 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5200 ms, nodeId=8, *** Iteration complete (i=8) of10
+Time: 5200 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 5199 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4983 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4984 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4983 ms, nodeId=8, *** Iteration complete (i=9) of10
+Time: 4983 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4984 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4983 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4983 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4983 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 4985 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 53283 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <8> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <4> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <8> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <2> on <localhost>
+Starting process <6> on <localhost>
+Starting process <7> on <localhost>
+Starting process <5> on <localhost>
+Starting process <4> on <localhost>
+Time: 6292 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6292 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6292 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6292 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6292 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6296 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6292 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6292 ms, nodeId=8, *** Iteration complete (i=0) of10
+Time: 6405 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5598 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5599 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5598 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5599 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5599 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5599 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5598 ms, nodeId=8, *** Iteration complete (i=1) of10
+Time: 5599 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5517 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5687 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5688 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5687 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5688 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5687 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5688 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5688 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5688 ms, nodeId=8, *** Iteration complete (i=2) of10
+Time: 5680 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5035 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5036 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=8, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5035 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5152 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5155 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5155 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5156 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5156 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5156 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5155 ms, nodeId=8, *** Iteration complete (i=4) of10
+Time: 5156 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5156 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5188 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 5188 ms, nodeId=8, *** Iteration complete (i=5) of10
+Time: 5189 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 4907 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 4907 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 4907 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 4908 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 4908 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 4907 ms, nodeId=8, *** Iteration complete (i=6) of10
+Time: 4907 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 4907 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 4906 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5045 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5045 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5046 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 5045 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5045 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5045 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5046 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 5046 ms, nodeId=8, *** Iteration complete (i=7) of10
+Time: 5056 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5015 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 5014 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 5014 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 5014 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 5015 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5014 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5014 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 5015 ms, nodeId=8, *** Iteration complete (i=8) of10
+Time: 4997 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5028 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5028 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 5027 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 5028 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 5027 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 5028 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5028 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 5028 ms, nodeId=8, *** Iteration complete (i=9) of10
+Time: 5034 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 53215 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <8> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <2> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <4> on <localhost>
+Starting process <7> on <localhost>
+Starting process <5> on <localhost>
+Starting process <6> on <localhost>
+Starting process <8> on <localhost>
+Time: 6579 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6572 ms, nodeId=5, *** Iteration complete (i=0) of10Time: 6579 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6572 ms, nodeId=6, *** Iteration complete (i=0) of10
+
+Time: 6580 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6579 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6572 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6575 ms, nodeId=8, *** Iteration complete (i=0) of10
+Time: 6702 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5657 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5657 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5654 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5657 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5657 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5657 ms, nodeId=8, *** Iteration complete (i=1) of10
+Time: 5658 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5657 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5571 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5644 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5644 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5645 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5644 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5644 ms, nodeId=8, *** Iteration complete (i=2) of10
+Time: 5644 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5644 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5644 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5633 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5244 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5244 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5245 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5245 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5244 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5244 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5245 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 5246 ms, nodeId=8, *** Iteration complete (i=3) of10
+Time: 5238 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 6288 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 6288 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 6287 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 6288 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 6288 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 6288 ms, nodeId=8, *** Iteration complete (i=4) of10
+Time: 6288 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 6288 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 6296 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4840 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=8, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 4839 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5035 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5036 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 5035 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5035 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5036 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5035 ms, nodeId=8, *** Iteration complete (i=6) of10
+Time: 5035 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 5042 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 5035 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 4877 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 4871 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 4878 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 4877 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 4878 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 4877 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 4877 ms, nodeId=8, *** Iteration complete (i=7) of10
+Time: 4878 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 4875 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 5019 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 5018 ms, nodeId=8, *** Iteration complete (i=8) of10
+Time: 5019 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 5019 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 5019 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 5019 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 5019 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 5019 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 5022 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5042 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=8, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5042 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54454 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <2> on <localhost>
+Stopping process <8> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <1> on <localhost>
+*** Test for 10 Nodes ***
+Test 1
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <3> on <localhost>
+Starting process <5> on <localhost>
+Starting process <4> on <localhost>
+Starting process <1> on <localhost>
+Starting process <6> on <localhost>
+Starting process <8> on <localhost>
+Starting process <7> on <localhost>
+Starting process <2> on <localhost>
+Starting process <9> on <localhost>
+Time: 6696 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=9, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6697 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6696 ms, nodeId=8, *** Iteration complete (i=0) of10
+Time: 6800 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5456 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5457 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5457 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5456 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5456 ms, nodeId=9, *** Iteration complete (i=1) of10
+Time: 5456 ms, nodeId=8, *** Iteration complete (i=1) of10
+Time: 5462 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5457 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5457 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5397 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5933 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=9, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5933 ms, nodeId=8, *** Iteration complete (i=2) of10
+Time: 5918 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5974 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5975 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=9, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=8, *** Iteration complete (i=3) of10
+Time: 5974 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 5973 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5032 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5033 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5032 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5032 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5032 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5032 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5032 ms, nodeId=9, *** Iteration complete (i=4) of10
+Time: 5034 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5033 ms, nodeId=8, *** Iteration complete (i=4) of10
+Time: 5030 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5017 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=8, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5017 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 5018 ms, nodeId=9, *** Iteration complete (i=5) of10
+Time: 5019 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5064 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5065 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 5064 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 5065 ms, nodeId=9, *** Iteration complete (i=6) of10
+Time: 5066 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5065 ms, nodeId=8, *** Iteration complete (i=6) of10
+Time: 5065 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5066 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5065 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 5065 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5077 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5076 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=9, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=8, *** Iteration complete (i=7) of10
+Time: 5077 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4892 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=9, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=8, *** Iteration complete (i=8) of10
+Time: 4892 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 4891 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5140 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 5139 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=8, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5139 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=9, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 5140 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54533 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <8> on <localhost>Stopping process <1> on <localhost>
+
+Stopping process <7> on <localhost>
+Stopping process <5> on <localhost>Stopping process <9> on <localhost>
+Stopping process <2> on <localhost>
+
+Stopping process <4> on <localhost>
+Test 2
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <7> on <localhost>
+Starting process <2> on <localhost>
+Starting process <1> on <localhost>
+Starting process <8> on <localhost>
+Starting process <9> on <localhost>
+Starting process <5> on <localhost>
+Starting process <4> on <localhost>
+Starting process <6> on <localhost>
+Starting process <3> on <localhost>
+Time: 6658 ms, nodeId=2, *** Iteration complete (i=0) of10
+Time: 6661 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6661 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6661 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6659 ms, nodeId=1, *** Iteration complete (i=0) of10
+Time: 6659 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6660 ms, nodeId=9, *** Iteration complete (i=0) of10
+Time: 6659 ms, nodeId=8, *** Iteration complete (i=0) of10
+Time: 6658 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6778 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5705 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5706 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5706 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5707 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5705 ms, nodeId=8, *** Iteration complete (i=1) of10
+Time: 5706 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5706 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5705 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5705 ms, nodeId=9, *** Iteration complete (i=1) of10
+Time: 5629 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5512 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=8, *** Iteration complete (i=2) of10
+Time: 5509 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5508 ms, nodeId=9, *** Iteration complete (i=2) of10
+Time: 5491 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5167 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=9, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=8, *** Iteration complete (i=3) of10
+Time: 5167 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5168 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5680 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5681 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5680 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5680 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5681 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5680 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5681 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5681 ms, nodeId=9, *** Iteration complete (i=4) of10
+Time: 5682 ms, nodeId=8, *** Iteration complete (i=4) of10
+Time: 5680 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 4986 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 4986 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 4987 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 4986 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 4987 ms, nodeId=9, *** Iteration complete (i=5) of10
+Time: 4986 ms, nodeId=8, *** Iteration complete (i=5) of10
+Time: 4987 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 4997 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 4996 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 4985 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5218 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5229 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 5228 ms, nodeId=9, *** Iteration complete (i=6) of10
+Time: 5229 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5228 ms, nodeId=8, *** Iteration complete (i=6) of10
+Time: 5229 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 5219 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5230 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5228 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 5228 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5033 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5032 ms, nodeId=8, *** Iteration complete (i=7) of10
+Time: 5033 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 5033 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5034 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5033 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5033 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 5034 ms, nodeId=9, *** Iteration complete (i=7) of10
+Time: 5034 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5034 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4970 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4969 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=9, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=8, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4970 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4972 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 4997 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=8, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 4997 ms, nodeId=9, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 4996 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 4995 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54171 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <5> on <localhost>
+Stopping process <6> on <localhost>
+Stopping process <8> on <localhost>
+Stopping process <4> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <9> on <localhost>
+Stopping process <2> on <localhost>
+Test 3
+MPJ Express (0.38) is started in the cluster configuration
+Starting process <0> on <localhost>
+Starting process <4> on <localhost>
+Starting process <1> on <localhost>
+Starting process <3> on <localhost>
+Starting process <6> on <localhost>
+Starting process <5> on <localhost>
+Starting process <2> on <localhost>
+Starting process <7> on <localhost>
+Starting process <8> on <localhost>
+Starting process <9> on <localhost>
+Time: 6734 ms, nodeId=2, *** Iteration complete (i=0) of10Time: 6733 ms, nodeId=4, *** Iteration complete (i=0) of10
+Time: 6733 ms, nodeId=5, *** Iteration complete (i=0) of10
+Time: 6734 ms, nodeId=3, *** Iteration complete (i=0) of10
+Time: 6727 ms, nodeId=9, *** Iteration complete (i=0) of10
+Time: 6736 ms, nodeId=7, *** Iteration complete (i=0) of10
+Time: 6733 ms, nodeId=6, *** Iteration complete (i=0) of10
+Time: 6734 ms, nodeId=1, *** Iteration complete (i=0) of10
+
+Time: 6734 ms, nodeId=8, *** Iteration complete (i=0) of10
+Time: 6835 ms, nodeId=0, *** Iteration complete (i=0) of10
+Time: 5738 ms, nodeId=5, *** Iteration complete (i=1) of10
+Time: 5738 ms, nodeId=2, *** Iteration complete (i=1) of10
+Time: 5739 ms, nodeId=6, *** Iteration complete (i=1) of10
+Time: 5739 ms, nodeId=4, *** Iteration complete (i=1) of10
+Time: 5738 ms, nodeId=1, *** Iteration complete (i=1) of10
+Time: 5738 ms, nodeId=3, *** Iteration complete (i=1) of10
+Time: 5739 ms, nodeId=9, *** Iteration complete (i=1) of10
+Time: 5739 ms, nodeId=7, *** Iteration complete (i=1) of10
+Time: 5739 ms, nodeId=8, *** Iteration complete (i=1) of10
+Time: 5678 ms, nodeId=0, *** Iteration complete (i=1) of10
+Time: 5580 ms, nodeId=2, *** Iteration complete (i=2) of10
+Time: 5579 ms, nodeId=3, *** Iteration complete (i=2) of10
+Time: 5580 ms, nodeId=9, *** Iteration complete (i=2) of10
+Time: 5581 ms, nodeId=6, *** Iteration complete (i=2) of10
+Time: 5580 ms, nodeId=4, *** Iteration complete (i=2) of10
+Time: 5580 ms, nodeId=5, *** Iteration complete (i=2) of10
+Time: 5579 ms, nodeId=1, *** Iteration complete (i=2) of10
+Time: 5580 ms, nodeId=7, *** Iteration complete (i=2) of10
+Time: 5579 ms, nodeId=8, *** Iteration complete (i=2) of10
+Time: 5564 ms, nodeId=0, *** Iteration complete (i=2) of10
+Time: 5250 ms, nodeId=2, *** Iteration complete (i=3) of10
+Time: 5246 ms, nodeId=3, *** Iteration complete (i=3) of10
+Time: 5250 ms, nodeId=9, *** Iteration complete (i=3) of10
+Time: 5250 ms, nodeId=6, *** Iteration complete (i=3) of10
+Time: 5250 ms, nodeId=4, *** Iteration complete (i=3) of10
+Time: 5250 ms, nodeId=5, *** Iteration complete (i=3) of10
+Time: 5250 ms, nodeId=1, *** Iteration complete (i=3) of10
+Time: 5250 ms, nodeId=7, *** Iteration complete (i=3) of10
+Time: 5249 ms, nodeId=8, *** Iteration complete (i=3) of10
+Time: 5249 ms, nodeId=0, *** Iteration complete (i=3) of10
+Time: 5712 ms, nodeId=2, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=3, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=6, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=4, *** Iteration complete (i=4) of10
+Time: 5717 ms, nodeId=5, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=1, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=7, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=8, *** Iteration complete (i=4) of10
+Time: 5712 ms, nodeId=9, *** Iteration complete (i=4) of10
+Time: 5709 ms, nodeId=0, *** Iteration complete (i=4) of10
+Time: 5116 ms, nodeId=2, *** Iteration complete (i=5) of10
+Time: 5116 ms, nodeId=6, *** Iteration complete (i=5) of10
+Time: 5116 ms, nodeId=5, *** Iteration complete (i=5) of10
+Time: 5116 ms, nodeId=3, *** Iteration complete (i=5) of10
+Time: 5116 ms, nodeId=9, *** Iteration complete (i=5) of10
+Time: 5116 ms, nodeId=7, *** Iteration complete (i=5) of10
+Time: 5117 ms, nodeId=4, *** Iteration complete (i=5) of10
+Time: 5116 ms, nodeId=1, *** Iteration complete (i=5) of10
+Time: 5117 ms, nodeId=8, *** Iteration complete (i=5) of10
+Time: 5117 ms, nodeId=0, *** Iteration complete (i=5) of10
+Time: 5233 ms, nodeId=2, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=3, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=6, *** Iteration complete (i=6) of10
+Time: 5234 ms, nodeId=7, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=4, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=5, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=1, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=9, *** Iteration complete (i=6) of10
+Time: 5233 ms, nodeId=8, *** Iteration complete (i=6) of10
+Time: 5232 ms, nodeId=0, *** Iteration complete (i=6) of10
+Time: 5016 ms, nodeId=2, *** Iteration complete (i=7) of10
+Time: 5012 ms, nodeId=9, *** Iteration complete (i=7) of10
+Time: 5012 ms, nodeId=5, *** Iteration complete (i=7) of10
+Time: 5013 ms, nodeId=1, *** Iteration complete (i=7) of10
+Time: 5011 ms, nodeId=3, *** Iteration complete (i=7) of10
+Time: 5012 ms, nodeId=7, *** Iteration complete (i=7) of10
+Time: 5012 ms, nodeId=6, *** Iteration complete (i=7) of10
+Time: 5012 ms, nodeId=4, *** Iteration complete (i=7) of10
+Time: 5011 ms, nodeId=8, *** Iteration complete (i=7) of10
+Time: 5010 ms, nodeId=0, *** Iteration complete (i=7) of10
+Time: 4966 ms, nodeId=2, *** Iteration complete (i=8) of10
+Time: 4966 ms, nodeId=9, *** Iteration complete (i=8) of10
+Time: 4965 ms, nodeId=6, *** Iteration complete (i=8) of10
+Time: 4965 ms, nodeId=7, *** Iteration complete (i=8) of10
+Time: 4966 ms, nodeId=5, *** Iteration complete (i=8) of10
+Time: 4965 ms, nodeId=3, *** Iteration complete (i=8) of10
+Time: 4966 ms, nodeId=1, *** Iteration complete (i=8) of10
+Time: 4966 ms, nodeId=4, *** Iteration complete (i=8) of10
+Time: 4966 ms, nodeId=8, *** Iteration complete (i=8) of10
+Time: 4968 ms, nodeId=0, *** Iteration complete (i=8) of10
+Time: 5044 ms, nodeId=3, *** Iteration complete (i=9) of10
+Time: 5044 ms, nodeId=6, *** Iteration complete (i=9) of10
+Time: 5045 ms, nodeId=5, *** Iteration complete (i=9) of10
+Time: 5045 ms, nodeId=2, *** Iteration complete (i=9) of10
+Time: 5045 ms, nodeId=1, *** Iteration complete (i=9) of10
+Time: 5044 ms, nodeId=9, *** Iteration complete (i=9) of10
+Time: 5044 ms, nodeId=7, *** Iteration complete (i=9) of10
+Time: 5045 ms, nodeId=4, *** Iteration complete (i=9) of10
+Time: 5044 ms, nodeId=8, *** Iteration complete (i=9) of10
+Time: 5045 ms, nodeId=0, *** Iteration complete (i=9) of10
+Time: 54623 ms, *** Finished all CALCULATIONS.
+Error: /root/bin/main/resources/testout (No such file or directory)
+Stopping process <0> on <localhost>
+Stopping process <9> on <localhost>
+Stopping process <1> on <localhost>
+Stopping process <4> on <localhost>Stopping process <6> on <localhost>
+Stopping process <8> on <localhost>
+
+Stopping process <5> on <localhost>
+Stopping process <3> on <localhost>
+Stopping process <7> on <localhost>
+Stopping process <2> on <localhost>
+Done...hopefully!
