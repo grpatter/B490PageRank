@@ -9,7 +9,8 @@ import org.hyperic.sigar.SigarException;
 public class SystemMonitor implements Runnable{
 	char c;
 	private volatile boolean running = false;
-	 private static Sigar sigar = null;
+	private static Sigar sigar = null;
+	private final static int SYS_MONITOR_INTERVAL = 100;
 
 
 
@@ -26,8 +27,8 @@ public class SystemMonitor implements Runnable{
 	    this.c = c;
 	    this.setRunning(running);
 	}    
-    private static void printCpu(String prefix, CpuPerc cpu) {
-        System.out.println(prefix +
+    private static String stringCpu(String prefix, CpuPerc cpu) {
+        return new String(prefix +
                            CpuPerc.format(cpu.getUser()) + "\t" +
                            CpuPerc.format(cpu.getSys()) + "\t" +
                            CpuPerc.format(cpu.getWait()) + "\t" +
@@ -38,43 +39,39 @@ public class SystemMonitor implements Runnable{
 	// override run() method in interface
 	public void run() {
 	    while(running){
-	    	 Sigar sigar = getSigar();
+	    	 String report = "***SystemMonitor BEGIN Report***.\n";
 	    	 try {
-		    	 CpuInfo[] infos = sigar.getCpuInfoList();
-	
-		         for (int i=0; i<infos.length; i++) {
-		             CpuInfo info = infos[i];
-	
-		             System.out.println("num=" + i);
-		             System.out.println("vendor=" + info.getVendor());
-		             System.out.println("model=" + info.getModel());
-		             System.out.println("mhz=" + info.getMhz());
-		             System.out.println("cache size=" + info.getCacheSize());
-		             System.out.println("totalSockets" + info.getTotalSockets());
-		             System.out.println("totalCores" + info.getTotalCores());
-		             System.out.println(info.getTotalSockets() <= info.getTotalCores());
-		         }
-	
-	//				printCpu("   ", sysSigar.getCpuPerc());
-	//				String ioLoad = sysSigar.getLoadAverage().toString();
-	//		        System.out.println("SystemMonitor(Load):" + ioLoad);
+		    	 Sigar sigar = getSigar();
+					report += stringCpu("   ", sigar.getCpuPerc());
+					report += "\n Mem:\t" + sigar.getMem().toString();
+	    	 }catch(UnsatisfiedLinkError e0){
+	    		 System.out.println("Sigar encountered an unsatisfied link. Logging will fail from here forward. Stopping monitoring thread.");
+	    		 System.out.println("!!! WARNING !!! Swallowing stack trace !!! WARNING !!!");
+//	    		 e0.printStackTrace();
+//	    		 this.setRunning(false);
 			} catch (SigarException e1) {
 	            System.out.println("SigarException caught, data missing.\n");
-				e1.printStackTrace();
+//				e1.printStackTrace();
 			}
+            report += "\n***SystemMonitor END Report***.\n";
+            System.out.println(report);
+            
 	        try{ 
-	           Thread.sleep((int)(Math.random() * 100));
+	            System.out.println("SystemMonitor sleeping.\n");
+	           Thread.sleep((int)(SYS_MONITOR_INTERVAL));
 	        } catch( InterruptedException e ) {
-	            System.out.println("Interrupted Exception caught\n");
+	            System.out.println("Interrupted Exception caught, shutting down monitor.\n");
 	            this.setRunning(false);
+	            sigar.close();
+	            break;
 	        }
 	    }
 	}
 	
-	   public Sigar getSigar() {
+	   public Sigar getSigar() throws SigarException{
 	        if (sigar == null) {
 	            sigar = new Sigar();
-	            if (true) {
+	            if (false) {
 	                sigar.enableLogging(true);
 	            }
 	        }

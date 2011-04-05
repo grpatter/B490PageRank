@@ -210,6 +210,7 @@ public class PagerankMpi_updated extends BaseCompositeLifecycle{
 		//start config stuffs
 	    SystemMonitor sysMon = new SystemMonitor('!', true);
 	    Thread configurer = new Thread(sysMon);
+		configurer.setDaemon(true);
 	    configurer.start();
 	    
 		// Change this if needed. Eclipse hack?
@@ -387,8 +388,12 @@ public class PagerankMpi_updated extends BaseCompositeLifecycle{
 		plogTotal.log("COMPLETELY finished operations.");
 		}
 		MPI.Finalize();
-
-		configurer.interrupt();
+		for(int i = 0; i < mpiComm.Size(); i++){
+			configurer.interrupt();
+		}
+		if(nodeId == 0){
+			System.out.println("Finished main...shutdown in progress.");
+		}
 		
 	}//main 
 
