@@ -9,3 +9,5 @@ Project1Part2/.settings/*
 Project2/.settings/*
 Project2/src/main/build/*.class
 Project2/src/main/bin/*.class
+Project3/bin/*
+Project3/*.class
