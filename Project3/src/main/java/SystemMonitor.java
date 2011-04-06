@@ -5,13 +5,12 @@ import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
 
-
+@Deprecated
 public class SystemMonitor implements Runnable{
 	char c;
 	private volatile boolean running = false;
 	private static Sigar sigar = null;
 	private final static int SYS_MONITOR_INTERVAL = 100;
-
 
 
 

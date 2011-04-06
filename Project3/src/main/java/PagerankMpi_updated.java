@@ -15,6 +15,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import main.java.lifecycle.BaseCompositeLifecycle;
+import main.java.lifecycle.Lifecycle;
 import mpi.Intracomm;
 import mpi.MPI;
 
@@ -207,11 +209,6 @@ public class PagerankMpi_updated extends BaseCompositeLifecycle{
 		double damping = 0.85;	
 		boolean debug = false;
 
-		//start config stuffs
-	    SystemMonitor sysMon = new SystemMonitor('!', true);
-	    Thread configurer = new Thread(sysMon);
-		configurer.setDaemon(true);
-	    configurer.start();
 	    
 		// Change this if needed. Eclipse hack?
 		if (args.length == 7) {
@@ -388,12 +385,6 @@ public class PagerankMpi_updated extends BaseCompositeLifecycle{
 		plogTotal.log("COMPLETELY finished operations.");
 		}
 		MPI.Finalize();
-		for(int i = 0; i < mpiComm.Size(); i++){
-			configurer.interrupt();
-		}
-		if(nodeId == 0){
-			System.out.println("Finished main...shutdown in progress.");
-		}
 		
 	}//main 
 
