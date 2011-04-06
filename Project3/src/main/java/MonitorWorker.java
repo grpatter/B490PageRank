@@ -7,7 +7,10 @@ public class MonitorWorker implements Runnable {
 	private String clusterName;
 	
 	public MonitorWorker(String host, String port, String clusterName, int daemonNo) {
+		this.clusterName = clusterName;
+		this.daemonNo = daemonNo;
 		
+		pubSubBase = new pubSubBase(host, port);
 	}
 	
 	public void terminate() {
@@ -17,7 +20,7 @@ public class MonitorWorker implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		// TODO Publish updates to broker
+		// TODO Publish updates to broker (pubSubBase.publishEvent)
 	}
 
 }
