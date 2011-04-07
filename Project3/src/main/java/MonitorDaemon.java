@@ -10,7 +10,7 @@ import org.hyperic.sigar.SigarException;
 
 public class MonitorDaemon implements Runnable {
 
-	private volatile boolean running = false;
+	private volatile boolean running = true;
 	private static Sigar sigar = null;
 	private static LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();// TODO
 																						// this
@@ -48,7 +48,7 @@ public class MonitorDaemon implements Runnable {
 	}
 
 	public void run() {
-		while (true) {
+		while (running) {
 			InfoPacket curInfo = new InfoPacket();
 			try {
 				Sigar sigar = getSigar();
@@ -69,7 +69,7 @@ public class MonitorDaemon implements Runnable {
 			}
 
 			try {
-				System.out.println("SystemMonitor sleeping.\n");
+				//System.out.println("SystemMonitor sleeping.\n");
 				Thread.sleep((int) (MonitorConstants.SYS_MONITOR_INTERVAL));
 			} catch (InterruptedException e) {
 				System.out.println("Interrupted Exception caught, shutting down monitor.\n");
@@ -83,6 +83,7 @@ public class MonitorDaemon implements Runnable {
 
 	public void shutdown() {
 		System.out.println("Shutdown in progress.");
+		running = false;
 		// TODO close broker conn
 		// TODO close sigar
 	}

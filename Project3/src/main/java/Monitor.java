@@ -3,16 +3,16 @@ package main.java;
 import java.util.Scanner;
 
 public class Monitor {
-	private MonitorWorker mWorker;
+	private MonitorDaemon mWorker;
 	
-	public Monitor(String host, String port, String clusterName, int daemonNo) {
-		this.mWorker = new MonitorWorker(host, port, clusterName, daemonNo);
+	public Monitor(String host, String port, String clusterName, String daemonNo) {
+		this.mWorker = new MonitorDaemon(host, port, clusterName, daemonNo);
 		Thread daemonThread = new Thread(mWorker);
 		daemonThread.start();
 	}
 	
 	public void terminateWorker() {
-		mWorker.terminate();
+		mWorker.shutdown();
 	}
 	
 	/**
@@ -26,12 +26,13 @@ public class Monitor {
 		// TODO Add argument parsing
 		if (args.length < 5) {
 			System.out.println("[Broker host] [Broker port] [Cluster name] [Daemon number]");
-			running = false;
+			//running = false;
+			daemon = new Monitor("192.168.1.1", "9992", "FutureGrid", "007");
 		} else {
-			daemon = new Monitor(args[1], args[2], args[3], Integer.parseInt(args[4]));
+			daemon = new Monitor(args[1], args[2], args[3], args[4]);
 		}
 
-		while(running) {		
+		while(running) {
 			String input = in.nextLine();
 			
 			if (input.compareTo("exit") == 0) {
@@ -39,6 +40,7 @@ public class Monitor {
 				running = false;
 			} else {
 				System.out.println(input);
+				
 			}
 		}
 	}
