@@ -1,5 +1,6 @@
 package main.java;
 
+import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Properties;
@@ -13,12 +14,15 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 
 
+import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.jmx.SigarMem;
+
+import com.sun.jndi.toolkit.url.Uri;
 
 public class MonitorDaemon implements Runnable {
 
@@ -61,7 +65,9 @@ public class MonitorDaemon implements Runnable {
 			// TODO setup broker connection
 			
 			// Create a ConnectionFactory
-	        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(host+":"+port);
+			String connectUrl = "failover://tcp://"+host+":"+port;
+	        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(connectUrl);
+	        connectionFactory.setUseAsyncSend(true);
 	
 	        // Create a Connection
 	        try {
