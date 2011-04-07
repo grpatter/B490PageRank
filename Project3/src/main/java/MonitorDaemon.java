@@ -4,7 +4,16 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.Properties;
 
+import javax.jms.Connection;
+import javax.jms.DeliveryMode;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
 
+
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
@@ -15,17 +24,15 @@ public class MonitorDaemon implements Runnable {
 
 	private volatile boolean running = false;
 	private static Sigar sigar = null;
-	private LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();// TODO
-																						// this
-																						// needs
-																						// to
-																						// be
-																						// synchronized
+	private LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();
+	// TODO thisneeds to be synchronized
+	private static Connection connection = null;
 
 	private String host;
 	private String port;
 	private String clusterName;
 	private String daemonNo;
+	private Properties configProps;
 	
 
 	public MonitorDaemon(String host, String port, String clusterName,
@@ -43,11 +50,32 @@ public class MonitorDaemon implements Runnable {
 		  host = configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_HOST);
 		  port = configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_PORT);
 		  System.out.println("MonitorDaemon successfully started with configuration: " + host + ":" + port + " on cluster '" + clusterName + "' and daemon Number: " + daemonNo);
+		  this.configProps = configProps;
+		  this.start();
 	}
 
 	public void start() {
-		// TODO setup broker config
-		// TODO setup broker connection
+		if("true".equals(this.configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_ENABLE))){
+			
+			// TODO setup broker config
+			// TODO setup broker connection
+			
+			// Create a ConnectionFactory
+	        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(host+":"+port);
+	
+	        // Create a Connection
+	        try {
+				connection = connectionFactory.createConnection();
+				connection.start();
+			} catch (JMSException e) {
+				System.out.println("FATAL ERROR: ActiveMQ encountered a JMSException. Broker Publishing will fail. Stopping monitoring thread.");
+				e.printStackTrace();
+				this.setRunning(false);
+				this.shutdown();
+			}
+		}else{
+			System.out.println("WARNING: Monitor Thread started without setting up a broker connection. Publishing is NOT active.");
+		}
 
 	}
 
@@ -61,6 +89,39 @@ public class MonitorDaemon implements Runnable {
 				curInfo.setRecDate(new Date());
 				this.printReport(curInfo);
 				recordedData.add(curInfo);
+		        
+
+				if("true".equals(this.configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_ENABLE))){
+					try {
+						//BEGIN SEND DATA 
+						// Create a Session
+		                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+		
+						// Create the destination (Topic or Queue)
+		                Destination destination = session.createQueue(clusterName+":"+daemonNo);//TODO use our topic ...
+		
+		                // Create a MessageProducer from the Session to the Topic or Queue
+		                MessageProducer producer = session.createProducer(destination);
+		                producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+		
+		                // Create a messages
+		                String text = "Hello world! From: " + Thread.currentThread().getName() + " : " + this.hashCode();
+		                Message message = session.createObjectMessage(curInfo);//TODO make sure this is serializable
+		
+		                // Tell the producer to send the message
+		                System.out.println("Sent message: "+ message.hashCode() + " : " + Thread.currentThread().getName());
+		                producer.send(message);
+		
+		                // Clean up
+		                session.close();
+		
+		                //END SEND DATA
+			        } catch (JMSException e) {
+						System.out.println("ERROR: Sending encountered a JMSException. Broker Publishing will fail for this message.");
+						e.printStackTrace();
+					}
+				}
+				
 				Thread.sleep((int) (MonitorConstants.SYS_MONITOR_INTERVAL));
 			} catch (UnsatisfiedLinkError e0) {
 				System.out
@@ -93,6 +154,12 @@ public class MonitorDaemon implements Runnable {
 		System.out.println("Shutdown in progress.");
 		this.setRunning(false);
 		sigar.close();
+		try {
+			connection.close();
+		} catch (JMSException e) {
+			System.out.println("WARNING: JMSException while closing the connection...\n");
+			e.printStackTrace();
+		}
 		System.out.println("NOTICE: Monitor shutdown complete.\n");
 	}
 

@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,7 +9,11 @@ import java.util.Date;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
 
-public class InfoPacket {
+public class InfoPacket implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2519014065393912730L;
 	private CpuPerc cpuPerc;
 	private Mem memInfo;
 	private Date recDate;
