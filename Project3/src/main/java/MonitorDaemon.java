@@ -2,17 +2,20 @@ package main.java;
 
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.Properties;
 
-import main.java.lifecycle.InfoPacket;
 
+import org.hyperic.sigar.CpuPerc;
+import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
+import org.hyperic.sigar.jmx.SigarMem;
 
 public class MonitorDaemon implements Runnable {
 
-	private volatile boolean running = true;
+	private volatile boolean running = false;
 	private static Sigar sigar = null;
-	private static LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();// TODO
+	private LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();// TODO
 																						// this
 																						// needs
 																						// to
@@ -24,7 +27,6 @@ public class MonitorDaemon implements Runnable {
 	private String clusterName;
 	private String daemonNo;
 	
-	
 
 	public MonitorDaemon(String host, String port, String clusterName,
 			String daemonNo) {
@@ -34,17 +36,19 @@ public class MonitorDaemon implements Runnable {
 		this.clusterName = clusterName;
 		this.daemonNo = daemonNo;
 	}
+	
+	public MonitorDaemon(Properties configProps){
+		  clusterName = configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_CLUSTER);
+		  daemonNo = configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_DAEMON_NUM);
+		  host = configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_HOST);
+		  port = configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_PORT);
+		  System.out.println("MonitorDaemon successfully started with configuration: " + host + ":" + port + " on cluster '" + clusterName + "' and daemon Number: " + daemonNo);
+	}
 
 	public void start() {
 		// TODO setup broker config
 		// TODO setup broker connection
 
-		// start config stuffs
-//		SystemMonitor sysMon = new SystemMonitor('!', true);
-
-		// Thread configurer = new Thread(sysMon);
-		// configurer.setDaemon(true);
-		// configurer.start();
 	}
 
 	public void run() {
@@ -55,37 +59,41 @@ public class MonitorDaemon implements Runnable {
 				curInfo.setCpuPerc(sigar.getCpuPerc());
 				curInfo.setMemInfo(sigar.getMem());
 				curInfo.setRecDate(new Date());
+				this.printReport(curInfo);
 				recordedData.add(curInfo);
+				Thread.sleep((int) (MonitorConstants.SYS_MONITOR_INTERVAL));
 			} catch (UnsatisfiedLinkError e0) {
 				System.out
-						.println("Sigar encountered an unsatisfied link. Logging will fail from here forward. Stopping monitoring thread.");
+						.println("FATAL ERROR: Sigar encountered an unsatisfied link. Logging will fail from here forward. Stopping monitoring thread.");
 				System.out
-						.println("!!! WARNING !!! Swallowing stack trace !!! WARNING !!!");
+						.println("WARNING: Swallowing stack trace !!!");
 				// e0.printStackTrace();
 				// this.setRunning(false);
 			} catch (SigarException e1) {
-				System.out.println("SigarException caught, data missing.\n");
+				System.out.println("ERROR: SigarException caught, data missing.\n");
 				// e1.printStackTrace();
-			}
-
-			try {
-				//System.out.println("SystemMonitor sleeping.\n");
-				Thread.sleep((int) (MonitorConstants.SYS_MONITOR_INTERVAL));
 			} catch (InterruptedException e) {
-				System.out.println("Interrupted Exception caught, shutting down monitor.\n");
+				System.out.println("WARNING: Interrupt caught, shutting down monitor...\n");
 				this.setRunning(false);
-				sigar.close();
 				break;
 			}
 		}
+		this.shutdown();
+	}
+
+	private void printReport(InfoPacket curInfo) {
+		String report = "*** Report BEGIN ***\n";
+		report += "CPU Status: " + this.stringCpu("   ", curInfo.getCpuPerc()) + "\n";
+		report += "Memory Status: " + this.stringMem("   ", curInfo.getMemInfo()) + "\n";
+		report += "*** Report END ***";
+		System.out.println(report);		
 	}
 
 	public void shutdown() {
 		System.out.println("Shutdown in progress.");
-		running = false;
-		
-		// TODO close broker conn
-		// TODO close sigar
+		this.setRunning(false);
+		sigar.close();
+		System.out.println("NOTICE: Monitor shutdown complete.\n");
 	}
 
 	public boolean isRunning() {
@@ -138,4 +146,22 @@ public class MonitorDaemon implements Runnable {
 		this.daemonNo = daemonNo;
 	}
 
+	private String stringCpu(String prefix, CpuPerc cpu) {
+        return new String(prefix +
+                           CpuPerc.format(cpu.getUser()) + "\t" +
+                           CpuPerc.format(cpu.getSys()) + "\t" +
+                           CpuPerc.format(cpu.getWait()) + "\t" +
+                           CpuPerc.format(cpu.getNice()) + "\t" +
+                           CpuPerc.format(cpu.getIdle()) + "\t" +
+                           CpuPerc.format(cpu.getCombined()));
+    }
+
+	private String stringMem(String prefix, Mem mem) {
+        return new String(prefix +
+        				   mem.getActualFree() + "\t" +
+        				   mem.getActualUsed() + "\t" +
+        				   mem.getFreePercent() + "\t" +
+        				   mem.getTotal());
+    }
+	
 }

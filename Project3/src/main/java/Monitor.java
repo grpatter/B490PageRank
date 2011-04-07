@@ -1,51 +1,53 @@
 package main.java;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class Monitor {
-	private MonitorDaemon mWorker;
+	private MonitorDaemon mDaemon;
 	
-	public Monitor(String host, String port, String clusterName, String daemonNo) {
-		this.mWorker = new MonitorDaemon(host, port, clusterName, daemonNo);
-		Thread daemonThread = new Thread(mWorker);
+	public Monitor(Properties configProperties) {
+		this.mDaemon = new MonitorDaemon(configProperties);
+		this.mDaemon.setRunning(true);
+		Thread daemonThread = new Thread(mDaemon);
+		daemonThread.setDaemon(true);
 		daemonThread.start();
 	}
 	
 	public void terminateWorker() {
-		mWorker.shutdown();
+		mDaemon.shutdown();
 	}
 	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Monitor daemon = null;
-		String brokerHost = "";
-		String brokerPort = "";
-		String clusterName = "";
-		String daemonNo = "";
 		boolean running = true;
-				
-		try {
-			Scanner f = new Scanner(new FileReader(System.getProperty("user.dir") + "/src/main/resources/config.txt"));
-			brokerHost = f.nextLine();
-			brokerPort = f.nextLine();
-			clusterName = f.nextLine();
-			daemonNo = f.nextLine();
-			f.close();
-			System.out.println("Using: " + brokerHost + " " + brokerPort + " " + clusterName + " " + daemonNo);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		daemon = new Monitor(brokerHost, brokerPort, clusterName, daemonNo);
 		
-		Scanner in = new Scanner(System.in);
+		Properties props = new Properties();
+		InputStream inStream = null;
+		try{
+			  inStream = System.class.getResourceAsStream("/main/resources/"+"config.properties");
+			  props.load(inStream);
+		}catch(FileNotFoundException e){
+			System.out.println("ERROR: Unable to find properties file.");
+			e.printStackTrace();
+		}catch(IOException e1){
+			System.out.println("ERROR: Unable to load properties file.");
+			e1.printStackTrace();			
+		}finally {
+			if( null != inStream ) try { inStream.close(); } catch( IOException e ) { /* .... */ }
+		}
+		Monitor daemon = new Monitor(props);
+		
 
+		Scanner in = new Scanner(System.in);
+		String input = "";
 		while(running) {
-			String input = in.nextLine();
+			input = in.nextLine();
 			
 			if (input.compareTo("exit") == 0) {
 				daemon.terminateWorker();
@@ -55,5 +57,6 @@ public class Monitor {
 				
 			}
 		}
+		if( null != in ) { in.close(); }
 	}
 }

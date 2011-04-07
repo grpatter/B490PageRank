@@ -13,6 +13,14 @@ public class MonitorConstants {
 	public static final int BROKER_DAEMON_NUM = 100;
 
 	public static final String HIST_DATE_FORMAT = "yyyy/MM/dd HH:mm:ss";
+	
+	public static class ConfigProperties{
+		public static final String MONITOR_INTERVAL = "monitor.interval";
+		public static final String BROKER_HOST = "broker.host";
+		public static final String BROKER_PORT = "broker.port";
+		public static final String BROKER_CLUSTER = "broker.cluster";
+		public static final String BROKER_DAEMON_NUM = "broker.daemon";
+	}
     
 }
 
