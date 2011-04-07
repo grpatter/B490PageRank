@@ -1,5 +1,7 @@
 package main.java;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class Monitor {
@@ -20,17 +22,27 @@ public class Monitor {
 	 */
 	public static void main(String[] args) {
 		Monitor daemon = null;
+		String brokerHost = "";
+		String brokerPort = "";
+		String clusterName = "";
+		String daemonNo = "";
 		boolean running = true;
-		Scanner in = new Scanner(System.in);
-		
-		// TODO Add argument parsing
-		if (args.length < 5) {
-			System.out.println("[Broker host] [Broker port] [Cluster name] [Daemon number]");
-			//running = false;
-			daemon = new Monitor("192.168.1.1", "9992", "FutureGrid", "007");
-		} else {
-			daemon = new Monitor(args[1], args[2], args[3], args[4]);
+				
+		try {
+			Scanner f = new Scanner(new FileReader(System.getProperty("user.dir") + "/src/main/resources/config.txt"));
+			brokerHost = f.nextLine();
+			brokerPort = f.nextLine();
+			clusterName = f.nextLine();
+			daemonNo = f.nextLine();
+			f.close();
+			System.out.println("Using: " + brokerHost + " " + brokerPort + " " + clusterName + " " + daemonNo);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		daemon = new Monitor(brokerHost, brokerPort, clusterName, daemonNo);
+		
+		Scanner in = new Scanner(System.in);
 
 		while(running) {
 			String input = in.nextLine();

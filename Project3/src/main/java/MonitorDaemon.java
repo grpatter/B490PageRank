@@ -78,12 +78,12 @@ public class MonitorDaemon implements Runnable {
 				break;
 			}
 		}
-
 	}
 
 	public void shutdown() {
 		System.out.println("Shutdown in progress.");
 		running = false;
+		
 		// TODO close broker conn
 		// TODO close sigar
 	}
