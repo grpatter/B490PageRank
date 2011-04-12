@@ -59,7 +59,9 @@ public class MonitorDaemon implements Runnable {
 	}
 
 	public void start() {
-		if("true".equals(this.configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_ENABLE))){
+		String connect = this.configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_ENABLE);
+		System.out.println("Connection config set to " + connect);
+		if(!connect.equals("false")){
 			
 			// TODO setup broker config
 			// TODO setup broker connection
