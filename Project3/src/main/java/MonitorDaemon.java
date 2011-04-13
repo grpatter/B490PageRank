@@ -12,6 +12,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
+import javax.jms.TextMessage;
 
 
 import org.apache.activemq.ActiveMQConnection;
@@ -95,6 +96,7 @@ public class MonitorDaemon implements Runnable {
 				curInfo.setCpuPerc(sigar.getCpuPerc());
 				curInfo.setMemInfo(sigar.getMem());
 				curInfo.setRecDate(new Date());
+				curInfo.setReportString();//sets up the report string
 				this.printReport(curInfo);
 				recordedData.add(curInfo);
 		        
@@ -111,12 +113,17 @@ public class MonitorDaemon implements Runnable {
 		                // Create a MessageProducer from the Session to the Topic or Queue
 		                MessageProducer producer = session.createProducer(destination);
 		                producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+		                Long ttl = new Long(this.configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_TTL));
+		                producer.setTimeToLive(ttl);
 		
 		                // Create a messages
 		                String text = "Hello world! From: " + Thread.currentThread().getName() + " : " + this.hashCode();
-		                Message message = session.createObjectMessage(curInfo);//TODO make sure this is serializable
+//		                Message message = session.createObjectMessage(curInfo);//TODO make sure this is serializable
 		
+		                TextMessage message = session.createTextMessage(curInfo.getReportString());
+		                
 		                // Tell the producer to send the message
+		                //TODO sent reportString, not object (for now)
 		                System.out.println("Sent message: "+ message.hashCode() + " : " + Thread.currentThread().getName());
 		                producer.send(message);
 		

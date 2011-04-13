@@ -18,8 +18,25 @@ public class InfoPacket implements Serializable {
 	private Mem memInfo;
 	private Date recDate;
 	private String recDateString;
+	private String reportString;
 	
 	
+	public String getReportString() {
+		return reportString;
+	}
+
+	public void setReportString(String reportString) {
+		this.reportString = reportString;
+	}
+	
+	public void setReportString(){
+		String tmp = "";
+		tmp += this.getCpuPerc().getSys() + " ";
+		tmp += this.getMemInfo().getUsed() + " ";
+		tmp += this.getMemInfo().getTotal();
+		this.setReportString(tmp);
+	}
+
 	public InfoPacket() {
 		super();
 	}

@@ -21,6 +21,7 @@ public class MonitorConstants {
 		public static final String BROKER_CLUSTER = "broker.cluster";
 		public static final String BROKER_DAEMON_NUM = "broker.daemon";
 		public static final String BROKER_ENABLE = "broker.enable";
+		public static final String BROKER_TTL = "broker.ttl";
 	}
 }
 
