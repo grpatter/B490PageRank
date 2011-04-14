@@ -103,24 +103,6 @@ public class MonitorDaemon implements Runnable {
 		                	System.out.println("***" + ip.getReportString() + "***");
 		                	
 		                }
-
-//		                if (message instanceof TextMessage) {
-//		                    TextMessage textMessage = (TextMessage) message;
-//		                    String text = textMessage.getText();
-//		                    System.out.println("Received TextMessage...wtf do we do now.: " + text);
-//		                    
-//		                    String delims = "[ ]+";
-//		                    String[] tokens = text.split(delims);
-//		                    
-//		                    //TODO these need reconsidered...where and how to use this message.. pass it?
-//		                    Long usedmem = Long.valueOf(tokens[1]);
-//		                    Long totalmem = Long.valueOf(tokens[2]);
-//		                    
-//		                } else {
-//		                	Long usedmem = 0L;
-//		                    System.out.println("Received something...no idea what it is.: " + message);
-//		                }
-		
 		                // Clean up
 		                session.close();
 		
