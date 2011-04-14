@@ -86,7 +86,9 @@ public class MonitorDaemon implements Runnable {
 		                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		
 						// Create the destination (Topic or Queue)
-		                Destination destination = session.createQueue(clusterName+":"+daemonNo);//TODO use our topic ...
+//		                Destination destination = session.createQueue(clusterName+":"+daemonNo);//TODO use our topic ...
+
+		                Destination destination = session.createQueue("grpatter.test");//TODO use our topic ...
 		
 		                // Create a MessageConsumer from the Session to the Topic or Queue
 		                MessageConsumer consumer = session.createConsumer(destination);
@@ -99,6 +101,7 @@ public class MonitorDaemon implements Runnable {
 		                	ObjectMessage obj = (ObjectMessage)message;
 		                	InfoPacket ip = (InfoPacket)obj.getObject();
 		                	System.out.println("***InfoPacket Received from Host: " + ip.getNetInfo().getDomainName() + "/" + ip.getNetInfo().getHostName());
+		                	System.out.println("***" + ip.getReportString() + "***");
 		                	
 		                }
 

@@ -45,6 +45,7 @@ public class InfoPacket implements Serializable {
 	
 	public void setReportString(){
 		String tmp = "";
+		tmp += this.getNetInfo().getDomainName() + "/";
 		tmp += this.getNetInfo().getHostName() + " ";
 		tmp += this.getCpuPerc().getSys() + " ";
 		tmp += this.getMemInfo().getUsed() + " ";
