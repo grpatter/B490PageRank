@@ -1,5 +1,6 @@
 package main.java;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Properties;
 
@@ -18,10 +19,17 @@ import org.hyperic.sigar.Sigar;
 public class MonitorDaemon implements Runnable {
 
 	private volatile boolean running = false;
-	private static Sigar sigar = null;
-	private LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();
+	private HashMap<String, InfoPacket> ipStore = new HashMap<String, InfoPacket>();
 	// TODO thisneeds to be synchronized
 	private static Connection connection = null;
+
+	public HashMap<String, InfoPacket> getIpStore() {
+		return ipStore;
+	}
+
+	public void setIpStore(HashMap<String, InfoPacket> ipStore) {
+		this.ipStore = ipStore;
+	}
 
 	private String host;
 	private String port;
@@ -81,6 +89,7 @@ public class MonitorDaemon implements Runnable {
 
 				if("true".equals(this.configProps.getProperty(MonitorConstants.ConfigProperties.BROKER_ENABLE))){
 					try {
+						System.out.println("***");
 						//BEGIN SEND DATA 
 						// Create a Session
 		                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -94,14 +103,15 @@ public class MonitorDaemon implements Runnable {
 		                MessageConsumer consumer = session.createConsumer(destination);
 		
 		                // Wait for a message
-		                Message message = consumer.receive(1000);
+		                Message message = consumer.receive(MonitorConstants.SYS_MONITOR_POLL_INTERVAL);
 		                if(message == null){
-		                	System.out.println("***Nothing Received from Broker, skipping.");		                	
+		                	System.out.println("Nothing Received from Broker, skipping.");		                	
 		                }else if(message instanceof ObjectMessage){
 		                	ObjectMessage obj = (ObjectMessage)message;
 		                	InfoPacket ip = (InfoPacket)obj.getObject();
-		                	System.out.println("***" + ip.getReportString() + "***");
-		                	
+		                	System.out.println(ip.getReportString() + "***");
+	                	
+		                	ipStore.put(ip.getNetInfo().getHostName(), ip);
 		                }
 		                // Clean up
 		                session.close();
@@ -134,7 +144,6 @@ public class MonitorDaemon implements Runnable {
 	public void shutdown() {
 		System.out.println("Shutdown in progress.");
 		this.setRunning(false);
-		sigar.close();
 		try {
 			connection.close();
 		} catch (JMSException e) {

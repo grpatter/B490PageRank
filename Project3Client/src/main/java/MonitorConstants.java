@@ -7,6 +7,7 @@ package main.java;
 public class MonitorConstants {
 
 	public static final int SYS_MONITOR_INTERVAL = 100;
+	public static final int SYS_MONITOR_POLL_INTERVAL = 2000;
 	public static final int BROKER_HOST = 100;
 	public static final int BROKER_PORT = 100;
 	public static final int BROKER_CLUSTER = 100;
