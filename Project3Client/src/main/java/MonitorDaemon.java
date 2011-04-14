@@ -100,7 +100,6 @@ public class MonitorDaemon implements Runnable {
 		                }else if(message instanceof ObjectMessage){
 		                	ObjectMessage obj = (ObjectMessage)message;
 		                	InfoPacket ip = (InfoPacket)obj.getObject();
-		                	System.out.println("***InfoPacket Received from Host: " + ip.getNetInfo().getDomainName() + "/" + ip.getNetInfo().getHostName());
 		                	System.out.println("***" + ip.getReportString() + "***");
 		                	
 		                }

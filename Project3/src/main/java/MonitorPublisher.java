@@ -6,10 +6,10 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class Monitor {
+public class MonitorPublisher {
 	private MonitorDaemon mDaemon;
 	
-	public Monitor(Properties configProperties) {
+	public MonitorPublisher(Properties configProperties) {
 		this.mDaemon = new MonitorDaemon(configProperties);
 		this.mDaemon.setRunning(true);
 		Thread daemonThread = new Thread(mDaemon);
@@ -41,7 +41,7 @@ public class Monitor {
 		}finally {
 			if( null != inStream ) try { inStream.close(); } catch( IOException e ) { /* .... */ }
 		}
-		Monitor daemon = new Monitor(props);
+		MonitorPublisher daemon = new MonitorPublisher(props);
 		
 
 		Scanner in = new Scanner(System.in);
