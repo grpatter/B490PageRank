@@ -8,6 +8,7 @@ import java.util.Date;
 
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
+import org.hyperic.sigar.NetInfo;
 
 public class InfoPacket implements Serializable {
 	/**
@@ -19,8 +20,21 @@ public class InfoPacket implements Serializable {
 	private Date recDate;
 	private String recDateString;
 	private String reportString;
+	private NetInfo netInfo;
 	
 	
+	public NetInfo getNetInfo() {
+		return netInfo;
+	}
+
+	public void setNetInfo(NetInfo netInfo) {
+		this.netInfo = netInfo;
+	}
+
+	public void setRecDateString(String recDateString) {
+		this.recDateString = recDateString;
+	}
+
 	public String getReportString() {
 		return reportString;
 	}
@@ -31,9 +45,11 @@ public class InfoPacket implements Serializable {
 	
 	public void setReportString(){
 		String tmp = "";
+		tmp += this.getNetInfo().getHostName() + " ";
 		tmp += this.getCpuPerc().getSys() + " ";
 		tmp += this.getMemInfo().getUsed() + " ";
 		tmp += this.getMemInfo().getTotal();
+		
 		this.setReportString(tmp);
 	}
 

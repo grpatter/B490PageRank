@@ -8,6 +8,7 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
+import javax.jms.ObjectMessage;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
@@ -92,23 +93,31 @@ public class MonitorDaemon implements Runnable {
 		
 		                // Wait for a message
 		                Message message = consumer.receive(1000);
-
-		                if (message instanceof TextMessage) {
-		                    TextMessage textMessage = (TextMessage) message;
-		                    String text = textMessage.getText();
-		                    System.out.println("Received: " + text);
-		                    
-		                    String delims = "[ ]+";
-		                    String[] tokens = text.split(delims);
-		                    
-		                    //TODO these need reconsidered...where and how to use this message.. pass it?
-		                    Long usedmem = Long.valueOf(tokens[1]);
-		                    Long totalmem = Long.valueOf(tokens[2]);
-		                    
-		                } else {
-		                	Long usedmem = 0L;
-		                    System.out.println("Received: " + message);
+		                if(message == null){
+		                	System.out.println("***Nothing Received from Broker, skipping.");		                	
+		                }else if(message instanceof ObjectMessage){
+		                	ObjectMessage obj = (ObjectMessage)message;
+		                	InfoPacket ip = (InfoPacket)obj.getObject();
+		                	System.out.println("***InfoPacket Received from Host: " + ip.getNetInfo().getDomainName() + "/" + ip.getNetInfo().getHostName());
+		                	
 		                }
+
+//		                if (message instanceof TextMessage) {
+//		                    TextMessage textMessage = (TextMessage) message;
+//		                    String text = textMessage.getText();
+//		                    System.out.println("Received TextMessage...wtf do we do now.: " + text);
+//		                    
+//		                    String delims = "[ ]+";
+//		                    String[] tokens = text.split(delims);
+//		                    
+//		                    //TODO these need reconsidered...where and how to use this message.. pass it?
+//		                    Long usedmem = Long.valueOf(tokens[1]);
+//		                    Long totalmem = Long.valueOf(tokens[2]);
+//		                    
+//		                } else {
+//		                	Long usedmem = 0L;
+//		                    System.out.println("Received something...no idea what it is.: " + message);
+//		                }
 		
 		                // Clean up
 		                session.close();

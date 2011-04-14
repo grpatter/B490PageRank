@@ -96,6 +96,7 @@ public class MonitorDaemon implements Runnable {
 				curInfo.setCpuPerc(sigar.getCpuPerc());
 				curInfo.setMemInfo(sigar.getMem());
 				curInfo.setRecDate(new Date());
+				curInfo.setNetInfo(sigar.getNetInfo());
 				curInfo.setReportString();//sets up the report string
 				this.printReport(curInfo);
 				recordedData.add(curInfo);
@@ -108,7 +109,9 @@ public class MonitorDaemon implements Runnable {
 		                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		
 						// Create the destination (Topic or Queue)
-		                Destination destination = session.createQueue(clusterName+":"+daemonNo);//TODO use our topic ...
+//		                Destination destination = session.createQueue(clusterName+":"+daemonNo);//TODO use our topic ...
+
+		                Destination destination = session.createQueue("grpatter.test");
 		
 		                // Create a MessageProducer from the Session to the Topic or Queue
 		                MessageProducer producer = session.createProducer(destination);
@@ -118,9 +121,12 @@ public class MonitorDaemon implements Runnable {
 		
 		                // Create a messages
 		                String text = "Hello world! From: " + Thread.currentThread().getName() + " : " + this.hashCode();
-//		                Message message = session.createObjectMessage(curInfo);//TODO make sure this is serializable
+		                Message message = session.createObjectMessage(curInfo);//TODO make sure this is serializable
+		                
 		
-		                TextMessage message = session.createTextMessage(curInfo.getReportString());
+//		                TextMessage message = session.createTextMessage(curInfo.getReportString());
+//		                message.setStringProperty("user", "grpatter");
+//		                message.setObjectProperty("InfoPacket", curInfo);
 		                
 		                // Tell the producer to send the message
 		                //TODO sent reportString, not object (for now)
