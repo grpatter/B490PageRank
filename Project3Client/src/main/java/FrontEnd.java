@@ -33,8 +33,13 @@ import javax.swing.Timer;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.CombinedDomainCategoryPlot;
+import org.jfree.chart.plot.CombinedDomainXYPlot;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
@@ -50,51 +55,81 @@ public class FrontEnd extends JPanel{
 	private static MonitorClient monitorClient;
 	
 	private TimeSeries total;
-	private TimeSeries free;
+	private TimeSeries used;
+	private TimeSeries cputime;
 	
 	private static long usedmem;
 	private static long totalmem;
 	private static long cpu;
 	
 	public FrontEnd(int maxAge) {
-
+		
 		super(new BorderLayout());
-
-		// create two series that automatically discard data more than 30
-		// seconds old...
 		this.total = new TimeSeries("Total Memory", Millisecond.class);
 		this.total.setMaximumItemAge(maxAge);
-		this.free = new TimeSeries("Free Memory", Millisecond.class);
-		this.free.setMaximumItemAge(maxAge);
+		this.used = new TimeSeries("Used Memory", Millisecond.class);
+		this.used.setMaximumItemAge(maxAge);
+		this.cputime = new TimeSeries("Cpu %", Millisecond.class);
+		this.cputime.setMaximumItemAge(maxAge);
 
-		TimeSeriesCollection dataset = new TimeSeriesCollection();
-		dataset.addSeries(this.total);
-		dataset.addSeries(this.free);
-
-		DateAxis domain = new DateAxis("Time");
-		NumberAxis range = new NumberAxis("Memory");
-
-		domain.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 12));
-		range.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 12));
-		domain.setLabelFont(new Font("SansSerif", Font.PLAIN, 14));
-		range.setLabelFont(new Font("SansSerif", Font.PLAIN, 14));
+		TimeSeriesCollection dataset1 = new TimeSeriesCollection();
+		dataset1.addSeries(this.total);
+		dataset1.addSeries(this.used);
+		
+		TimeSeriesCollection dataset2 = new TimeSeriesCollection();
+		dataset2.addSeries(this.cputime);
+		
+		DateAxis domain1 = new DateAxis("Time");
+		NumberAxis range1 = new NumberAxis("Memory");
+		domain1.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 12));
+		range1.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 10));
+		domain1.setLabelFont(new Font("SansSerif", Font.PLAIN, 12));
+		range1.setLabelFont(new Font("SansSerif", Font.PLAIN, 12));
 
 		XYItemRenderer renderer = new XYLineAndShapeRenderer(true, false);
 		renderer.setSeriesPaint(0, Color.red);
-		renderer.setSeriesPaint(1, Color.green);
-		renderer.setStroke(new BasicStroke(3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
-
-		XYPlot plot = new XYPlot(dataset, domain, range, renderer);
-		plot.setBackgroundPaint(Color.black);
-		plot.setDomainGridlinePaint(Color.white);
-		plot.setRangeGridlinePaint(Color.white);
-		plot.setAxisOffset(new RectangleInsets(5.0, 5.0, 5.0, 5.0));
-		domain.setAutoRange(true);
-		domain.setLowerMargin(0.0);
-		domain.setUpperMargin(0.0);
-		domain.setTickLabelsVisible(true);
-		range.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-		JFreeChart chart = new JFreeChart("Memory Usage", new Font("SansSerif", Font.BOLD, 24), plot, true);
+		renderer.setSeriesPaint(1, Color.blue);
+		renderer.setBaseStroke(new BasicStroke(3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+		
+		NumberAxis time = new NumberAxis("Time");
+		time.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		time.setFixedAutoRange(300000);
+		CombinedDomainXYPlot plot = new CombinedDomainXYPlot(time);
+		plot.setGap(10.0);
+		plot.setOrientation(PlotOrientation.VERTICAL);
+			
+		XYPlot plot1 = new XYPlot(dataset1, domain1, range1, renderer);
+		plot1.setBackgroundPaint(Color.black);
+		plot1.setDomainGridlinePaint(Color.white);
+		plot1.setRangeGridlinePaint(Color.white);
+		plot1.setAxisOffset(new RectangleInsets(5.0, 5.0, 5.0, 5.0));
+		domain1.setAutoRange(true);
+		domain1.setLowerMargin(0.0);
+		domain1.setUpperMargin(0.0);
+		domain1.setTickLabelsVisible(true);
+		range1.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		plot.add(plot1);
+		
+		DateAxis domain2 = new DateAxis("Time");
+		NumberAxis range2 = new NumberAxis("Cpu");
+		domain2.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 12));
+		range2.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 10));
+		domain2.setLabelFont(new Font("SansSerif", Font.PLAIN, 12));
+		range2.setLabelFont(new Font("SansSerif", Font.PLAIN, 12));
+		XYItemRenderer renderer2 = new XYLineAndShapeRenderer(true, false);
+		renderer2.setSeriesPaint(0, Color.green);
+		renderer2.setBaseStroke(new BasicStroke(3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
+		range2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		XYPlot plot2 = new XYPlot(dataset2, domain2, range2, renderer2);
+		plot2.setBackgroundPaint(Color.black);
+		plot2.setAxisOffset(new RectangleInsets(5.0, 5.0, 5.0, 5.0));
+		domain2.setAutoRange(true);
+		domain2.setLowerMargin(0.0);
+		domain2.setUpperMargin(0.0);
+		domain2.setTickLabelsVisible(true);	
+		plot.add(plot2);
+			
+		JFreeChart chart = new JFreeChart("", new Font("SansSerif", Font.BOLD, 22), plot, true);
 		chart.setBackgroundPaint(Color.white);
 
 		ChartPanel chartPanel = new ChartPanel(chart);
@@ -108,7 +143,11 @@ public class FrontEnd extends JPanel{
 
 
 	private void addUsedObservation(double y) {
-		this.free.add(new Millisecond(), y);
+		this.used.add(new Millisecond(), y);
+	}
+	
+	private void addCpuObservation(double y){
+		this.cputime.add(new Millisecond(), y);
 	}
 	
 	class MemGenerator extends Timer implements ActionListener {
@@ -129,11 +168,12 @@ public class FrontEnd extends JPanel{
 			if(usedmem != 0) {
 				addTotalObservation(totalmem);
 				addUsedObservation(usedmem);
+				addCpuObservation(cpu);
 			}
 		}
 		
 		public void dataAverageUpdater(HashMap<String, InfoPacket> ipStore){
-			int daemons = ipStore.keySet().size();
+			long daemons = ipStore.keySet().size();
 			if(daemons == 0){return;}
 			long usedmemAvg = 0;
 			long totalmemAvg = 0;
@@ -142,14 +182,15 @@ public class FrontEnd extends JPanel{
 		    for (InfoPacket curIp : ipStore.values()) {
 				usedmemAvg += curIp.getMemInfo().getUsed();
 				totalmemAvg += curIp.getMemInfo().getTotal();
-				cpuAvg += curIp.getCpuPerc().getSys();
+				long tmp = (long) (curIp.getCpuPerc().getCombined() * 100);
+				cpuAvg += tmp;
 		    }
 			usedmem = usedmemAvg/daemons;
 			totalmem = totalmemAvg/daemons;
 			cpu = cpuAvg/daemons;
 		}
 	}
-	
+		
 	public static void main(String[] args) throws Exception {   
 		boolean running = true;
 		
@@ -169,12 +210,12 @@ public class FrontEnd extends JPanel{
 		}
 		monitorClient = new MonitorClient(props);
 		
-		JFrame frame = new JFrame("System Monitor (Memory)");
-		FrontEnd panel = new FrontEnd(30000);
+		JFrame frame = new JFrame("System Monitor");
+		FrontEnd panel = new FrontEnd(310000);
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		frame.setBounds(200, 120, 1000, 500);
 		frame.setVisible(true);
-		panel.new MemGenerator(1000).start();
+		panel.new MemGenerator(500).start();
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				monitorClient.terminateWorker();
@@ -183,18 +224,16 @@ public class FrontEnd extends JPanel{
 		});
 		
 		while(true){
-	        Thread.sleep(500);
+	        Thread.sleep(1000);
 	    }
 	}
 
-	@Deprecated
 	public static void thread(Runnable runnable, boolean daemon) {
         Thread brokerThread = new Thread(runnable);
         brokerThread.setDaemon(daemon);
         brokerThread.start();
     }
 	
-	@Deprecated
 	public static class Consumer implements Runnable, ExceptionListener {
         public void run() {
             try {
@@ -226,12 +265,10 @@ public class FrontEnd extends JPanel{
                 }else if(message instanceof ObjectMessage){
                 	ObjectMessage obj = (ObjectMessage)message;
                 	InfoPacket ip = (InfoPacket)obj.getObject();
-                	System.out.println(ip.getReportString() + "***");
-//                    usedmem = Long.valueOf(tokens[1]);
-//                    totalmem = Long.valueOf(tokens[2]);
                     usedmem = ip.getMemInfo().getUsed();
                     totalmem = ip.getMemInfo().getTotal();
-//                    cpu = ip.getCpuPerc().get
+                    //cpu = (long) ip.getCpuPerc().getSys();
+                	System.out.println(ip.getReportString() + "***");
                 }else{
                 	usedmem = 0;
                 }
