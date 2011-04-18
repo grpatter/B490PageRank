@@ -11,6 +11,7 @@ public class MonitorConstants {
 	public static final int BROKER_HOST = 100;
 	public static final int BROKER_PORT = 100;
 	public static final int BROKER_CLUSTER = 100;
+	public static final long SYS_MONITOR_DTIMEOUT = 10000;
 	public static final int BROKER_DAEMON_NUM = 100;
 
 	public static final String HIST_DATE_FORMAT = "yyyy/MM/dd HH:mm:ss";

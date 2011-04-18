@@ -21,6 +21,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
@@ -50,6 +51,8 @@ import org.jfree.ui.RectangleInsets;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import com.sun.jmx.snmp.Timestamp;
+
 public class FrontEnd extends JPanel{
 	
 	private static MonitorClient monitorClient;
@@ -61,6 +64,7 @@ public class FrontEnd extends JPanel{
 	private static long usedmem;
 	private static long totalmem;
 	private static long cpu;
+	private static java.sql.Timestamp lastReadTime;
 	
 	public FrontEnd(int maxAge) {
 		
@@ -174,7 +178,22 @@ public class FrontEnd extends JPanel{
 		
 		public void dataAverageUpdater(HashMap<String, InfoPacket> ipStore){
 			long daemons = ipStore.keySet().size();
-			if(daemons == 0){return;}
+
+			java.util.Date ts = new java.util.Date();
+			java.sql.Timestamp thisTime = new java.sql.Timestamp(ts.getTime());
+			java.sql.Timestamp testTime = new java.sql.Timestamp(ts.getTime() - (Long)MonitorConstants.SYS_MONITOR_DTIMEOUT);
+			if(lastReadTime == null){
+				lastReadTime = thisTime;
+			}
+			if(daemons == 0 && (lastReadTime.getTime() <= testTime.getTime())){
+				usedmem = -1;
+				totalmem= -1;
+				cpu = 0;
+				return;
+			}else if(daemons == 0){
+				return;
+			}
+			lastReadTime = thisTime;
 			long usedmemAvg = 0;
 			long totalmemAvg = 0;
 			long cpuAvg = 0;
