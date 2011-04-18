@@ -30,7 +30,7 @@ public class MonitorDaemon implements Runnable {
 	private volatile boolean running = false;
 	private static Sigar sigar = null;
 	private LinkedList<InfoPacket> recordedData = new LinkedList<InfoPacket>();
-	// TODO thisneeds to be synchronized
+	// TODO this needs to be synchronized
 	private static Connection connection = null;
 
 	private String host;
@@ -120,7 +120,6 @@ public class MonitorDaemon implements Runnable {
 		                producer.setTimeToLive(ttl);
 		
 		                // Create a messages
-		                String text = "Hello world! From: " + Thread.currentThread().getName() + " : " + this.hashCode();
 		                Message message = session.createObjectMessage(curInfo);//TODO make sure this is serializable
 		                
 		
@@ -143,7 +142,8 @@ public class MonitorDaemon implements Runnable {
 					}
 				}
 				
-				Thread.sleep((int) (MonitorConstants.SYS_MONITOR_INTERVAL));
+				//Thread.sleep((int) (MonitorConstants.SYS_MONITOR_INTERVAL));
+				Thread.sleep(500);
 			} catch (UnsatisfiedLinkError e0) {
 				System.out
 						.println("FATAL ERROR: Sigar encountered an unsatisfied link. Logging will fail from here forward. Stopping monitoring thread.");
