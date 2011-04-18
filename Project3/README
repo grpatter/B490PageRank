@@ -1,0 +1,7 @@
+To Run Daemon:
+
+Make sure everything in Project3/Daemon_lib/ is in wherever you're system lib is. You can specify it via the jvm args as below as well.
+
+java -Djava.library.path=/c/projects/java/B490PageRank/Project3/Daemon_win_lib -jar Daemon.jar
+
+Note: If you're running on *nix, make sure you swap in the appropriate activemq jar into Daemon_lib. Also use Daemon_linux.jar instead.
