@@ -1,0 +1,13 @@
+To Run Daemon using prebuilt libs:
+Windows:
+java -Djava.library.path=/c/projects/java/B490PageRank/Project3Client/Client_linux_lib -jar FrontEnd.jar
+*nix:
+java -Djava.library.path=/c/projects/java/B490PageRank/Project3Client/Client_win_lib -jar FrontEnd.jar
+
+To Run using your own lib directory:
+Windows:
+java -Djava.library.path=[full qualified path to lib] -jar FrontEnd.jar
+*nix:
+java -Djava.library.path=[full qualified path to lib] -jar FrontEnd.jar
+
+Note: If you're running on *nix, make sure you swap in the appropriate activemq jar into Client_lib, or use the prebuilt lib folders.
