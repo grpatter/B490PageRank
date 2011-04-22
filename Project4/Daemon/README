@@ -1,0 +1,13 @@
+To Run Daemon using prebuilt libs:
+Windows:
+java -Djava.library.path=/c/projects/java/B490PageRank/Project3/Daemon_win_lib -jar Daemon.jar
+*nix:
+java -Djava.library.path=/c/projects/java/B490PageRank/Project3/Daemon_linux_lib -jar Daemon.jar
+
+To Run using your own lib directory:
+Windows:
+java -Djava.library.path=[full qualified path to lib] -jar Daemon.jar
+*nix:
+java -Djava.library.path=[full qualified path to lib] -jar Daemon.jar
+
+Note: If you're running on *nix, make sure you swap in the appropriate activemq jar into Daemon_lib, or use the prebuilt lib folders.

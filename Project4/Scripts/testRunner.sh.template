@@ -1,0 +1,56 @@
+echo "Beginning Test Ops for 500K File"
+echo "*** Test for 2 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 2 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 3 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 3 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 4 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 4 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 5 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 5 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 6 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 6 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 7 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 7 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 8 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 8 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 9 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 9 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "*** Test for 10 Nodes ***"
+for i in 1 2 3
+do
+  echo "Test $i"
+   mpjrun.sh -np 10 -dev niodev PagerankMpi_updated urls500k0 testout 10 .85
+done
+echo "Done...hopefully!"
