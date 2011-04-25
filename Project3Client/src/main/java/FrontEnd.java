@@ -51,7 +51,7 @@ import org.jfree.ui.RectangleInsets;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import com.sun.jmx.snmp.Timestamp;
+//import com.sun.jmx.snmp.Timestamp;
 
 public class FrontEnd extends JPanel{
 	
@@ -95,8 +95,8 @@ public class FrontEnd extends JPanel{
 		renderer.setSeriesPaint(1, Color.blue);
 		renderer.setBaseStroke(new BasicStroke(3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
 		
-		NumberAxis time = new NumberAxis("Time");
-		time.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		DateAxis time = new DateAxis("Time");
+		time.setStandardTickUnits(DateAxis.createStandardDateTickUnits());
 		time.setFixedAutoRange(300000);
 		CombinedDomainXYPlot plot = new CombinedDomainXYPlot(time);
 		plot.setGap(10.0);
@@ -258,7 +258,6 @@ public class FrontEnd extends JPanel{
             try {
                 // Create a ConnectionFactory
                 ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://129.79.49.181:61616");
-            	//ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
                 
                 // Create a Connection
                 Connection connection = connectionFactory.createConnection();
