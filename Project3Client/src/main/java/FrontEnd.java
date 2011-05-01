@@ -116,6 +116,7 @@ public class FrontEnd extends JPanel{
 		
 		DateAxis domain2 = new DateAxis("Time");
 		NumberAxis range2 = new NumberAxis("Cpu");
+		range2.setUpperBound(100);
 		domain2.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 12));
 		range2.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 10));
 		domain2.setLabelFont(new Font("SansSerif", Font.PLAIN, 12));
