@@ -22,7 +22,7 @@ echo "Distributing source"
 for line in `cat $VM_NODEFILE`
 do
   echo "Copy files to: $line"
-  scp -v -i ~/.ssh/id_rsa source34.zip jonstout@$line:~/
+  scp -v -i ~/.ssh/id_rsa Source.zip jonstout@$line:~/
 
   echo "ssh for copy.sh"
   ssh -v -i ~/.ssh/id_rsa jonstout@$line 'bash -s' < copy.sh
